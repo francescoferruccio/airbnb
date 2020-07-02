@@ -13,7 +13,7 @@ $factory->define(Apartment::class, function (Faker $faker) {
       "rooms" => $faker -> randomDigitNot(0),
       "beds" => $faker -> randomDigitNot(0),
       "bathrooms" => $faker -> randomDigitNot(0),
-      "size" => $faker -> numberBetween($min = 50, $max = 200),
+      "size" => $faker -> numberBetween($min = 20, $max = 100),
       "address" => $faker -> address(),
       "latitude" => $faker -> latitude($min = -90, $max = 90),
       "longitude" => $faker -> longitude($min = -180, $max = 180),
