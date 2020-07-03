@@ -4,6 +4,7 @@ use Illuminate\Database\Seeder;
 use App\Apartment;
 use App\User;
 use App\Service;
+
 class ApartmentsSeeder extends Seeder
 {
     /**

@@ -37,19 +37,19 @@ class AddForeignKeys extends Migration
 
 
       });
-      Schema::table('payments', function (Blueprint $table) {
-
-
-          $table->foreign("apartment_id", "apartmentpay")->references("id")->on("apartments")->onDelete("cascade");
-
-
-
-      });
       Schema::table('apartment_service', function (Blueprint $table) {
 
 
           $table->foreign("apartment_id", "apartment")->references("id")->on("apartments")->onDelete("cascade");
           $table->foreign("service_id", "service")->references("id")->on("services")->onDelete("cascade");
+
+
+      });
+      Schema::table('apartment_sponsorship', function (Blueprint $table) {
+
+
+          $table->foreign("apartment_id", "apartmentspons")->references("id")->on("apartments")->onDelete("cascade");
+          $table->foreign("sponsorship_id", "sponsorship")->references("id")->on("sponsorships")->onDelete("cascade");
 
 
       });
@@ -84,22 +84,18 @@ class AddForeignKeys extends Migration
 
       });
 
-
-
-      Schema::table('payments', function (Blueprint $table) {
-
-        $table->dropForeign("apartmentpay");
-
-      });
-
       Schema::table('apartment_service', function (Blueprint $table) {
 
         $table->dropForeign("apartment");
         $table->dropForeign("service");
 
       });
+      Schema::table('apartment_sponsorship', function (Blueprint $table) {
 
+        $table->dropForeign("apartmentspons");
+        $table->dropForeign("sponsorship");
 
+      });
 
     }
 }

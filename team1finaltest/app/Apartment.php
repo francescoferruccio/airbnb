@@ -20,12 +20,12 @@ class Apartment extends Model
   {
     return $this->hasMany(Request::class);
   }
-  public function payments()
-  {
-    return $this->hasMany(Payment::class);
-  }
   public function views()
   {
     return $this->hasMany(View::class);
+  }
+  public function sponsorships()
+  {
+    return $this->belongsToMany(Sponsorship::class);
   }
 }
