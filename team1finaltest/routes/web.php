@@ -20,4 +20,11 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+<<<<<<< Updated upstream
 Route::get('/show/{id}', 'TestController@show')->name('show');
+=======
+
+Route::get('/create', 'ApartmentController@create')->name('create');
+
+Route::post('/store/{id}', 'ApartmentController@store')->name('store');
+>>>>>>> Stashed changes
