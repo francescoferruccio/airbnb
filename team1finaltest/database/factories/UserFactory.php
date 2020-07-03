@@ -24,9 +24,8 @@ $factory->define(User::class, function (Faker $faker) {
       "firstname" => $faker -> firstname(),
       "lastname" => $faker -> lastname(),
       "email" => $faker -> email(),
-      "password" => $faker -> password(),
+      "password" => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', // password
       "dateofbirth" => $faker -> date(),
-      "level" => $faker -> randomElement($array = array ('upr','upra')),
       'remember_token' => Str::random(10)
     ];
   });
