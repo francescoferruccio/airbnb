@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
+use App\Sponsorship;
 
 class DatabaseSeeder extends Seeder
 {
@@ -65,14 +66,14 @@ class DatabaseSeeder extends Seeder
           DB::table('sponsorships')->insert($sponsorship);
         }
 
-
         $this->call([
          UsersSeeder::class,
          // ServicesSeeder::class,
          ApartmentsSeeder::class,
          // SponsorshipsSeeder::class,
          RequestsSeeder::class,
-         ViewsSeeder::class
+         ViewsSeeder::class,
+         PaymentsSeeder::class
        ]);
     }
 
