@@ -13,9 +13,10 @@ class SponsorshipsSeeder extends Seeder
      */
     public function run()
     {
-      factory(Sponsorship::class, 3)->create()->each(function($sponsorship){
+      $sponsorships = Sponsorship::all();
+      foreach ($sponsorships as $sponsorship) {
         $apartments = Apartment::inRandomOrder() -> take(rand(1, 5)) -> get();
         $sponsorship -> apartments() -> attach($apartments);
-      });
+      }
     }
 }

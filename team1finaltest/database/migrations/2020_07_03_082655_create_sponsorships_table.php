@@ -18,7 +18,6 @@ class CreateSponsorshipsTable extends Migration
             $table->tinyInteger('type');
             $table->tinyInteger('duration')->unsigned();
             $table->decimal('price', 4, 2);
-            $table->string('transaction');
             $table->timestamps();
         });
     }
