@@ -73,7 +73,7 @@ class DatabaseSeeder extends Seeder
          // SponsorshipsSeeder::class,
          RequestsSeeder::class,
          ViewsSeeder::class,
-         PaymentsSeeder::class
+         // PaymentsSeeder::class
        ]);
     }
 
