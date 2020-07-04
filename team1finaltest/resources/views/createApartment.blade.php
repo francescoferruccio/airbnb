@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-
+{{-- PAGINA CREAZIONE APPARTAMENTO --}}
 @section('content')
   <div class="container">
     <div class="row justify-content-center">
@@ -12,11 +12,12 @@
           @if (session('status'))
               <h1>{{ session('status') }}</h1>
           @endif
-
+          {{-- FORM PER CREAZIONE APPARTAMENTO --}}
           <div class="card-body">
             <form method="POST" action="{{ route('store', $user -> id) }}" enctype="multipart/form-data" role="form">
               @csrf
               @method('POST')
+              {{-- NOME APPARTAMENTO --}}
               <div class="form-group row">
                 <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Nome') }}</label>
 
@@ -30,7 +31,7 @@
                     @enderror
                   </div>
                 </div>
-
+                {{-- DESCRIZIONE APPARTAMENTO --}}
                 <div class="form-group row">
                   <label for="description" class="col-md-4 col-form-label text-md-right">{{ __('Descrizione') }}</label>
 
@@ -44,7 +45,7 @@
                       @enderror
                     </div>
                   </div>
-
+                  {{-- NUMERO STANZE APPARTAMENTO --}}
                   <div class="form-group row">
                     <label for="rooms" class="col-md-4 col-form-label text-md-right">{{ __('Stanze') }}</label>
 
@@ -58,7 +59,7 @@
                         @enderror
                       </div>
                     </div>
-
+                    {{-- NUMERO LETTI APPARTAMENTO --}}
                     <div class="form-group row">
                       <label for="beds" class="col-md-4 col-form-label text-md-right">{{ __('Letti') }}</label>
 
@@ -72,7 +73,7 @@
                           @enderror
                         </div>
                       </div>
-
+                      {{-- NUMERO BAGNI APPARTAMENTO --}}
                       <div class="form-group row">
                         <label for="bathrooms" class="col-md-4 col-form-label text-md-right">{{ __('Bagni') }}</label>
 
@@ -86,7 +87,7 @@
                             @enderror
                           </div>
                         </div>
-
+                        {{-- SUPERFICIE APPARTAMENTO --}}
                         <div class="form-group row">
                           <label for="size" class="col-md-4 col-form-label text-md-right">{{ __('Superficie(mq)') }}</label>
 
@@ -100,8 +101,7 @@
                               @enderror
                             </div>
                           </div>
-
-
+                          {{-- INDIRIZZO APPARTAMENTO --}}
                           <div class="form-group row">
                             <label for="address" class="col-md-4 col-form-label text-md-right">{{ __('Indirizzo') }}</label>
 
@@ -115,7 +115,7 @@
                                 @enderror
                               </div>
                             </div>
-
+                            {{-- IMMAGINE APPARTAMENTO --}}
                             <div class="form-group row">
                               <label for="picture" class="col-md-4 col-form-label text-md-right">{{ __('Immagine') }}</label>
 
@@ -130,19 +130,15 @@
                                   @enderror
                                 </div>
                               </div>
-
+                              {{-- SERVIZI APPARTAMENTO --}}
                               <div class="form-group row">
                                 <div class="col-md-12">
-
                                   <label for="services[]" class="col-md-4 col-form-label text-md-right">{{ __('Servizi:') }}</label>
                                 </div>
-
                                 @foreach ($services as $service)
                                   <div class="col-md-10">
                                     <div class="d-flex justify-content-center">
-
                                       <div class="col-md-4">
-
                                         <input id="service" type="checkbox" @error('services[]') is-invalid @enderror name="services[]" autocomplete="new-service_id" value ="{{$service['id']}}">
                                           {{$service -> name}}
                                         </div>
@@ -154,13 +150,10 @@
                                         </span>
                                       @enderror
 
-
                                     </div>
                                   @endforeach
                                 </div>
-
-
-
+                                {{-- SUBMIT --}}
                                 <div class="form-group row mb-0">
                                   <div class="col-md-6 offset-md-4">
                                     <button type="submit" class="btn btn-primary">
