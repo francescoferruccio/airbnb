@@ -13,6 +13,13 @@ class ApartmentController extends Controller
     public function create(){
 
       $services = Service::all();
+      // RIMUOVERE L'UNDERSCORE DAI NOMI DEI SERVIZI PER STAMPARLI COME LABEL NEL FORM
+      foreach ($services as $key => $service) {
+        if (strpos($service -> name, '_')) {
+          $service -> name = str_replace("_", " ", $service -> name);
+        }
+      }
+
       $user = Auth::user();
       return view('createApartment', compact('user','services'));
     }
