@@ -10937,7 +10937,6 @@ a.text-dark:focus {
 /* parte header */
 
 .header {
-  background-image: url(/images/jumbotron2.jpeg?5e26fc1f1e0f0eb0f585fb24c409a0be);
   width: 100%;
   height: 240px;
   background-repeat: no-repeat;
@@ -10946,6 +10945,7 @@ a.text-dark:focus {
 
 .search {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   height: 100%;
@@ -10955,7 +10955,44 @@ a.text-dark:focus {
 
 .content {
   background-color: purple;
-  height: 50px;
+  height: 800px;
+  padding-top: 30px;
+  display: flex;
+  justify-content: space-around;
+}
+
+.content .cardRent {
+  cursor: pointer;
+  box-shadow: 7px 7px 5px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+  border-radius: 30px;
+  height: 400px;
+  width: calc(100% / 3);
+  background-color: yellow;
+}
+
+.content .cardRent .cardimg {
+  height: 70%;
+  width: 100%;
+}
+
+.content .cardRent .cardimg img {
+  max-height: 100%;
+  width: 100%;
+  border-radius: 30px 30px 0 0;
+}
+
+.content .cardRent .cardtext {
+  height: 30%;
+  width: 100%;
+}
+
+.content .cardRent .cardtext p {
+  text-align: center;
 }
 
 .footer {
