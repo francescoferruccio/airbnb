@@ -27,7 +27,7 @@ class Apartment extends Model
   public function sponsorships()
   {
     return $this->belongsToMany(Sponsorship::class)
-                ->withPivot('transaction_id')
+                ->withPivot('transaction_id', 'end_sponsorship')
                 ->withTimestamps();
   }
 }

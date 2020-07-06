@@ -10,9 +10,11 @@ Route::get('/', function () {
 Auth::routes();
 //HomePage
 Route::get('/home', 'HomeController@index')->name('home');
-//show
+//show - PROVA
 Route::get('/show/{id}', 'TestController@show')->name('show');
 //Create
 Route::get('/create', 'ApartmentController@create')->name('create');
 //Store
 Route::post('/store/{id}', 'ApartmentController@store')->name('store');
+//Index - PROVA
+Route::get('/index', 'ApartmentController@index')->name('index');

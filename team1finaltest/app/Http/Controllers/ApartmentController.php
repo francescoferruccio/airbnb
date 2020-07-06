@@ -10,6 +10,16 @@ use Illuminate\Http\Request;
 
 class ApartmentController extends Controller
 {
+  // FUNZION INDEX - LISTA APPARTAMENTI SPONSORIZZATI NELLA HOME
+  public function index() {
+    // seleziono gli appartamenti che hanno una sponsorizzazione attiva
+    $sponsored = Apartment::whereHas('sponsorships', function($q) {
+      $q->where('apartment_sponsorship.end_sponsorship', '>', now());
+    })->get();
+
+    return view('index', compact('sponsored'));
+  }
+
   // FUNZIONE CREATE APPARTAMENTO
   public function create(){
 
@@ -90,7 +100,7 @@ class ApartmentController extends Controller
       $apartment -> services() -> sync($validatedData['services']);
     }
 
-    return redirect() -> route('create')
+    return redirect() -> route('home')
     -> with("status","Appartamento aggiunto con successo");
   }
 }

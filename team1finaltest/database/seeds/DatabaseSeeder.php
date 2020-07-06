@@ -68,12 +68,9 @@ class DatabaseSeeder extends Seeder
 
         $this->call([
          UsersSeeder::class,
-         // ServicesSeeder::class,
          ApartmentsSeeder::class,
-         // SponsorshipsSeeder::class,
          RequestsSeeder::class,
          ViewsSeeder::class,
-         // PaymentsSeeder::class
        ]);
     }
 

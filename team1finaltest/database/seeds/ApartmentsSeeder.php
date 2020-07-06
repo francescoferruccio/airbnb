@@ -27,7 +27,10 @@ class ApartmentsSeeder extends Seeder
 
           if($sponsored) {
             $sponsorship = Sponsorship::inRandomOrder() -> first();
-            $apartment -> sponsorships() -> attach($sponsorship, ['transaction_id' => Str::random(12)]);
+            $apartment -> sponsorships() -> attach($sponsorship, [
+              'transaction_id' => Str::random(12),
+              'end_sponsorship' => now()->addHours($sponsorship->duration)
+            ]);
           }
         });
     }

@@ -18,6 +18,7 @@ class CreateApartmentSponsorshipTable extends Migration
             $table->bigInteger("apartment_id")->unsigned()->index();
             $table->bigInteger("sponsorship_id")->unsigned()->index();
             $table->string("transaction_id");
+            $table->dateTime("end_sponsorship");
             $table->timestamps();
         });
     }

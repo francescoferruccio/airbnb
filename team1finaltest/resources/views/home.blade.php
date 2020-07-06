@@ -14,7 +14,9 @@
                         </div>
                     @endif
 
-                    {{ __('You are logged in!') }}
+                    <p>Benvenuto {{ Auth::user()->firstname }}</p>
+
+                    <a href="{{ route('create') }}">Inserisci un appartamento</a>
                 </div>
             </div>
         </div>

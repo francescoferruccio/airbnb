@@ -8,10 +8,6 @@
         <div class="card">
           <div class="card-header">{{ __('Inserisci il tuo appartamento') }}</div>
 
-          {{-- MESSAGGIO DI SUCCESSO DA SPOSTARE NELLA APARTMENTSHOW  --}}
-          @if (session('status'))
-              <h1>{{ session('status') }}</h1>
-          @endif
           {{-- FORM PER CREAZIONE APPARTAMENTO --}}
           <div class="card-body">
             <form method="POST" action="{{ route('store', $user -> id) }}" enctype="multipart/form-data" role="form">

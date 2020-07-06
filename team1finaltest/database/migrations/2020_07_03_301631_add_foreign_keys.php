@@ -53,14 +53,6 @@ class AddForeignKeys extends Migration
 
 
       });
-      Schema::table('payments', function (Blueprint $table) {
-
-
-          $table->foreign("sponsorship_id", "spons_pay")->references("id")->on("sponsorships")->onDelete("cascade");
-
-
-
-      });
     }
 
     /**
@@ -98,11 +90,6 @@ class AddForeignKeys extends Migration
 
         $table->dropForeign("apartmentspons");
         $table->dropForeign("sponsorship");
-
-      });
-      Schema::table('payments', function (Blueprint $table) {
-
-        $table->dropForeign("spons_pay");
 
       });
 
