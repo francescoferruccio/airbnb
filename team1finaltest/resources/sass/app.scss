@@ -18,7 +18,8 @@
 /* fine navbar */
 /* parte header */
 .header{
-
+  height: calc(300px - 55px);
+  margin-top: 55px;
 }
 /* header */
 
@@ -29,12 +30,13 @@
   display: flex;
   justify-content: center;
   padding: 15px;
+  align-items: center;
 }
 
 .searchBar form {
   width: 100%;
   max-width: 790px;
-  padding-top: 24vh;
+  
 }
 
 .searchBar form .formInterno{
