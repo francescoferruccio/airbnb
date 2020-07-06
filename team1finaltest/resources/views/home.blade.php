@@ -18,6 +18,14 @@
 
                     <a href="{{ route('create') }}">Inserisci un appartamento</a>
                 </div>
+                <div>
+                  @if ($userApartments->count() == 0)
+                    <p>Non hai nessun appartamento</p>
+                  @endif
+                  @foreach ($userApartments as $apartment)
+                    <p>{{ $apartment['name'] }} - <a href="{{ route('edit', $apartment['id']) }}">MODIFICA</a> </p>
+                  @endforeach
+                </div>
             </div>
         </div>
     </div>

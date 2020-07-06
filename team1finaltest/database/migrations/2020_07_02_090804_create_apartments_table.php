@@ -20,14 +20,14 @@ class CreateApartmentsTable extends Migration
             $table->tinyInteger("rooms");
             $table->tinyInteger("beds");
             $table->tinyInteger("bathrooms");
-            $table->tinyInteger("size");
+            $table->smallInteger("size")->unsigned();
             $table->string("address");
             $table->float("latitude", 10,7);
             $table->float("longitude", 10,7);
             $table->string("picture");
             $table->boolean("show");
             $table->bigInteger("user_id")->unsigned()->index();
-            
+
             $table->timestamps();
         });
     }

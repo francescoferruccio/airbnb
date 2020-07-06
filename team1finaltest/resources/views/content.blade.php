@@ -5,7 +5,7 @@
 
   <div class="content">
     @foreach ($sponsored as $apartment)
-      <div class="cardRent"onclick="window.location='{{route('create')}}'">
+      <div class="cardRent"onclick="window.location='{{route('show', $apartment['id'])}}'">
         <div class="cardimg">
             <img src="{{ $apartment['picture'] }}" alt="fdkcrw">
         </div>
