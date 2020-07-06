@@ -7,6 +7,7 @@ use App\Service;
 use Str;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class ApartmentController extends Controller
 {
@@ -116,7 +117,7 @@ class ApartmentController extends Controller
       $apartment -> services() -> sync($validatedData['services']);
     }
 
-    return redirect() -> route('home')
+    return redirect() -> route('user')
     -> with("status","Appartamento aggiunto con successo");
   }
 
@@ -197,5 +198,41 @@ class ApartmentController extends Controller
 
     return redirect() -> route('user')
     -> with("status","Appartamento modificato con successo");
+  }
+
+  public function search(Request $request) {
+    // OTTENERE COORDINATE GEOLOCALIZZAZIONE
+    $key = "&key=AIzaSyAP3Uq9YyadYgRoX3N_l4rKUN25UD6Zkgo";
+    $address = $request['address']; // Google HQ
+    $prepAddr = str_replace(' ','+',$address);
+    $geocode=file_get_contents('https://maps.google.com/maps/api/geocode/json?address='.$prepAddr.'&sensor=false' . $key);
+    $output= json_decode($geocode);
+    $latitude = $output->results[0]->geometry->location->lat;
+    $longitude = $output->results[0]->geometry->location->lng;
+
+    $lat = $latitude;
+    $lng = $longitude;
+    $distance = 20;
+
+    $query = Apartment::getByDistance($lat, $lng, $distance);
+
+        if(empty($query)) {
+          return view('home');
+        }
+
+        $ids = [];
+
+        //Extract the id's
+        foreach($query as $apartment)
+        {
+          array_push($ids, $apartment->id);
+        }
+
+        // Get the listings that match the returned ids
+        $results = DB::table('apartments')->whereIn( 'id', $ids)->orderBy('name', 'DESC')->paginate(15);
+
+        $apartments = $results->all();
+
+        return view('search', compact('apartments'));
   }
 }

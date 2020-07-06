@@ -1,5 +1,9 @@
 <div class="header">
 <div class="search">
-<input type="search" name="" value=""><button type="button" name="button">SEARCH</button>
+  <form class="" action="{{ route('search') }}" method="post">
+    @csrf
+    @method('POST')
+    <input type="search" name="address" value=""><button type="submit" name="button">SEARCH</button>
+  </form>
 </div>
 </div>

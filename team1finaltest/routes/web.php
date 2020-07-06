@@ -22,3 +22,5 @@ Route::post('/store/{id}', 'ApartmentController@store')->name('store');
 Route::get('/edit/{id}', 'ApartmentController@edit')->name('edit');
 // Update
 Route::post('/update/{id}', 'ApartmentController@update')->name('update');
+//SEARCH
+Route::post('/search', 'ApartmentController@search')->name('search');

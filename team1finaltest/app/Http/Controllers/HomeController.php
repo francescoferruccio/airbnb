@@ -30,9 +30,7 @@ class HomeController extends Controller
 
     public function user() {
       $userid = Auth::user()->id;
-      // dd($userid);
       $userApartments = Apartment::where('user_id', $userid)->get();
-      // dd($userApartments);
 
       return view('home', compact('userApartments', 'userid'));
     }
