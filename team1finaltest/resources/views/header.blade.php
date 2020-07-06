@@ -6,4 +6,3 @@
     <input type="search" name="address" value=""><button type="submit" name="button">SEARCH</button>
   </form>
 </div>
-</div>

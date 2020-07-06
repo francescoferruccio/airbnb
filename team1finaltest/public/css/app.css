@@ -10934,21 +10934,20 @@ a.text-dark:focus {
   padding: 0;
 }
 
+/* container */
+
+#wrapper {
+  margin: 0 150px;
+}
+
+/* fine container */
+
 /* parte header */
 
 .header {
   width: 100%;
   height: 240px;
-  background-repeat: no-repeat;
-  background-size: cover;
-}
-
-.search {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  height: 100%;
+  border-radius: 4px;
 }
 
 /* header */
@@ -11000,4 +10999,99 @@ a.text-dark:focus {
   background-color: orange;
   height: 50px;
 }
+
+/* search */
+
+.searchBar {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  padding: 15px;
+}
+
+.searchBar form {
+  width: 100%;
+  max-width: 790px;
+  padding-top: 24vh;
+}
+
+.searchBar form .formInterno {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0px 8px 20px 0px rgba(0, 0, 0, 0.15);
+  border-radius: 34px;
+  overflow: hidden;
+  margin-bottom: 30px;
+}
+
+.searchBar form .formInterno .inputField {
+  height: 68px;
+}
+
+.searchBar form .formInterno .inputField input {
+  height: 100%;
+  background: transparent;
+  border: 0;
+  display: block;
+  width: 100%;
+  padding: 10px 0;
+  font-size: 16px;
+  color: #000;
+}
+
+.searchBar form .formInterno .inputField input.placeholder {
+  color: #222;
+  font-size: 16px;
+}
+
+.searchBar form .formInterno .inputField input:hover,
+.searchBar form .formInterno .inputField input:focus {
+  box-shadow: none;
+  outline: 0;
+}
+
+/* stile input search */
+
+.searchBar form .formInterno .inputField.primoWrap {
+  flex-grow: 1;
+  display: flex;
+  align-items: center;
+  background-color: #F3DBDB;
+}
+
+.searchBar form .formInterno .inputField.primoWrap input {
+  flex-grow: 1;
+}
+
+/* fine stile input search */
+
+/* stile bottone search */
+
+.searchBar form .formInterno .inputField.secondoWrap {
+  min-width: 216px;
+}
+
+.searchBar form .formInterno .inputField.secondoWrap .bottoneCerca {
+  height: 100%;
+  width: 100%;
+  white-space: nowrap;
+  font-size: 16px;
+  color: #fff;
+  border: 0;
+  cursor: pointer;
+  background-color: #FF0000;
+}
+
+.searchBar form .formInterno .inputField.secondoWrap .bottoneCerca:hover {
+  background: #C10303;
+}
+
+.searchBar form .formInterno .inputField.secondoWrap .bottoneCerca:focus {
+  outline: 0;
+  box-shadow: none;
+}
+
+/* fine bottone search */
 

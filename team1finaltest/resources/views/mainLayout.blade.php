@@ -9,6 +9,7 @@
       <script src="/js/app.js" charset="utf-8"></script>
   </head>
   <body>
+    <main id="wrapper">
   @include('nav')
 
   @include('header')
@@ -16,5 +17,6 @@
   @yield("content")
 
   @include('footer')
+  </main>
   </body>
 </html>
