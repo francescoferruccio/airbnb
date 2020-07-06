@@ -3,9 +3,9 @@
 use Illuminate\Support\Facades\Route;
 
 
-Route::get('/', function () {
-    return view('content');
-});
+// Route::get('/', function () {
+//     return view('content');
+// });
 
 Auth::routes();
 //HomePage
@@ -17,4 +17,4 @@ Route::get('/create', 'ApartmentController@create')->name('create');
 //Store
 Route::post('/store/{id}', 'ApartmentController@store')->name('store');
 //Index - PROVA
-Route::get('/index', 'ApartmentController@index')->name('index');
+Route::get('/', 'ApartmentController@index')->name('index');

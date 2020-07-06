@@ -17,7 +17,7 @@ class ApartmentController extends Controller
       $q->where('apartment_sponsorship.end_sponsorship', '>', now());
     })->get();
 
-    return view('index', compact('sponsored'));
+    return view('content', compact('sponsored'));
   }
 
   // FUNZIONE CREATE APPARTAMENTO
