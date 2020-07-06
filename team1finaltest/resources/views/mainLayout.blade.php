@@ -9,7 +9,7 @@
       <script src="/js/app.js" charset="utf-8"></script>
   </head>
   <body>
-    <main id="wrapper">
+    <main>
   @include('nav')
 
   @include('header')

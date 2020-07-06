@@ -10934,13 +10934,9 @@ a.text-dark:focus {
   padding: 0;
 }
 
-/* container */
+/* parte navbar */
 
-#wrapper {
-  margin: 0 150px;
-}
-
-/* fine container */
+/* fine navbar */
 
 /* parte header */
 
@@ -11027,7 +11023,7 @@ a.text-dark:focus {
   color: #fff;
   border: 0;
   cursor: pointer;
-  background-color: #FF0000;
+  background-color: #FF385C;
 }
 
 .searchBar form .formInterno .inputField.secondoWrap .bottoneCerca:hover {
@@ -11046,26 +11042,23 @@ a.text-dark:focus {
 /* inizio content */
 
 .content {
-  background-color: purple;
-  height: 800px;
-  padding-top: 30px;
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-around;
+  width: 100%;
+  justify-content: center;
 }
 
 .content .cardRent {
   cursor: pointer;
-  box-shadow: 7px 7px 5px;
+  box-shadow: rgba(0, 0, 0, 0.15) 0px 2px 8px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin-top: 20px;
   border-radius: 30px;
-  height: 400px;
-  width: calc(100% / 3);
-  background-color: yellow;
+  width: calc(100% / 4);
+  background-color: #FFF;
+  margin: 20px;
 }
 
 .content .cardRent .cardimg {
@@ -11093,8 +11086,29 @@ a.text-dark:focus {
 /* inizio footer */
 
 .footer {
-  background-color: orange;
-  height: 50px;
+  display: flex;
+  padding: 10px 150px;
+  border-bottom: 1px solid lightgrey;
+}
+
+.footer ul {
+  width: 33%;
+}
+
+.footer ul li {
+  list-style-type: none;
+}
+
+.footer ul li a {
+  text-decoration: none;
+  color: grey;
+  font-size: 14px;
+  line-height: 30px;
+}
+
+.sottoFooter {
+  padding: 10px 150px;
+  color: grey;
 }
 
 /* fine footer */
