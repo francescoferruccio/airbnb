@@ -1,8 +1,18 @@
 <div class="header">
-<div class="search">
-  <form class="" action="{{ route('search') }}" method="post">
-    @csrf
-    @method('POST')
-    <input type="search" name="address" value=""><button type="submit" name="button">SEARCH</button>
-  </form>
+  
+  <div class="searchBar">
+    <form action="{{ route('search') }}" method="post">
+        @csrf
+        @method('POST')
+      <div class="formInterno">
+        <div class="inputField primoWrap">
+          <input name="address" type="text" placeholder="Dove vuoi andare?">
+        </div>
+        <div class="inputField secondoWrap">
+          <button class="bottoneCerca" type="submit" name="button">CERCA</button>
+        </div>
+      </div>
+    </form>
+  </div>
+
 </div>

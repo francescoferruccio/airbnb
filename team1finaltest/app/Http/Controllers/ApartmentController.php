@@ -217,7 +217,7 @@ class ApartmentController extends Controller
     $query = Apartment::getByDistance($lat, $lng, $distance);
 
         if(empty($query)) {
-          return view('home');
+          return redirect()->route('home');
         }
 
         $ids = [];
