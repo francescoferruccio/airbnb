@@ -18,74 +18,17 @@
 #wrapper{
   margin: 0 150px;
 }
-
 /* fine container */
 
 /* parte header */
 .header{
-   // background-image: linear-gradient(to right bottom, #d16ba5, #d48ac0, #d8a7d6, #dec3e7, #e8ddf4, #eadbf7, #ecd8f9, #eed6fb, #f0b3eb, #f88bce, #fe5ba4, #fd0470);
-  width: 100%;
-  height: 240px;
-  border-radius: 4px;
+
 }
-
-
 /* header */
-
-.content{
-  background-color: purple;
-  height:800px;
-  padding-top: 30px;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-around;
-
-  .cardRent{
-    cursor: pointer;
-    box-shadow: 7px 7px 5px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    margin-top: 20px;
-    border-radius:30px;
-    height: 400px;
-    width: calc(100% / 3);
-    background-color: yellow;
-
-    .cardimg{
-      height: 70%;
-      width: 100%;
-
-      img{
-        max-height: 100%;
-        width: 100%;
-        border-radius: 30px 30px 0 0;
-      }
-    }
-    .cardtext{
-      height: 30%;
-      width: 100%;
-      p{
-        text-align: center;
-      }
-    }
-
-  }
-}
-
-
-
-.footer{
-  background-color: orange;
-  height: 50px;
-}
-
 
 /* search */
 
 .searchBar{
-  min-height: 100vh;
   display: flex;
   justify-content: center;
   padding: 15px;
@@ -172,3 +115,58 @@
 }
 
 /* fine bottone search */
+/* fine searchbar */
+
+
+/* inizio content */
+.content{
+  background-color: purple;
+  height:800px;
+  padding-top: 30px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+
+  .cardRent{
+    cursor: pointer;
+    box-shadow: 7px 7px 5px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+    border-radius:30px;
+    height: 400px;
+    width: calc(100% / 3);
+    background-color: yellow;
+
+    .cardimg{
+      height: 70%;
+      width: 100%;
+
+      img{
+        max-height: 100%;
+        width: 100%;
+        border-radius: 30px 30px 0 0;
+      }
+    }
+    .cardtext{
+      height: 30%;
+      width: 100%;
+      p{
+        text-align: center;
+      }
+    }
+
+  }
+}
+/* fine content */
+
+/* inizio footer */
+
+.footer{
+  background-color: orange;
+  height: 50px;
+}
+
+/* fine footer */

@@ -10944,66 +10944,11 @@ a.text-dark:focus {
 
 /* parte header */
 
-.header {
-  width: 100%;
-  height: 240px;
-  border-radius: 4px;
-}
-
 /* header */
-
-.content {
-  background-color: purple;
-  height: 800px;
-  padding-top: 30px;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-around;
-}
-
-.content .cardRent {
-  cursor: pointer;
-  box-shadow: 7px 7px 5px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  margin-top: 20px;
-  border-radius: 30px;
-  height: 400px;
-  width: calc(100% / 3);
-  background-color: yellow;
-}
-
-.content .cardRent .cardimg {
-  height: 70%;
-  width: 100%;
-}
-
-.content .cardRent .cardimg img {
-  max-height: 100%;
-  width: 100%;
-  border-radius: 30px 30px 0 0;
-}
-
-.content .cardRent .cardtext {
-  height: 30%;
-  width: 100%;
-}
-
-.content .cardRent .cardtext p {
-  text-align: center;
-}
-
-.footer {
-  background-color: orange;
-  height: 50px;
-}
 
 /* search */
 
 .searchBar {
-  min-height: 100vh;
   display: flex;
   justify-content: center;
   padding: 15px;
@@ -11094,4 +11039,62 @@ a.text-dark:focus {
 }
 
 /* fine bottone search */
+
+/* fine searchbar */
+
+/* inizio content */
+
+.content {
+  background-color: purple;
+  height: 800px;
+  padding-top: 30px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.content .cardRent {
+  cursor: pointer;
+  box-shadow: 7px 7px 5px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+  border-radius: 30px;
+  height: 400px;
+  width: calc(100% / 3);
+  background-color: yellow;
+}
+
+.content .cardRent .cardimg {
+  height: 70%;
+  width: 100%;
+}
+
+.content .cardRent .cardimg img {
+  max-height: 100%;
+  width: 100%;
+  border-radius: 30px 30px 0 0;
+}
+
+.content .cardRent .cardtext {
+  height: 30%;
+  width: 100%;
+}
+
+.content .cardRent .cardtext p {
+  text-align: center;
+}
+
+/* fine content */
+
+/* inizio footer */
+
+.footer {
+  background-color: orange;
+  height: 50px;
+}
+
+/* fine footer */
 
