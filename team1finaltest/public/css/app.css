@@ -10949,6 +10949,7 @@ a.text-dark:focus {
 /* search */
 
 .searchBar {
+  height: 100%;
   display: flex;
   justify-content: center;
   padding: 15px;

@@ -1,5 +1,5 @@
 <div class="header">
-  
+
   <div class="searchBar">
     <form action="{{ route('search') }}" method="post">
         @csrf
@@ -12,6 +12,9 @@
           <button class="bottoneCerca" type="submit" name="button">CERCA</button>
         </div>
       </div>
+      @if($errors->any())
+        <p>{{$errors->first()}}</p>
+      @endif
     </form>
   </div>
 

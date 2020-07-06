@@ -18,7 +18,7 @@ class ApartmentController extends Controller
       $q->where('apartment_sponsorship.end_sponsorship', '>', now());
     })->get();
 
-    return view('content', compact('sponsored'));
+    return view('home', compact('sponsored'));
   }
 
   // FUNZIONE SHOW
@@ -201,23 +201,24 @@ class ApartmentController extends Controller
   }
 
   public function search(Request $request) {
-    // OTTENERE COORDINATE GEOLOCALIZZAZIONE
-    $key = "&key=AIzaSyAP3Uq9YyadYgRoX3N_l4rKUN25UD6Zkgo";
-    $address = $request['address']; // Google HQ
-    $prepAddr = str_replace(' ','+',$address);
-    $geocode=file_get_contents('https://maps.google.com/maps/api/geocode/json?address='.$prepAddr.'&sensor=false' . $key);
-    $output= json_decode($geocode);
-    $latitude = $output->results[0]->geometry->location->lat;
-    $longitude = $output->results[0]->geometry->location->lng;
+    if($request['address']){
+      // OTTENERE COORDINATE GEOLOCALIZZAZIONE
+      $key = "&key=AIzaSyAP3Uq9YyadYgRoX3N_l4rKUN25UD6Zkgo";
+      $address = $request['address']; // Google HQ
+      $prepAddr = str_replace(' ','+',$address);
+      $geocode=file_get_contents('https://maps.google.com/maps/api/geocode/json?address='.$prepAddr.'&sensor=false' . $key);
+      $output= json_decode($geocode);
+      if($output->status == 'OK') {
+        $latitude = $output->results[0]->geometry->location->lat;
+        $longitude = $output->results[0]->geometry->location->lng;
+        $lat = $latitude;
+        $lng = $longitude;
+        $distance = 20;
 
-    $lat = $latitude;
-    $lng = $longitude;
-    $distance = 20;
-
-    $query = Apartment::getByDistance($lat, $lng, $distance);
+        $query = Apartment::getByDistance($lat, $lng, $distance);
 
         if(empty($query)) {
-          return redirect()->route('home');
+          return redirect()->route('home')->withErrors(['Nessun appartamento trovato']);
         }
 
         $ids = [];
@@ -234,5 +235,11 @@ class ApartmentController extends Controller
         $apartments = $results->all();
 
         return view('search', compact('apartments'));
+      } else {
+        return redirect()->route('home')->withErrors(['Inserisci un indirizzo valido']);
+      }
+    } else {
+      return redirect()->route('home')->withErrors(['Inserisci un indirizzo']);
+    }
   }
 }

@@ -32,6 +32,6 @@ class HomeController extends Controller
       $userid = Auth::user()->id;
       $userApartments = Apartment::where('user_id', $userid)->get();
 
-      return view('home', compact('userApartments', 'userid'));
+      return view('userProfile', compact('userid', 'userApartments'));
     }
 }
