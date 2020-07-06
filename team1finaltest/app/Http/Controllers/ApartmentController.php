@@ -208,6 +208,7 @@ class ApartmentController extends Controller
       $prepAddr = str_replace(' ','+',$address);
       $geocode=file_get_contents('https://maps.google.com/maps/api/geocode/json?address='.$prepAddr.'&sensor=false' . $key);
       $output= json_decode($geocode);
+      //Se dall'input arriva un indirizzo valido
       if($output->status == 'OK') {
         $latitude = $output->results[0]->geometry->location->lat;
         $longitude = $output->results[0]->geometry->location->lng;
@@ -217,6 +218,7 @@ class ApartmentController extends Controller
 
         $query = Apartment::getByDistance($lat, $lng, $distance);
 
+        //Se non si trova un appartamento nella zona ricercata
         if(empty($query)) {
           return redirect()->route('home')->withErrors(['Nessun appartamento trovato']);
         }
@@ -229,10 +231,12 @@ class ApartmentController extends Controller
           array_push($ids, $apartment->id);
         }
 
-        // Get the listings that match the returned ids
-        $results = DB::table('apartments')->whereIn( 'id', $ids)->orderBy('name', 'DESC')->paginate(15);
+        $apartments= [];
+        // Pusho dentro apartments gli appartamenti con gli id che ritornano dalla ricerca, gia ordinati per distanza
+        foreach ($ids as $id) {
+          $apartments[] = Apartment::findOrFail($id);
+        }
 
-        $apartments = $results->all();
 
         return view('search', compact('apartments'));
       } else {
