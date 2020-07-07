@@ -204,7 +204,6 @@ class ApartmentController extends Controller
   }
 
   public function search(Request $request) {
-    // dd($request);
     $validatedData = $request->validate([
       'address' => 'required|string',
       'radius' => 'required|integer',
@@ -249,6 +248,7 @@ class ApartmentController extends Controller
       if(!count($apartments)) {
         return redirect()->route('home')->withErrors(['Nessun appartamento soddisfa le tue richieste.']);
       } else {
+        // dd($apartments);
         return view('search', compact('apartments'));
       }
 
@@ -268,24 +268,23 @@ class ApartmentController extends Controller
       // se l'appartamento è visibile
       if($apartment['show'] == 1) {
         // se il numero di stanze e letti dell'appartamento sono >= a quelli richiesti
-        if(($apartment['rooms'] >= $validatedData['rooms']) &&
-          ($apartment['beds'] >= $validatedData['beds'])){
-            // controlliamo se c'è un filtro sui servizi
-            if(array_key_exists('services', $validatedData)) {
-              $reqServices = $validatedData['services'];
-              foreach ($apartment->services as $service) {
-                $apServices[] = $service->id;
-              }
-              $count = count($reqServices);
-              // controllo corrispondenza tra servizi richiesti e servizi dell'appartamento
-              if((count(array_intersect($apServices, $reqServices)) == $count)) {
-                $apartments[] = Apartment::findOrFail($id);
-              }
-            } else {
+        if(($apartment['rooms'] >= $validatedData['rooms']) && ($apartment['beds'] >= $validatedData['beds'])){
+          // controlliamo se c'è un filtro sui servizi
+          if(array_key_exists('services', $validatedData)) {
+            $reqServices = $validatedData['services'];
+            foreach ($apartment->services as $service) {
+              $apServices[] = $service->id;
+            }
+            $count = count($reqServices);
+            // controllo corrispondenza tra servizi richiesti e servizi dell'appartamento
+            if((count(array_intersect($apServices, $reqServices)) == $count)) {
               $apartments[] = Apartment::findOrFail($id);
             }
+          } else {
+            $apartments[] = Apartment::findOrFail($id);
           }
-      } return $apartments;
-    }
+        }
+      }
+    } return $apartments;
   }
 }
