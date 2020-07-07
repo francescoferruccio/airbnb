@@ -15,8 +15,12 @@ class ApartmentController extends Controller
   public function index() {
     // seleziono gli appartamenti che hanno una sponsorizzazione attiva
     $sponsored = Apartment::whereHas('sponsorships', function($q) {
-      $q->where('apartment_sponsorship.end_sponsorship', '>', now());
+      $q->where([
+        ['apartment_sponsorship.end_sponsorship', '>', now()],
+        ['show', '=', 1]
+        ]);
     })->get();
+    dd($sponsored);
 
     return view('home', compact('sponsored'));
   }
@@ -234,9 +238,11 @@ class ApartmentController extends Controller
         $apartments= [];
         // Pusho dentro apartments gli appartamenti con gli id che ritornano dalla ricerca, gia ordinati per distanza
         foreach ($ids as $id) {
-          $apartments[] = Apartment::findOrFail($id);
+          $apartment = Apartment::findOrFail($id);
+          if($apartment['show'] == 1) {
+            $apartments[] = Apartment::findOrFail($id);
+          }
         }
-
 
         return view('search', compact('apartments'));
       } else {
