@@ -20,6 +20,7 @@ class ApartmentController extends Controller
         ['show', '=', 1]
         ]);
     })->get();
+    dd($sponsored);
 
     return view('home', compact('sponsored'));
   }
