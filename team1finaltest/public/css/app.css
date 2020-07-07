@@ -10987,6 +10987,7 @@ a.text-dark:focus {
   padding: 10px 0;
   font-size: 16px;
   color: #000;
+  border-radius: 34px;
 }
 
 /* da verificare */
@@ -11010,6 +11011,7 @@ a.text-dark:focus {
   display: flex;
   align-items: center;
   background-color: #F3DBDB;
+  border-radius: 15px 0 0 15px;
 }
 
 .searchBar form .formInterno .inputField.primoWrap input {
@@ -11034,6 +11036,7 @@ a.text-dark:focus {
   border: 0;
   cursor: pointer;
   background-color: #FF385C;
+  border-radius: 0 15px 15px 0;
 }
 
 .searchBar form .formInterno .inputField.secondoWrap .bottoneCerca:hover {

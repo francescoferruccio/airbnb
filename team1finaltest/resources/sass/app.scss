@@ -64,6 +64,7 @@
   padding: 10px 0;
   font-size: 16px;
   color: #000;
+  border-radius: 34px;
 }
 
 /* da verificare */
@@ -84,6 +85,7 @@
   display: flex;
   align-items: center;
   background-color: #F3DBDB;
+  border-radius: 15px 0 0 15px;
 }
 
 .searchBar form .formInterno .inputField.primoWrap input {
@@ -95,6 +97,7 @@
 
 .searchBar form .formInterno .inputField.secondoWrap {
   min-width: 216px;
+
 }
 
 .searchBar form .formInterno .inputField.secondoWrap .bottoneCerca {
@@ -107,6 +110,7 @@
   border: 0;
   cursor: pointer;
   background-color: #FF385C;
+  border-radius: 0 15px 15px 0;
 }
 
 .searchBar form .formInterno .inputField.secondoWrap .bottoneCerca:hover{

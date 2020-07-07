@@ -6,7 +6,7 @@
         @method('POST')
       <div class="formInterno">
         <div class="inputField primoWrap">
-          <input name="address" type="text" placeholder="Dove vuoi andare?">
+          <input name="address" type="search" id="address-input" placeholder="Dove vuoi andare?">
         </div>
         <div class="inputField secondoWrap">
           <button class="bottoneCerca" type="submit" name="button">CERCA</button>
