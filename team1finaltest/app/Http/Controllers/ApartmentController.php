@@ -237,43 +237,55 @@ class ApartmentController extends Controller
 
       $ids = [];
 
+
       //Extract the id's
       foreach($query as $apartment)
       {
         array_push($ids, $apartment->id);
       }
 
-      $apartments = [];
-      $apServices = [];
-      // Pusho dentro apartments gli appartamenti con gli id che ritornano dalla ricerca, gia ordinati per distanza
-      foreach ($ids as $id) {
-        $apartment = Apartment::findOrFail($id);
-        if($apartment['show'] == 1) {
-          if(array_key_exists('services', $validatedData)) {
-            $reqServices = $validatedData['services'];
-            foreach ($apartment->services as $service) {
-              $apServices[] = $service->id;
-            }
-            // dd($apServices);
-            $count = count($reqServices);
-            // for ($i=0; $i < $count; $i++) {
-            //   if(array_key_exists($reqServices[$count], $apServices))
-            //   $apartments[] = Apartment::findOrFail($id);
-            // }
-            if($apServices == $reqServices) {
-              $apartments[] = Apartment::findOrFail($id);
-            }
-          } else {
-            $apartments[] = Apartment::findOrFail($id);
-          }
-        }
+      // richiamo la funzione filtro e salvo il risultato
+      $apartments = self::filter($ids, $validatedData);
+      if(!count($apartments)) {
+        return redirect()->route('home')->withErrors(['Nessun appartamento soddisfa le tue richieste.']);
+      } else {
+        return view('search', compact('apartments'));
       }
-      dd($apartments);
 
-      return view('search', compact('apartments'));
     } else {
       return redirect()->route('home')->withErrors(['Inserisci un indirizzo valido']);
     }
 
+  }
+
+  // FUNZIONE FILTRO PARAMETRI RICERCA
+  public function filter($ids, $validatedData) {
+    $apartments = [];
+    $apServices = [];
+    // Pusho dentro apartments gli appartamenti con gli id che ritornano dalla ricerca, gia ordinati per distanza
+    foreach ($ids as $id) {
+      $apartment = Apartment::findOrFail($id);
+      // se l'appartamento è visibile
+      if($apartment['show'] == 1) {
+        // se il numero di stanze e letti dell'appartamento sono >= a quelli richiesti
+        if(($apartment['rooms'] >= $validatedData['rooms']) &&
+          ($apartment['beds'] >= $validatedData['beds'])){
+            // controlliamo se c'è un filtro sui servizi
+            if(array_key_exists('services', $validatedData)) {
+              $reqServices = $validatedData['services'];
+              foreach ($apartment->services as $service) {
+                $apServices[] = $service->id;
+              }
+              $count = count($reqServices);
+              // controllo corrispondenza tra servizi richiesti e servizi dell'appartamento
+              if((count(array_intersect($apServices, $reqServices)) == $count)) {
+                $apartments[] = Apartment::findOrFail($id);
+              }
+            } else {
+              $apartments[] = Apartment::findOrFail($id);
+            }
+          }
+      } return $apartments;
+    }
   }
 }
