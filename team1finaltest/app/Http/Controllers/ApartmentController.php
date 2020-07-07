@@ -204,51 +204,76 @@ class ApartmentController extends Controller
   }
 
   public function search(Request $request) {
-    if($request['address']){
-      // OTTENERE COORDINATE GEOLOCALIZZAZIONE
-      $key = "&key=AIzaSyAP3Uq9YyadYgRoX3N_l4rKUN25UD6Zkgo";
-      $address = $request['address']; // Google HQ
-      $prepAddr = str_replace(' ','+',$address);
-      $geocode=file_get_contents('https://maps.google.com/maps/api/geocode/json?address='.$prepAddr.'&sensor=false' . $key);
-      $output= json_decode($geocode);
-      //Se dall'input arriva un indirizzo valido
-      if($output->status == 'OK') {
-        $latitude = $output->results[0]->geometry->location->lat;
-        $longitude = $output->results[0]->geometry->location->lng;
-        $lat = $latitude;
-        $lng = $longitude;
-        $distance = 20;
+    // dd($request);
+    $validatedData = $request->validate([
+      'address' => 'required|string',
+      'radius' => 'required|integer',
+      'rooms' => 'required|integer',
+      'beds' => 'required|integer',
+      'services' => 'array'
+    ]);
 
-        $query = Apartment::getByDistance($lat, $lng, $distance);
 
-        //Se non si trova un appartamento nella zona ricercata
-        if(empty($query)) {
-          return redirect()->route('home')->withErrors(['Nessun appartamento trovato']);
-        }
+    // OTTENERE COORDINATE GEOLOCALIZZAZIONE
+    $key = "&key=AIzaSyAP3Uq9YyadYgRoX3N_l4rKUN25UD6Zkgo";
+    $address = $validatedData['address']; // Google HQ
+    $prepAddr = str_replace(' ','+',$address);
+    $geocode=file_get_contents('https://maps.google.com/maps/api/geocode/json?address='.$prepAddr . $key);
+    $output= json_decode($geocode);
+    //Se dall'input arriva un indirizzo valido
+    if($output->status == 'OK') {
+      $latitude = $output->results[0]->geometry->location->lat;
+      $longitude = $output->results[0]->geometry->location->lng;
+      $lat = $latitude;
+      $lng = $longitude;
+      $distance = $validatedData['radius'];
 
-        $ids = [];
+      $query = Apartment::getByDistance($lat, $lng, $distance);
 
-        //Extract the id's
-        foreach($query as $apartment)
-        {
-          array_push($ids, $apartment->id);
-        }
+      //Se non si trova un appartamento nella zona ricercata
+      if(empty($query)) {
+        return redirect()->route('home')->withErrors(['Nessun appartamento trovato']);
+      }
 
-        $apartments= [];
-        // Pusho dentro apartments gli appartamenti con gli id che ritornano dalla ricerca, gia ordinati per distanza
-        foreach ($ids as $id) {
-          $apartment = Apartment::findOrFail($id);
-          if($apartment['show'] == 1) {
+      $ids = [];
+
+      //Extract the id's
+      foreach($query as $apartment)
+      {
+        array_push($ids, $apartment->id);
+      }
+
+      $apartments = [];
+      $apServices = [];
+      // Pusho dentro apartments gli appartamenti con gli id che ritornano dalla ricerca, gia ordinati per distanza
+      foreach ($ids as $id) {
+        $apartment = Apartment::findOrFail($id);
+        if($apartment['show'] == 1) {
+          if(array_key_exists('services', $validatedData)) {
+            $reqServices = $validatedData['services'];
+            foreach ($apartment->services as $service) {
+              $apServices[] = $service->id;
+            }
+            // dd($apServices);
+            $count = count($reqServices);
+            // for ($i=0; $i < $count; $i++) {
+            //   if(array_key_exists($reqServices[$count], $apServices))
+            //   $apartments[] = Apartment::findOrFail($id);
+            // }
+            if($apServices == $reqServices) {
+              $apartments[] = Apartment::findOrFail($id);
+            }
+          } else {
             $apartments[] = Apartment::findOrFail($id);
           }
         }
-
-        return view('search', compact('apartments'));
-      } else {
-        return redirect()->route('home')->withErrors(['Inserisci un indirizzo valido']);
       }
+      dd($apartments);
+
+      return view('search', compact('apartments'));
     } else {
-      return redirect()->route('home')->withErrors(['Inserisci un indirizzo']);
+      return redirect()->route('home')->withErrors(['Inserisci un indirizzo valido']);
     }
+
   }
 }
