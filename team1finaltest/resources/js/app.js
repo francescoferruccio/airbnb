@@ -46,23 +46,25 @@ $( document ).ready(function() {
 
   // Funzione MAPS Google
   var dataAddress = $('.apartmentDetails').data('address');
-  console.log(dataAddress);
-  var address = dataAddress;
+
+  var address = dataAddress.replace(' ','+');
+  console.log('address',address);
   $.ajax({
-    url: "https://api.tomtom.com/search/2/geocode/" + address + ".json",
+    url: "https://maps.googleapis.com/maps/api/geocode/json",
     data:{
-      key: "gvHkFTj7nzPqQoErkvrc7G0bmBdQX4RF",
+      key: "AIzaSyAP3Uq9YyadYgRoX3N_l4rKUN25UD6Zkgo",
+      address: address,
       limit: 1
     },
     method: "GET",
     success: function(data,stato) {
+      console.log(data);
       const jsonD = data.results;
       if (jsonD.length) {
-
         for (var i = 0; i < jsonD.length; i++) {
           let obj = jsonD[i];
-          var lat = obj.position['lat'];
-          var lon = obj.position['lon'];
+          var lat = obj.geometry.location['lat'];
+          var lon = obj.geometry.location['lng'];
           console.log('lat: ',lat);
           console.log('lon: ',lon);
         }
@@ -81,7 +83,7 @@ $( document ).ready(function() {
   function initMap(lat,lon) {
     // map options
     var options = {
-      zoom: 20,
+      zoom: 15,
       center: {lat: lat,
         lng: lon
       }

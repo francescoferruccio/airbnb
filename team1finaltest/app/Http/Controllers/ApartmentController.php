@@ -236,7 +236,6 @@ class ApartmentController extends Controller
 
       $ids = [];
 
-
       //Extract the id's
       foreach($query as $apartment)
       {
