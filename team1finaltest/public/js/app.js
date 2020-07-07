@@ -47687,7 +47687,6 @@ module.exports = function(module) {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-// parte di inclusione di bootstrap e vue.js
 __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js"); // window.Vue = require('vue');
 // Vue.component('example-component', require('./components/ExampleComponent.vue').default);
 // const app = new Vue({
@@ -47711,9 +47710,18 @@ $(document).ready(function () {
         container: document.querySelector('#address-input')
       });
     }
+
+    ricercaAvanzata();
   }
 
-  ; //Slider della searchBar (Raggio KM)
+  ; // funzione mostra e nascondi ricerca avanzata
+
+  function ricercaAvanzata() {
+    $("#ricercaAvanzata").click(function () {
+      $("#containerRicercaAvanzata").fadeToggle("slow");
+    });
+  } //Slider della searchBar (Raggio KM)
+
 
   init();
 
@@ -47847,8 +47855,8 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\Users\Dani\Desktop\Boolean Career\boolbnb\team1finaltest\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\Users\Dani\Desktop\Boolean Career\boolbnb\team1finaltest\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\users\fabio\desktop\gitboolean\airbnb\team1finaltest\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\users\fabio\desktop\gitboolean\airbnb\team1finaltest\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ }),

@@ -178,7 +178,23 @@
 /* fine bottone search */
 /* fine searchbar */
 
+/* nascondi ricerca avanzata */
+
+#ricercaAvanzata{
+    outline: 0;
+    border: transparent;
+    border-radius: 4px;
+    background-color: #FF385C;
+    color: #FFF;
+    padding: 2px;
+}
+
+#containerRicercaAvanzata{
+  padding: 10px 0;
+  display: none;
+}
 /* inizio range slider */
+
 .slider {
   -webkit-appearance: none;
   width: 100%;
@@ -246,11 +262,54 @@
       padding-left: 10px;
     }
   }
-
+/* checkboxes */
   .service{
     width: 60%;
-    input:checked{
-      color: #FF385C;
+    .containerCheckbox{
+      position: relative;
+      cursor: pointer;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
+      input {
+        position: absolute;
+        opacity: 0;
+        cursor: pointer;
+      }
+      .checkmark {
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 16px;
+        width: 16px;
+        background-color: #F3DBDB;;
+        }
+      input:checked ~ .checkmark {
+        background-color: #ff385c;
+        }
+      .checkmark:after {
+        content: "";
+        position: absolute;
+        display: none;
+        }
+      input:checked ~ .checkmark:after {
+        display: block;
+        }
+      .checkmark:after {
+        left: 6px;
+        top: 3px;
+        width: 5px;
+        height: 10px;
+        border: solid white;
+        border-width: 0 3px 3px 0;
+        -webkit-transform: rotate(45deg);
+        -ms-transform: rotate(45deg);
+        transform: rotate(45deg);
+        }
+    }
+    .serviceText{
+      margin-left: 20px;
     }
   }
 }

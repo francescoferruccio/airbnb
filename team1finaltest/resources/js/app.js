@@ -1,4 +1,3 @@
-// parte di inclusione di bootstrap e vue.js
 require('./bootstrap');
 
 // window.Vue = require('vue');
@@ -22,7 +21,16 @@ $( document ).ready(function() {
         container: document.querySelector('#address-input')
       });
     }
+      ricercaAvanzata();
   };
+
+  // funzione mostra e nascondi ricerca avanzata
+    function ricercaAvanzata(){
+      $("#ricercaAvanzata").click(function(){
+      $("#containerRicercaAvanzata").fadeToggle("slow");
+      });
+    }
+
 
   //Slider della searchBar (Raggio KM)
   init();

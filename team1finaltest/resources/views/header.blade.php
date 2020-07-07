@@ -14,7 +14,13 @@
         </div>
         {{-- </div> --}}
       {{-- </div> --}}
+
+        {{-- bottone ricerca avanzata --}}
+      <div>
+        <button id="ricercaAvanzata" type="button" name="button">Ricerca Avanzata</button>
+      </div>
       {{-- range slider km --}}
+    <div id="containerRicercaAvanzata">
       <div class="slidecontainer">
           <div class="textValues">
             <p>0 km</p>
@@ -35,20 +41,39 @@
         </div>
         <div class="service">
           <p>Servizi:</p>
-          <input type="checkbox" name="services[]" value="1">
-          <label for="services[]">Wifi</label>
-          <input type="checkbox" name="services[]" value="2">
-          <label for="services[]">Posto macchina</label>
-          <input type="checkbox" name="services[]" value="3">
-          <label for="services[]">Piscina</label>
-          <input type="checkbox" name="services[]" value="4">
-          <label for="services[]">Portineria</label>
-          <input type="checkbox" name="services[]" value="5">
-          <label for="services[]">Sauna</label>
-          <input type="checkbox" name="services[]" value="6">
-          <label for="services[]">Vista mare</label>
+          <label class="containerCheckbox">
+            <p class="serviceText">Wifi</p>
+            <input type="checkbox" name="services[]" value="1">
+            <span class="checkmark"></span>
+          </label>
+          <label class="containerCheckbox">
+            <p class="serviceText">Parcheggio</p>
+            <input type="checkbox" name="services[]" value="2">
+            <span class="checkmark"></span>
+          </label>
+          <label class="containerCheckbox">
+            <p class="serviceText">Piscina</p>
+            <input type="checkbox" name="services[]" value="3">
+            <span class="checkmark"></span>
+          </label>
+          <label class="containerCheckbox">
+            <p class="serviceText">Portineria</p>
+            <input type="checkbox" name="services[]" value="4">
+            <span class="checkmark"></span>
+          </label>
+          <label class="containerCheckbox">
+            <p class="serviceText">Sauna</p>
+            <input type="checkbox" name="services[]" value="5">
+            <span class="checkmark"></span>
+          </label>
+          <label class="containerCheckbox">
+            <p class="serviceText">Vista mare</p>
+            <input type="checkbox" name="services[]" value="6">
+            <span class="checkmark"></span>
+          </label>
         </div>
       </div>
+    </div>
       @if($errors->any())
         <p>{{$errors->first()}}</p>
       @endif
