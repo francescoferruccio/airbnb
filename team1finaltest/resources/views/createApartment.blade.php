@@ -1,10 +1,10 @@
-@extends('layouts.app')
+@extends('mainLayout')
 
 {{-- PAGINA CREAZIONE APPARTAMENTO --}}
 @section('content')
-  <div class="container">
+  <div class="crud-container">
     <div class="row justify-content-center">
-      <div class="col-md-8">
+      <div class="col-md-6">
         <div class="card">
           <div class="card-header">{{ __('Inserisci il tuo appartamento') }}</div>
 

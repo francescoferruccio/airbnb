@@ -1,5 +1,27 @@
 @import url(https://fonts.googleapis.com/css?family=Nunito);@charset "UTF-8";
 
+.showContainer {
+  margin-top: 55px;
+  min-height: 70vh;
+  padding: 30px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.showContainer #map {
+  height: 400px;
+  width: auto;
+  max-width: 660px;
+}
+
+.crud-container {
+  margin: 55px auto;
+  padding-top: 55px;
+  min-height: 70vh;
+  max-width: 1280px;
+}
+
 /*!
  * Bootstrap v4.5.0 (https://getbootstrap.com/)
  * Copyright 2011-2020 The Bootstrap Authors
@@ -11193,6 +11215,7 @@ a.text-dark:focus {
 /* inizio footer */
 
 .footer {
+  min-height: 15vh;
   display: flex;
   padding: 10px 150px;
   border-bottom: 1px solid lightgrey;

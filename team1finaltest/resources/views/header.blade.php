@@ -1,5 +1,7 @@
-<div class="header">
 
+@if (\Request::is('/'))
+
+<div class="header">
   <div class="searchBar">
     <form action="{{ route('search') }}" method="post">
         @csrf
@@ -52,5 +54,6 @@
       @endif
     </form>
   </div>
-
 </div>
+
+@endif

@@ -1,0 +1,13 @@
+.showContainer{
+  margin-top: 55px;
+  min-height: 70vh;
+  padding: 30px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  #map{
+    height: 400px;
+    width: auto;
+    max-width: 660px;
+  }
+}

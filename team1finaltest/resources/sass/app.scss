@@ -3,6 +3,8 @@
 
 // Variables
 @import 'variables';
+@import 'components/show';
+@import 'components/crud';
 
 // Bootstrap
 @import '~bootstrap/scss/bootstrap';
@@ -253,6 +255,7 @@
 /* inizio footer */
 
 .footer{
+  min-height: 15vh;
   display: flex;
   padding: 10px 150px;
   border-bottom: 1px solid lightgrey;

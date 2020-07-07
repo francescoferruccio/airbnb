@@ -1,8 +1,8 @@
-@extends('layouts.app')
+@extends('mainLayout')
 
 {{-- PAGINA MODIFICA APPARTAMENTO --}}
 @section('content')
-  <div class="container">
+  <div class="crud-container">
     <div class="row justify-content-center">
       <div class="col-md-8">
         <div class="card">

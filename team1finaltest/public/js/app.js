@@ -47696,6 +47696,7 @@ __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js"); // window
 
 
 $(document).ready(function () {
+  // Algolia autocomplete script
   function init() {
     if ($('.searchBar').length) {
       rangeSlider();
@@ -47712,7 +47713,8 @@ $(document).ready(function () {
     }
   }
 
-  ;
+  ; //Slider della searchBar (Raggio KM)
+
   init();
 
   function rangeSlider() {
@@ -47723,6 +47725,60 @@ $(document).ready(function () {
     slider.oninput = function () {
       output.innerHTML = this.value;
     };
+  } // Funzione MAPS Google
+
+
+  var dataAddress = $('.apartmentDetails').data('address');
+  console.log(dataAddress);
+  var address = dataAddress;
+  $.ajax({
+    url: "https://api.tomtom.com/search/2/geocode/" + address + ".json",
+    data: {
+      key: "gvHkFTj7nzPqQoErkvrc7G0bmBdQX4RF",
+      limit: 1
+    },
+    method: "GET",
+    success: function success(data, stato) {
+      var jsonD = data.results;
+
+      if (jsonD.length) {
+        for (var i = 0; i < jsonD.length; i++) {
+          var obj = jsonD[i];
+          var lat = obj.position['lat'];
+          var lon = obj.position['lon'];
+          console.log('lat: ', lat);
+          console.log('lon: ', lon);
+        }
+
+        initMap(lat, lon);
+      } else {
+        $('#map').html('<h2> Nessun riferimento geografico trovato</h2>');
+      }
+    },
+    error: function error(richiesta, stato, errore) {
+      alert("Chiamata fallita!!!");
+    }
+  });
+
+  function initMap(lat, lon) {
+    // map options
+    var options = {
+      zoom: 20,
+      center: {
+        lat: lat,
+        lng: lon
+      }
+    }; // new map
+
+    var map = new google.maps.Map(document.getElementById('map'), options); //add markers
+
+    var marker = new google.maps.Marker({
+      position: {
+        lat: lat,
+        lng: lon
+      },
+      map: map
+    });
   }
 });
 
@@ -47791,8 +47847,8 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! E:\Boolean\esercizi\repo-github\airbnb\team1finaltest\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! E:\Boolean\esercizi\repo-github\airbnb\team1finaltest\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\Users\Dani\Desktop\Boolean Career\boolbnb\team1finaltest\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\Users\Dani\Desktop\Boolean Career\boolbnb\team1finaltest\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ }),
