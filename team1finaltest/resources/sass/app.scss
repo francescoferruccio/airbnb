@@ -18,7 +18,9 @@
 /* fine navbar */
 /* parte header */
 .header{
-
+  margin-top: 55px;
+  height: 380px;
+  padding-top: 45px;
 }
 /* header */
 
@@ -29,12 +31,13 @@
   display: flex;
   justify-content: center;
   padding: 15px;
+  background-color: #F8FAFC;
 }
 
 .searchBar form {
   width: 100%;
   max-width: 790px;
-  padding-top: 24vh;
+
 }
 
 .searchBar form .formInterno{
@@ -43,9 +46,9 @@
   justify-content: space-between;
   align-items: center;
   box-shadow: 0px 8px 20px 0px rgba(0, 0, 0, 0.15);
-  border-radius: 34px;
-  overflow: hidden;
   margin-bottom: 30px;
+  background-color: #f8fafc;
+  border-radius: 15px;
 }
 
 .searchBar form .formInterno .inputField{
@@ -63,6 +66,8 @@
   color: #000;
 }
 
+/* da verificare */
+
 .searchBar form .formInterno .inputField input.placeholder {
   color: #222;
   font-size: 16px;
@@ -74,6 +79,7 @@
 }
 /* stile input search */
 .searchBar form .formInterno .inputField.primoWrap{
+  border-radius: 15px 0 0 15px;
   flex-grow: 1;
   display: flex;
   align-items: center;
@@ -94,6 +100,7 @@
 .searchBar form .formInterno .inputField.secondoWrap .bottoneCerca {
   height: 100%;
   width: 100%;
+  border-radius: 0 15px 15px 0;
   white-space: nowrap;
   font-size: 16px;
   color: #fff;
@@ -114,7 +121,86 @@
 /* fine bottone search */
 /* fine searchbar */
 
+/* inizio range slider */
+.slider {
+  -webkit-appearance: none;
+  width: 100%;
+  height: 15px;
+  border-radius: 5px;
+  background: #F3DBDB;
+  outline: none;
+  opacity: 0.7;
+  -webkit-transition: .2s;
+  transition: opacity .2s;
+}
 
+.slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  background: #FF385C;
+  cursor: pointer;
+}
+
+.slider::-webkit-slider-thumb:hover{
+  background-color: #C10303;
+}
+
+.slider::-moz-range-thumb {
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  background: #4CAF50;
+  cursor: pointer;
+}
+
+.textValues{
+  display: flex;
+  justify-content: space-between;
+}
+
+.range{
+  display: flex;
+  justify-content: center;
+  padding-top: 10px;
+}
+/* fine range slider */
+
+/* parte input numbers */
+.numbersService{
+  display: flex;
+  width: 100%;
+  justify-content: space-around;
+  .rooms {
+    width: 30%;
+    input{
+      width: 80%;
+      background-color: #F3DBDB;
+      border: 0;
+      outline: transparent;
+      border-radius: 10px;
+    }
+  }
+  .beds {
+    width: 30%;
+    input{
+      width: 80%;
+      background-color: #F3DBDB;
+      border: 0;
+      outline: transparent;
+      border-radius: 10px;
+    }
+  }
+  .service{
+    width: 40%;
+    input:checked{
+      color: #FF385C;
+    }
+  }
+}
+/* fine parte input numbers */
 /* inizio content */
 .content{
   display: flex;
