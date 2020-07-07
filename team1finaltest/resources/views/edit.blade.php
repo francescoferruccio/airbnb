@@ -102,7 +102,7 @@
                             <label for="address" class="col-md-4 col-form-label text-md-right">{{ __('Indirizzo') }}</label>
 
                             <div class="col-md-6">
-                              <input id="address" type="text" class="form-control @error('address') is-invalid @enderror" name="address" value="{{ $apartment['address'] }}" required autocomplete="address">
+                              <input id="address-input" type="search" class="form-control @error('address') is-invalid @enderror" name="address" value="{{ $apartment['address'] }}" required autocomplete="address">
 
                                 @error('address')
                                   <span class="invalid-feedback" role="alert">
