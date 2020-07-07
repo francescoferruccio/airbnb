@@ -6,14 +6,14 @@
     <form action="{{ route('search') }}" method="post">
         @csrf
         @method('POST')
-      <div class="formInterno">
-        <div class="inputField primoWrap">
+      {{-- <div class="formInterno"> --}}
+        <div class="inputField">
           <input name="address" type="search" id="address-input" placeholder="Dove vuoi andare?">
-        </div>
-        <div class="inputField secondoWrap">
+        {{-- <div class="inputField secondoWrap"> --}}
           <button class="bottoneCerca" type="submit" name="button">CERCA</button>
         </div>
-      </div>
+        {{-- </div> --}}
+      {{-- </div> --}}
       {{-- range slider km --}}
       <div class="slidecontainer">
           <div class="textValues">
@@ -27,11 +27,11 @@
       <div class="numbersService">
         <div class="rooms">
         <p>Stanze:</p>
-          <input type="number" name="quantity" min="1" max="5">
+          <input type="number" name="rooms" min="1" max="5">
         </div>
         <div class="beds">
           <p>Letti:</p>
-          <input type="number" name="quantity" min="1" max="5">
+          <input type="number" name="beds" min="1" max="5">
         </div>
         <div class="service">
           <p>Servizi:</p>

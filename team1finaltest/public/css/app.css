@@ -10985,70 +10985,19 @@ a.text-dark:focus {
   max-width: 790px;
 }
 
-.searchBar form .formInterno {
+.inputField {
   display: flex;
-  width: 100%;
-  justify-content: space-between;
+  flex-grow: 1;
+  height: 68px;
   align-items: center;
   box-shadow: 0px 8px 20px 0px rgba(0, 0, 0, 0.15);
   margin-bottom: 30px;
   background-color: #f8fafc;
   border-radius: 15px;
-}
-
-.searchBar form .formInterno .inputField {
-  height: 68px;
-}
-
-.searchBar form .formInterno .inputField input {
-  height: 100%;
-  background: transparent;
-  border: 0;
-  display: block;
   width: 100%;
-  padding: 10px 0;
-  font-size: 16px;
-  color: #000;
-  border-radius: 34px;
 }
 
-/* da verificare */
-
-.searchBar form .formInterno .inputField input.placeholder {
-  color: #222;
-  font-size: 16px;
-}
-
-.searchBar form .formInterno .inputField input:hover,
-.searchBar form .formInterno .inputField input:focus {
-  box-shadow: none;
-  outline: 0;
-}
-
-/* stile input search */
-
-.searchBar form .formInterno .inputField.primoWrap {
-  border-radius: 15px 0 0 15px;
-  flex-grow: 1;
-  display: flex;
-  align-items: center;
-  background-color: #F3DBDB;
-  border-radius: 15px 0 0 15px;
-}
-
-.searchBar form .formInterno .inputField.primoWrap input {
-  flex-grow: 1;
-}
-
-/* fine stile input search */
-
-/* stile bottone search */
-
-.searchBar form .formInterno .inputField.secondoWrap {
-  min-width: 216px;
-}
-
-.searchBar form .formInterno .inputField.secondoWrap .bottoneCerca {
+.inputField .bottoneCerca {
   height: 100%;
   width: 100%;
   border-radius: 0 15px 15px 0;
@@ -11056,18 +11005,44 @@ a.text-dark:focus {
   font-size: 16px;
   color: #fff;
   border: 0;
+  width: 40%;
   cursor: pointer;
   background-color: #FF385C;
   border-radius: 0 15px 15px 0;
 }
 
-.searchBar form .formInterno .inputField.secondoWrap .bottoneCerca:hover {
+.inputField .bottoneCerca:hover {
   background: #C10303;
 }
 
-.searchBar form .formInterno .inputField.secondoWrap .bottoneCerca:focus {
+.inputField .bottoneCerca:focus {
   outline: 0;
   box-shadow: none;
+}
+
+.inputField .algolia-places {
+  height: 100%;
+  background-color: #F3DBDB;
+  border-radius: 15px 0 0 15px;
+}
+
+.inputField .algolia-places input {
+  height: 100%;
+  border: 0;
+  display: block;
+  width: 100%;
+  padding: 10px 0;
+  font-size: 16px;
+  color: #000;
+  border-radius: 15px 0 0 15px;
+  background-color: #F3DBDB;
+  background: transparent;
+  padding-left: 20px;
+}
+
+.inputField .algolia-places input:focus {
+  box-shadow: none;
+  outline: 0;
 }
 
 /* fine bottone search */
@@ -11134,32 +11109,23 @@ a.text-dark:focus {
   justify-content: space-around;
 }
 
-.numbersService .rooms {
-  width: 30%;
-}
-
-.numbersService .rooms input {
-  width: 80%;
-  background-color: #F3DBDB;
-  border: 0;
-  outline: transparent;
-  border-radius: 10px;
-}
-
+.numbersService .rooms,
 .numbersService .beds {
-  width: 30%;
+  width: 20%;
 }
 
+.numbersService .rooms input,
 .numbersService .beds input {
-  width: 80%;
+  width: 60%;
   background-color: #F3DBDB;
   border: 0;
   outline: transparent;
   border-radius: 10px;
+  padding-left: 10px;
 }
 
 .numbersService .service {
-  width: 40%;
+  width: 60%;
 }
 
 .numbersService .service input:checked {
