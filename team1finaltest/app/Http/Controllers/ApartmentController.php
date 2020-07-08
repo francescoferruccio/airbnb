@@ -18,7 +18,7 @@ class ApartmentController extends Controller
       $q->where([
         ['apartment_sponsorship.end_sponsorship', '>', now()],
         ['show', '=', 1]
-        ]);
+      ]);
     })->get();
 
     return view('home', compact('sponsored'));
@@ -55,35 +55,14 @@ class ApartmentController extends Controller
     $validatedData = $request -> validate([
       "name" => "required|string",
       "description" => "required|string",
-      "rooms" => "required|integer",
-      "beds" => "required|integer",
-      "bathrooms" => "required|integer",
+      "rooms" => "required|integer|min:1|max:50",
+      "beds" => "required|integer|min:1|max:50",
+      "bathrooms" => "required|integer|min:1|max:50",
       "size" => "required|numeric",
       "address" => "required|string",
-      // "latitude" => "required|numeric",
-      // "longitude" => "required|numeric",
       "picture" => "required|image|mimes:jpeg,bmp,png,jpg|max:5000",
       "services" => "nullable|array"
     ]);
-
-
-    // OTTENERE COORDINATE GEOLOCALIZZAZIONE
-    $key = "&key=AIzaSyAP3Uq9YyadYgRoX3N_l4rKUN25UD6Zkgo";
-    $address = $validatedData['address']; // Google HQ
-    $prepAddr = str_replace(' ','+',$address);
-    $geocode=file_get_contents('https://maps.google.com/maps/api/geocode/json?address='.$prepAddr.'&sensor=false' . $key);
-    $output= json_decode($geocode);
-    $latitude = $output->results[0]->geometry->location->lat;
-    $longitude = $output->results[0]->geometry->location->lng;
-
-    // OTTENERE COORDINATE GEOLOCALIZZAZIONE (TomTom API)
-    // $key = "gvHkFTj7nzPqQoErkvrc7G0bmBdQX4RF";
-    // $address = $validatedData['address']; // Google HQ
-    // $prepAddr = str_replace(' ','+',$address);
-    // $geocode=file_get_contents('https://api.tomtom.com/search/2/geocode/'.$address .'.json?limit=1&key=' . $key);
-    // $output= json_decode($geocode);
-    // $latitude = $output->results[0]->position->lat;
-    // $longitude = $output->results[0]->position->lon;
 
     // ISTANZA DI UN NUOVO APPARTAMENTO
     $apartment = new Apartment;
@@ -95,21 +74,13 @@ class ApartmentController extends Controller
     $apartment -> bathrooms = $validatedData['bathrooms'];
     $apartment -> size = $validatedData['size'];
     $apartment -> address = $validatedData['address'];
-    $apartment -> latitude = $latitude;
-    $apartment -> longitude =$longitude;
+    $apartment -> latitude = getGeocode("lat", $validatedData);
+    $apartment -> longitude = getGeocode("lng", $validatedData);
     $apartment -> show = 1;
     $apartment -> user_id = $user -> id;
 
-    //VALIDAZIONE DELL'IMAGE CARICATA LATO CLIENT
-    $image = $request->file('picture');
-    $name = Str::slug($request->input('name')).'_'.time();
-    $ext = $image->getClientOriginalExtension();
-    $folder = '/uploads/images/';
-    $filePath = $folder . $name. '.' . $ext;
-
-    $apartment -> picture = $filePath;
-
-    $image->storeAs($folder, $name.'.'.$ext, "public");
+    //Convertire l'img in stringa accettata dal database ,validarla e salvarla
+    imgConverter($request, $apartment);
 
     $apartment -> save();
 
@@ -131,37 +102,20 @@ class ApartmentController extends Controller
     return view('edit', compact('apartment', 'services'));
   }
 
+  //Funzione per la rotta update
   public function update(Request $request, $id) {
     $validatedData = $request->validate([
       "name" => "required|string",
       "description" => "required|string",
-      "rooms" => "required|integer",
-      "beds" => "required|integer",
-      "bathrooms" => "required|integer",
+      "rooms" => "required|integer|min:1|max:50",
+      "beds" => "required|integer|min:1|max:50",
+      "bathrooms" => "required|integer|min:1|max:50",
       "size" => "required|numeric",
       "address" => "required|string",
       "picture" => "image|mimes:jpeg,bmp,png,jpg|max:5000",
       "services" => "nullable|array",
       "show" => "required|boolean"
     ]);
-
-    // OTTENERE COORDINATE GEOLOCALIZZAZIONE
-    $key = "&key=AIzaSyAP3Uq9YyadYgRoX3N_l4rKUN25UD6Zkgo";
-    $address = $validatedData['address']; // Google HQ
-    $prepAddr = str_replace(' ','+',$address);
-    $geocode=file_get_contents('https://maps.google.com/maps/api/geocode/json?address='.$prepAddr.'&sensor=false' . $key);
-    $output= json_decode($geocode);
-    $latitude = $output->results[0]->geometry->location->lat;
-    $longitude = $output->results[0]->geometry->location->lng;
-
-    // OTTENERE COORDINATE GEOLOCALIZZAZIONE (TomTom API)
-    // $key = "gvHkFTj7nzPqQoErkvrc7G0bmBdQX4RF";
-    // $address = $validatedData['address']; // Google HQ
-    // $prepAddr = str_replace(' ','+',$address);
-    // $geocode=file_get_contents('https://api.tomtom.com/search/2/geocode/'.$address .'.json?limit=1&key=' . $key);
-    // $output= json_decode($geocode);
-    // $latitude = $output->results[0]->position->lat;
-    // $longitude = $output->results[0]->position->lon;
 
     // ISTANZA DI UN NUOVO APPARTAMENTO
     $apartment = Apartment::findOrFail($id);
@@ -173,21 +127,13 @@ class ApartmentController extends Controller
     $apartment -> bathrooms = $validatedData['bathrooms'];
     $apartment -> size = $validatedData['size'];
     $apartment -> address = $validatedData['address'];
-    $apartment -> latitude = $latitude;
-    $apartment -> longitude = $longitude;
+    $apartment -> latitude = getGeocode("lat", $validatedData);
+    $apartment -> longitude = getGeocode("lng", $validatedData);
     $apartment -> show = $validatedData['show'];
 
     if (array_key_exists('picture', $validatedData)) {
-      //VALIDAZIONE DELL'IMAGE CARICATA LATO CLIENT
-      $image = $request->file('picture');
-      $name = Str::slug($request->input('name')).'_'.time();
-      $ext = $image->getClientOriginalExtension();
-      $folder = '/uploads/images/';
-      $filePath = $folder . $name. '.' . $ext;
-
-      $apartment -> picture = $filePath;
-
-      $image->storeAs($folder, $name.'.'.$ext, "public");
+      //Se l'utente decide di cambiare l'immagine, la riconverto e la salvo in database
+      imgConverter($request, $apartment);
     }
 
     $apartment -> save();
@@ -203,7 +149,9 @@ class ApartmentController extends Controller
     -> with("status","Appartamento modificato con successo");
   }
 
+  //Funzione per la rotta search
   public function search(Request $request) {
+
     $validatedData = $request->validate([
       'address' => 'required|string',
       'radius' => 'required|integer',
@@ -212,19 +160,11 @@ class ApartmentController extends Controller
       'services' => 'array'
     ]);
 
-
-    // OTTENERE COORDINATE GEOLOCALIZZAZIONE
-    $key = "&key=AIzaSyAP3Uq9YyadYgRoX3N_l4rKUN25UD6Zkgo";
-    $address = $validatedData['address']; // Google HQ
-    $prepAddr = str_replace(' ','+',$address);
-    $geocode=file_get_contents('https://maps.google.com/maps/api/geocode/json?address='.$prepAddr . $key);
-    $output= json_decode($geocode);
     //Se dall'input arriva un indirizzo valido
-    if($output->status == 'OK') {
-      $latitude = $output->results[0]->geometry->location->lat;
-      $longitude = $output->results[0]->geometry->location->lng;
-      $lat = $latitude;
-      $lng = $longitude;
+    if(getGeocode("status",$validatedData) == 'OK') {
+
+      $lat = getGeocode("lat", $validatedData);
+      $lng = getGeocode("lng", $validatedData);
       $distance = $validatedData['radius'];
 
       $query = Apartment::getByDistance($lat, $lng, $distance);
@@ -247,10 +187,8 @@ class ApartmentController extends Controller
       if(!count($apartments)) {
         return redirect()->route('home')->withErrors(['Nessun appartamento soddisfa le tue richieste.']);
       } else {
-        // dd($apartments);
         return view('search', compact('apartments'));
       }
-
     } else {
       return redirect()->route('home')->withErrors(['Inserisci un indirizzo valido']);
     }
@@ -286,4 +224,43 @@ class ApartmentController extends Controller
       }
     } return $apartments;
   }
+}
+// Funzione per ottenere lat e lon dall'indirizo passato dall'input
+function getGeocode($value, $validatedData){
+
+  $key = "&key=AIzaSyAP3Uq9YyadYgRoX3N_l4rKUN25UD6Zkgo";
+  $address = $validatedData['address'];
+  $prepAddr = str_replace(' ','+',$address);
+  $geocode=file_get_contents('https://maps.google.com/maps/api/geocode/json?address='.$prepAddr . $key);
+  $output= json_decode($geocode);
+  $latitude = $output->results[0]->geometry->location->lat;
+  $longitude = $output->results[0]->geometry->location->lng;
+
+  switch ($value) {
+    case 'lat':
+    return $latitude;
+    break;
+    case 'lng':
+    return $longitude;
+    break;
+    case 'status':
+    return $output -> status;
+    break;
+    default:
+    return false;
+    break;
+  }
+}
+
+//VALIDAZIONE DELL'IMAGE CARICATA LATO CLIENT
+function imgConverter($request, $apartment){
+  $image = $request->file('picture');
+  $name = Str::slug($request->input('name')).'_'.time();
+  $ext = $image->getClientOriginalExtension();
+  $folder = '/uploads/images/';
+  $filePath = $folder . $name. '.' . $ext;
+
+  $apartment -> picture = $filePath;
+
+  $image->storeAs($folder, $name.'.'.$ext, "public");
 }

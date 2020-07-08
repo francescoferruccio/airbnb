@@ -45,41 +45,42 @@ $( document ).ready(function() {
   }
 
   // Funzione MAPS Google
-  var dataAddress = $('.apartmentDetails').data('address');
-
-  var address = dataAddress.replace(' ','+');
-  console.log('address',address);
-  $.ajax({
-    url: "https://maps.googleapis.com/maps/api/geocode/json",
-    data:{
-      key: "AIzaSyAP3Uq9YyadYgRoX3N_l4rKUN25UD6Zkgo",
-      address: address,
-      limit: 1
-    },
-    method: "GET",
-    success: function(data,stato) {
-      console.log(data);
-      const jsonD = data.results;
-      if (jsonD.length) {
-        for (var i = 0; i < jsonD.length; i++) {
-          let obj = jsonD[i];
-          var lat = obj.geometry.location['lat'];
-          var lon = obj.geometry.location['lng'];
-          console.log('lat: ',lat);
-          console.log('lon: ',lon);
+  const location = window.location.href;
+  if (location.includes('show/')) {
+    var dataAddress = $('.apartmentDetails').data('address');
+    var address = dataAddress.replace(' ','+');
+    console.log('address',address);
+    $.ajax({
+      url: "https://maps.googleapis.com/maps/api/geocode/json",
+      data:{
+        key: "AIzaSyAP3Uq9YyadYgRoX3N_l4rKUN25UD6Zkgo",
+        address: address,
+        limit: 1
+      },
+      method: "GET",
+      success: function(data,stato) {
+        console.log(data);
+        const jsonD = data.results;
+        if (jsonD.length) {
+          for (var i = 0; i < jsonD.length; i++) {
+            let obj = jsonD[i];
+            var lat = obj.geometry.location['lat'];
+            var lon = obj.geometry.location['lng'];
+            console.log('lat: ',lat);
+            console.log('lon: ',lon);
+          }
+          initMap(lat,lon)
+        }else {
+          $('#map').html('<h2> Nessun riferimento geografico trovato</h2>')
         }
-        initMap(lat,lon)
-      }else {
-        $('#map').html('<h2> Nessun riferimento geografico trovato</h2>')
+
+      },
+      error: function(richiesta,stato,errore){
+        alert("Chiamata fallita!!!");
       }
+    });
 
-    },
-    error: function(richiesta,stato,errore){
-      alert("Chiamata fallita!!!");
-    }
-  });
-
-
+  }
   function initMap(lat,lon) {
     // map options
     var options = {
@@ -97,7 +98,12 @@ $( document ).ready(function() {
       position:{lat: lat, lng: lon},
       map: map
     });
+  }
 
+  function blockSpecialChar(e){
+        var k;
+        document.all ? k = e.keyCode : k = e.which;
+        return ((k > 64 && k < 91) || (k > 96 && k < 123) || k == 8 || k == 32 || (k >= 48 && k <= 57));
   }
 
 })
