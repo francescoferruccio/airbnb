@@ -14,3 +14,18 @@
     }
   }
 }
+
+.inbox {
+
+  table {
+    margin: auto;
+    max-width: 1100px;
+  }
+
+  table,
+  td,
+  tr,
+  th {
+    border: 1px solid black;
+  }
+}

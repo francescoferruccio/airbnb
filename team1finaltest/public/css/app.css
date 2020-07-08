@@ -41,6 +41,18 @@
   width: 50%;
 }
 
+.inbox table {
+  margin: auto;
+  max-width: 1100px;
+}
+
+.inbox table,
+.inbox td,
+.inbox tr,
+.inbox th {
+  border: 1px solid black;
+}
+
 /*!
  * Bootstrap v4.5.0 (https://getbootstrap.com/)
  * Copyright 2011-2020 The Bootstrap Authors

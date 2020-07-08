@@ -7,7 +7,11 @@
       <div class="col-md-6">
         <div class="card">
           <div class="card-header">{{ __('Inserisci il tuo appartamento') }}</div>
-
+          @if (session('status'))
+              <div class="alert alert-success" role="alert">
+                  {{ session('status') }}
+              </div>
+          @endif
           {{-- FORM PER CREAZIONE APPARTAMENTO --}}
           <div class="card-body">
             <form method="POST" action="{{ route('store', $user -> id) }}" enctype="multipart/form-data" role="form">

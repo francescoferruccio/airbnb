@@ -98,8 +98,12 @@ class ApartmentController extends Controller
   public function edit($id) {
     $apartment = Apartment::findOrFail($id);
     $services = Service::all();
-
-    return view('edit', compact('apartment', 'services'));
+    $userId = Auth::user()->id;
+    if ($apartment['user_id'] == $userId) {
+      return view('edit', compact('apartment', 'services'));
+    } else {
+      return redirect() -> back();
+    }
   }
 
   //Funzione per la rotta update
@@ -177,17 +181,34 @@ class ApartmentController extends Controller
       $ids = [];
 
       //Extract the id's
-      foreach($query as $apartment)
-      {
+      foreach($query as $apartment) {
         array_push($ids, $apartment->id);
       }
 
       // richiamo la funzione filtro e salvo il risultato
       $apartments = self::filter($ids, $validatedData);
+      $sponsored_id = [];
+      foreach ($apartments as $apartment) {
+        // ci ricaviamo gli id degli appartamenti filtrati con sponsorships attive
+        $sponsorship = $apartment -> sponsorships() -> where('apartment_sponsorship.end_sponsorship', '>', now()) ->get();
+        if(count($sponsorship)) {
+          $apt_id = $sponsorship[0]->pivot->apartment_id;
+          $sponsored_id[] = $apt_id;
+        }
+      }
+      // ci ricaviamo gli appartamenti corrispondenti agli id sponsorizzati
+      $sponsored_apts = [];
+      foreach ($sponsored_id as $id) {
+        $sponsored_apts[] = Apartment::findOrFail($id);
+      }
+
+      // eliminiamo i duplicati dagli appartamenti filtrati inizialmente
+      $notSponsored_apts = array_diff($apartments, $sponsored_apts);
+
       if(!count($apartments)) {
         return redirect()->route('home')->withErrors(['Nessun appartamento soddisfa le tue richieste.']);
       } else {
-        return view('search', compact('apartments'));
+        return view('search', compact('sponsored_apts', 'notSponsored_apts'));
       }
     } else {
       return redirect()->route('home')->withErrors(['Inserisci un indirizzo valido']);
