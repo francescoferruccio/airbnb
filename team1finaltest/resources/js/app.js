@@ -66,7 +66,37 @@ function start(){
       });
     }
       ricercaAvanzata();
+      scrollNav();
+      chiudiNav();
   };
+
+  // funzione mostra searchbar nav sullo scroll
+
+  function scrollNav(){
+    $(window).scroll(function() {
+      if ($(this).scrollTop()>190)
+      {
+        $('.navSearch').fadeIn(1000);
+      }
+      else
+      {
+        $('.navSearch').fadeOut(1000);
+        $(".apriSearch").hide();
+      }
+    });
+    $("#stileNavSearch").click(function(){
+      event.preventDefault();
+      $(".apriSearch").slideDown();
+  });
+  }
+
+  // x per chiudere la schermata di ricerca allargata nav
+  function chiudiNav(){
+    $(".closeSearch").on("click", function(){
+      $(".apriSearch").fadeOut(1000);
+    });
+  }
+
 
   // funzione mostra e nascondi ricerca avanzata
     function ricercaAvanzata(){

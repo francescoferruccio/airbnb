@@ -13,6 +13,15 @@
             <ul class="navbar-nav mr-auto">
 
             </ul>
+            {{-- searchbar a comparsa --}}
+            <div class="navSearch">
+              <div class="apriSearch">
+                Inserire searchbar
+                <div class="closeSearch">
+                </div>
+              </div>
+              <button id="stileNavSearch" type="button" name="button">Scegli dove andare</button>
+            </div>
 
             <!-- Right Side Of Navbar -->
             <ul class="navbar-nav ml-auto">

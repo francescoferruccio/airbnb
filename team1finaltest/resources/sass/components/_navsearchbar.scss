@@ -1,0 +1,52 @@
+.navSearch{
+  display: none;
+  #stileNavSearch{
+    border-radius: 24px;
+    background-color: transparent;
+    border: 0;
+    cursor: pointer;
+    box-shadow: rgba(0, 0, 0, 0.18) 0px 1px 2px;
+    font-weight: bold;
+    padding: 10px;
+    outline: 0;
+  }
+}
+
+.apriSearch{
+  background-color: white;
+  height: 50vh;
+  width: 100vw;
+  z-index: 2000;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  display: none;
+  .closeSearch{
+    z-index: 2100;
+    position: absolute;
+    top: 20px;
+    right: 200px;
+    cursor: pointer;
+    width: 32px;
+    height: 32px;
+    opacity: 0.3;
+  }
+  .closeSearch:hover {
+  opacity: 1;
+  }
+  .closeSearch:before, .closeSearch:after {
+  position: absolute;
+  left: 15px;
+  content: ' ';
+  height: 33px;
+  width: 2px;
+  background-color: #333;
+}
+.closeSearch:before {
+  transform: rotate(45deg);
+}
+.closeSearch:after {
+  transform: rotate(-45deg);
+}
+
+}
