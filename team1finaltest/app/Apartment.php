@@ -17,9 +17,9 @@ class Apartment extends Model
   {
     return $this->belongsTo(User::class);
   }
-  public function requests()
+  public function messages()
   {
-    return $this->hasMany(Request::class);
+    return $this->hasMany(Message::class);
   }
   public function views()
   {

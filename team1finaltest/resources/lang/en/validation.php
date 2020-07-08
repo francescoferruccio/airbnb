@@ -39,7 +39,7 @@ return [
     'digits_between' => 'The :attribute must be between :min and :max digits.',
     'dimensions' => 'The :attribute has invalid image dimensions.',
     'distinct' => 'The :attribute field has a duplicate value.',
-    'email' => 'The :attribute must be a valid email address.',
+    'email' => 'Il campo :attribute deve contenere un indirizzo email valido',
     'ends_with' => 'The :attribute must end with one of the following: :values.',
     'exists' => 'The selected :attribute is invalid.',
     'file' => 'The :attribute must be a file.',
@@ -77,7 +77,7 @@ return [
         'array' => 'The :attribute must not have more than :value items.',
     ],
     'max' => [
-        'numeric' => 'The :attribute may not be greater than :max.',
+        'numeric' => 'Il numero di :attribute non deve essere maggiore di :max.',
         'file' => 'The :attribute may not be greater than :max kilobytes.',
         'string' => 'The :attribute may not be greater than :max characters.',
         'array' => 'The :attribute may not have more than :max items.',
@@ -146,6 +146,12 @@ return [
     |
     */
 
-    'attributes' => [],
+    'attributes' => [
+      'bathrooms' => 'bagni',
+      'rooms' => 'stanze',
+      'beds' => 'letti',
+      'name' => 'nome',
+      'description' => 'descrizione'
+    ],
 
 ];

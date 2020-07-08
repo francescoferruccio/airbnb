@@ -22,6 +22,25 @@
   max-width: 1280px;
 }
 
+.messageContainer {
+  min-height: 70vh;
+  margin-top: 100px;
+}
+
+.messageContainer .formContainer {
+  width: 50%;
+  margin: auto;
+}
+
+.messageContainer .formContainer form {
+  display: flex;
+  flex-direction: column;
+}
+
+.messageContainer .formContainer form input[type=email] {
+  width: 50%;
+}
+
 /*!
  * Bootstrap v4.5.0 (https://getbootstrap.com/)
  * Copyright 2011-2020 The Bootstrap Authors

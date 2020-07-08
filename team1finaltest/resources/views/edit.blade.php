@@ -155,17 +155,26 @@
                                     </div>
                                   @endforeach
                                 </div>
+                                {{-- Visibilità annuncio --}}
                                 <div class="form-group row">
                                   <label for="show" class="col-md-4 col-form-label text-md-right">{{ __('Vuoi rendere il tuo annuncio visibile?') }}</label>
 
                                   <div class="col-md-6">
-                                    <div class="d-flex justify-content-start">
-                                      <label for="0">NO</label>
-                                      <input id="show" type="radio" class="form-control @error('picture') is-invalid @enderror" name="show" value="0" autocomplete="new-picture">
+                                    <div class="d-flex justify-content-start align-items-center">
+                                      <label for="0" style="width: 55px; margin: 0">NO</label>
+                                      <input type="radio" style="width: 20px" class="form-control @error('picture') is-invalid @enderror" name="show" value="0" autocomplete="new-picture"
+                                        @if ($apartment -> show == 0)
+                                          checked
+                                        @endif
+                                        >
                                     </div>
-                                    <div class="d-flex justify-content-start">
-                                      <label for="1">SI</label>
-                                      <input id="show" type="radio" class="form-control @error('picture') is-invalid @enderror" name="show" value="1" autocomplete="new-picture">
+                                    <div class="d-flex justify-content-start align-items-center">
+                                      <label for="1" style="width: 55px; margin: 0">SI</label>
+                                      <input  type="radio" style="width: 20px" class="form-control @error('picture') is-invalid @enderror" name="show" value="1" autocomplete="new-picture"
+                                        @if ($apartment -> show == 1)
+                                          checked
+                                        @endif
+                                        >
                                     </div>
                                       @error('picture')
                                         <span class="invalid-feedback" role="alert">

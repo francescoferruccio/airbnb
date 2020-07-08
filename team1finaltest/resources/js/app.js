@@ -6,7 +6,51 @@ require('./bootstrap');
 //     el: '#app',
 // });
 
-$( document ).ready(function() {
+
+function start(){
+
+    init();
+
+    // Funzione MAPS Google
+    const location = window.location.href;
+    if (location.includes('show/')) {
+      var dataAddress = $('.apartmentDetails').data('address');
+      var address = dataAddress.replace(' ','+');
+      console.log('address',address);
+      $.ajax({
+        url: "https://maps.googleapis.com/maps/api/geocode/json",
+        data:{
+          key: "AIzaSyAP3Uq9YyadYgRoX3N_l4rKUN25UD6Zkgo",
+          address: address,
+          limit: 1
+        },
+        method: "GET",
+        success: function(data,stato) {
+          console.log(data);
+          const jsonD = data.results;
+          if (jsonD.length) {
+            for (var i = 0; i < jsonD.length; i++) {
+              let obj = jsonD[i];
+              var lat = obj.geometry.location['lat'];
+              var lon = obj.geometry.location['lng'];
+              console.log('lat: ',lat);
+              console.log('lon: ',lon);
+            }
+            initMap(lat,lon)
+          }else {
+            $('#map').html('<h2> Nessun riferimento geografico trovato</h2>')
+          }
+
+        },
+        error: function(richiesta,stato,errore){
+          alert("Chiamata fallita!!!");
+        }
+      });
+    }
+
+
+
+}
 
   // Algolia autocomplete script
   function init(){
@@ -31,9 +75,8 @@ $( document ).ready(function() {
       });
     }
 
-
   //Slider della searchBar (Raggio KM)
-  init();
+
   function rangeSlider(){
     var slider = document.getElementById("myRange");
     var output = document.getElementById("demo");
@@ -44,43 +87,6 @@ $( document ).ready(function() {
     };
   }
 
-  // Funzione MAPS Google
-  const location = window.location.href;
-  if (location.includes('show/')) {
-    var dataAddress = $('.apartmentDetails').data('address');
-    var address = dataAddress.replace(' ','+');
-    console.log('address',address);
-    $.ajax({
-      url: "https://maps.googleapis.com/maps/api/geocode/json",
-      data:{
-        key: "AIzaSyAP3Uq9YyadYgRoX3N_l4rKUN25UD6Zkgo",
-        address: address,
-        limit: 1
-      },
-      method: "GET",
-      success: function(data,stato) {
-        console.log(data);
-        const jsonD = data.results;
-        if (jsonD.length) {
-          for (var i = 0; i < jsonD.length; i++) {
-            let obj = jsonD[i];
-            var lat = obj.geometry.location['lat'];
-            var lon = obj.geometry.location['lng'];
-            console.log('lat: ',lat);
-            console.log('lon: ',lon);
-          }
-          initMap(lat,lon)
-        }else {
-          $('#map').html('<h2> Nessun riferimento geografico trovato</h2>')
-        }
-
-      },
-      error: function(richiesta,stato,errore){
-        alert("Chiamata fallita!!!");
-      }
-    });
-
-  }
   function initMap(lat,lon) {
     // map options
     var options = {
@@ -100,10 +106,5 @@ $( document ).ready(function() {
     });
   }
 
-  function blockSpecialChar(e){
-        var k;
-        document.all ? k = e.keyCode : k = e.which;
-        return ((k > 64 && k < 91) || (k > 96 && k < 123) || k == 8 || k == 32 || (k >= 48 && k <= 57));
-  }
 
-})
+$( document ).ready(start);

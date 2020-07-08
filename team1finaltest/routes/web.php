@@ -24,3 +24,7 @@ Route::get('/edit/{id}', 'ApartmentController@edit')->name('edit');
 Route::post('/update/{id}', 'ApartmentController@update')->name('update');
 //SEARCH
 Route::post('/search', 'ApartmentController@search')->name('search');
+//Message
+Route::get('/message/{id}', 'MessageController@message')->name('message');
+//Sent
+Route::post('/sent/{id}', 'MessageController@sent')->name('sent');

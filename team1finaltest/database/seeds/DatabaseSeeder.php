@@ -69,7 +69,7 @@ class DatabaseSeeder extends Seeder
         $this->call([
          UsersSeeder::class,
          ApartmentsSeeder::class,
-         RequestsSeeder::class,
+         MessagesSeeder::class,
          ViewsSeeder::class,
        ]);
     }

@@ -29,7 +29,7 @@ class AddForeignKeys extends Migration
 
 
       });
-      Schema::table('requests', function (Blueprint $table) {
+      Schema::table('messages', function (Blueprint $table) {
 
 
           $table->foreign("apartment_id", "apartmentreq")->references("id")->on("apartments")->onDelete("cascade");
@@ -74,7 +74,7 @@ class AddForeignKeys extends Migration
 
       });
 
-      Schema::table('requests', function (Blueprint $table) {
+      Schema::table('messages', function (Blueprint $table) {
 
         $table->dropForeign("apartmentreq");
 

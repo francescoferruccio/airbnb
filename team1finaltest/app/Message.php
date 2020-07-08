@@ -4,9 +4,9 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Request extends Model
+class Message extends Model
 {
-  protected $table = "requests";
+  protected $table = "messages";
 
   public function apartment()
   {

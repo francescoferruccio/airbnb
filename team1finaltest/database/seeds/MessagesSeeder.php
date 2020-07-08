@@ -2,8 +2,8 @@
 
 use Illuminate\Database\Seeder;
 use App\Apartment;
-use App\Request;
-class RequestsSeeder extends Seeder
+use App\Message;
+class MessagesSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -12,11 +12,11 @@ class RequestsSeeder extends Seeder
      */
     public function run()
     {
-      factory(Request::class, 60) -> make() -> each(function($request){
+      factory(Message::class, 60) -> make() -> each(function($message){
 
         $apartment = Apartment::inRandomOrder() -> first();
-        $request -> apartment() -> associate($apartment);
-        $request -> save();
+        $message -> apartment() -> associate($apartment);
+        $message -> save();
       });
     }
 }

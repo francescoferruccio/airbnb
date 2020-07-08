@@ -1,0 +1,16 @@
+.messageContainer{
+  min-height: 70vh;
+  margin-top: 100px;
+  .formContainer{
+    width: 50%;
+    margin: auto;
+    form{
+      display: flex;
+      flex-direction: column;
+      input[type="email"]{
+        width: 50%;
+      }
+
+    }
+  }
+}

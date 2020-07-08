@@ -47694,47 +47694,8 @@ __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js"); // window
 // });
 
 
-$(document).ready(function () {
-  // Algolia autocomplete script
-  function init() {
-    if ($('.searchBar').length) {
-      rangeSlider();
-    }
-
-    if ($('#address-input').length) {
-      var places = __webpack_require__(/*! places.js */ "./node_modules/places.js/index.js");
-
-      var placesAutocomplete = places({
-        appId: 'pl790YEJF771',
-        apiKey: 'd7b6722b1028dec18f077435d29bbe21',
-        container: document.querySelector('#address-input')
-      });
-    }
-
-    ricercaAvanzata();
-  }
-
-  ; // funzione mostra e nascondi ricerca avanzata
-
-  function ricercaAvanzata() {
-    $("#ricercaAvanzata").click(function () {
-      $("#containerRicercaAvanzata").fadeToggle("slow");
-    });
-  } //Slider della searchBar (Raggio KM)
-
-
-  init();
-
-  function rangeSlider() {
-    var slider = document.getElementById("myRange");
-    var output = document.getElementById("demo");
-    output.innerHTML = slider.value;
-
-    slider.oninput = function () {
-      output.innerHTML = this.value;
-    };
-  } // Funzione MAPS Google
-
+function start() {
+  init(); // Funzione MAPS Google
 
   var location = window.location.href;
 
@@ -47773,34 +47734,68 @@ $(document).ready(function () {
       }
     });
   }
+} // Algolia autocomplete script
 
-  function initMap(lat, lon) {
-    // map options
-    var options = {
-      zoom: 15,
-      center: {
-        lat: lat,
-        lng: lon
-      }
-    }; // new map
 
-    var map = new google.maps.Map(document.getElementById('map'), options); //add markers
+function init() {
+  if ($('.searchBar').length) {
+    rangeSlider();
+  }
 
-    var marker = new google.maps.Marker({
-      position: {
-        lat: lat,
-        lng: lon
-      },
-      map: map
+  if ($('#address-input').length) {
+    var places = __webpack_require__(/*! places.js */ "./node_modules/places.js/index.js");
+
+    var placesAutocomplete = places({
+      appId: 'pl790YEJF771',
+      apiKey: 'd7b6722b1028dec18f077435d29bbe21',
+      container: document.querySelector('#address-input')
     });
   }
 
-  function blockSpecialChar(e) {
-    var k;
-    document.all ? k = e.keyCode : k = e.which;
-    return k > 64 && k < 91 || k > 96 && k < 123 || k == 8 || k == 32 || k >= 48 && k <= 57;
-  }
-});
+  ricercaAvanzata();
+}
+
+; // funzione mostra e nascondi ricerca avanzata
+
+function ricercaAvanzata() {
+  $("#ricercaAvanzata").click(function () {
+    $("#containerRicercaAvanzata").fadeToggle("slow");
+  });
+} //Slider della searchBar (Raggio KM)
+
+
+function rangeSlider() {
+  var slider = document.getElementById("myRange");
+  var output = document.getElementById("demo");
+  output.innerHTML = slider.value;
+
+  slider.oninput = function () {
+    output.innerHTML = this.value;
+  };
+}
+
+function initMap(lat, lon) {
+  // map options
+  var options = {
+    zoom: 15,
+    center: {
+      lat: lat,
+      lng: lon
+    }
+  }; // new map
+
+  var map = new google.maps.Map(document.getElementById('map'), options); //add markers
+
+  var marker = new google.maps.Marker({
+    position: {
+      lat: lat,
+      lng: lon
+    },
+    map: map
+  });
+}
+
+$(document).ready(start);
 
 /***/ }),
 
