@@ -6,11 +6,17 @@
 
   <div class="apartmentDetails" data-address="{{$apartment -> address}}">
     <div class="photoApartmentName">
-      <img src="../images/carduno.jpg" alt="">
-      <h3>Nome: {{$apartment -> name}} </h3>
+      <div class="housename">
+        <h3>Nome: {{$apartment -> name}} </h3>
+      </div>
+      <div class="houseimg">
+        <img src="../images/carduno.jpg" alt="">
+      </div>
     </div>
     <div class="contaninerMap">
-      <h2>Posizione nella mappa</h2>
+      <div class="maptitle">
+        <h2>Posizione nella mappa</h2>
+      </div>
       <div id="map">
         {{-- WARNING:  lasciare vuoto, contenuto mappa dinamico --}}
       </div>

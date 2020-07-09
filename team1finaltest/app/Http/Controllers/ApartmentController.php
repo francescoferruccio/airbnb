@@ -201,7 +201,7 @@ class ApartmentController extends Controller
       }
 
       // eliminiamo i duplicati dagli appartamenti filtrati inizialmente
-      $notSponsored_apts = array_diff($apartments, $sponsored_apts);
+      $notSponsored_apts = array_diff_key($apartments, $sponsored_apts);
 
       if(!count($apartments)) {
         return redirect()->route('home')->withErrors(['Nessun appartamento soddisfa le tue richieste.']);
@@ -236,10 +236,10 @@ class ApartmentController extends Controller
 
             // controllo corrispondenza tra servizi richiesti e servizi dell'appartamento
             if((count($finalArray) == $count)) {
-              $apartments[] = Apartment::findOrFail($id);
+              $apartments[] = $apartment;
             }
           } else {
-            $apartments[] = Apartment::findOrFail($id);
+            $apartments[] = $apartment;
           }
         }
       }
