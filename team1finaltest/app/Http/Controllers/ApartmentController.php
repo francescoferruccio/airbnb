@@ -155,7 +155,6 @@ class ApartmentController extends Controller
 
   //Funzione per la rotta search
   public function search(Request $request) {
-    dd($request);
     $validatedData = $request->validate([
       'address' => 'required|string',
       'radius' => 'required|integer',
