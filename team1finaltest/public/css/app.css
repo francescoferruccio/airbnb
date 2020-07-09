@@ -11,8 +11,9 @@
 
 .showContainer .apartmentDetails {
   display: flex;
-  width: 100%;
+  width: 80%;
   height: auto;
+  margin: 0 auto;
   padding-bottom: 20px;
   border-bottom: 2px solid #FF385C;
 }
@@ -54,20 +55,24 @@
 }
 
 .showContainer .provashow {
+  width: 80%;
+  margin: 0 auto;
   display: flex;
+  padding: 20px 0;
 }
 
 .showContainer .provashow p {
   width: 60%;
   margin-right: 5%;
+  font-size: 20px;
 }
 
 .showContainer .provashow ul {
   width: 40%;
 }
 
-.containerTotPropr {
-  display: flex;
+.showContainer .provashow ul li {
+  font-size: 20px;
 }
 
 .crud-container {
@@ -80,20 +85,41 @@
 .messageContainer {
   min-height: 70vh;
   margin-top: 100px;
+  width: 80%;
+  margin: 0 auto;
+  border-top: 2px solid #FF385C;
+  height: 500px;
+  padding-top: 150px;
 }
 
 .messageContainer .formContainer {
   width: 50%;
   margin: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .messageContainer .formContainer form {
   display: flex;
   flex-direction: column;
+  align-items: center;
 }
 
 .messageContainer .formContainer form input[type=email] {
   width: 50%;
+  border-radius: 10px;
+  text-align: center;
+}
+
+.messageContainer .formContainer form textarea {
+  border-radius: 10px;
+  margin: 20px 0;
+}
+
+.messageContainer .formContainer form input[type=submit] {
+  width: 50%;
+  border-radius: 10px;
 }
 
 .inbox table {
@@ -17458,6 +17484,7 @@ readers do not read off random characters that represent icons */
   display: flex;
   padding: 10px 150px;
   border-bottom: 1px solid lightgrey;
+  background-color: #FF385C;
 }
 
 .footer ul {

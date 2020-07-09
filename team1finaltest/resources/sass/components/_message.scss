@@ -1,16 +1,37 @@
 .messageContainer{
   min-height: 70vh;
   margin-top: 100px;
+  width: 80%;
+  margin: 0 auto;
+  border-top: 2px solid #FF385C;
+  height: 500px;
+  padding-top: 150px;
   .formContainer{
     width: 50%;
     margin: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+
     form{
       display: flex;
       flex-direction: column;
+      align-items: center;
       input[type="email"]{
         width: 50%;
+        border-radius: 10px;
+        text-align: center;
       }
+      textarea{
+        border-radius: 10px;
+        margin: 20px 0;
+      }
+        input[type="submit"]{
+        width: 50%;
+        border-radius: 10px;
 
+      }
     }
   }
 }

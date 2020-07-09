@@ -20,11 +20,11 @@
     <div class="provashow">
       <p> <strong>Description:</strong> {{$apartment -> description}} </p>
       <ul>
-        <li><i class="fa fa-wifi" aria-hidden="true"></i>ssss</li>
-        <li>gggg</li>
-        <li>gggg</li>
-        <li>gggg</li>
-        <li>ggggg</li>
+        <li><i class="fa fa-wifi" aria-hidden="true"></i>     Wi-fi</li>
+        <li><i class="fa fa-car" aria-hidden="true"></i>     Posto Auto</li>
+        <li><i class="fa fa-tint" aria-hidden="true"></i>     Sauna</li>
+        <li><i class="fa fa-user" aria-hidden="true"></i>     Portineria</li>
+        <li><i class="fa fa-window-maximize" aria-hidden="true"></i>     Vista Mare</li>
       </ul>
     </div>
 
@@ -49,7 +49,7 @@
             <h2>{{$errors->first()}}</h2>
           @endif
 
-        <input type="email" name="email" placeholder="ex. mario@rossi@gmail.com" value=@auth
+        <input class="email" type="email" name="email" placeholder="ex. mario@rossi@gmail.com" value=@auth
           "{{Auth::user() -> email}}" readonly
         @endauth >
         <textarea name="message" rows="8" cols="80" placeholder="Inserisci la domanda per il proprietario dell'appartamento..."></textarea>
