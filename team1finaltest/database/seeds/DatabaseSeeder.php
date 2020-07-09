@@ -70,7 +70,7 @@ class DatabaseSeeder extends Seeder
          UsersSeeder::class,
          ApartmentsSeeder::class,
          MessagesSeeder::class,
-         ViewsSeeder::class,
+         // ViewsSeeder::class,
        ]);
     }
 

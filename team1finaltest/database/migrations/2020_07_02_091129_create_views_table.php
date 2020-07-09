@@ -16,6 +16,8 @@ class CreateViewsTable extends Migration
         Schema::create('views', function (Blueprint $table) {
             $table->id();
             $table->bigInteger("apartment_id")->unsigned()->index();
+            $table->string('ip_address', 45)->nullable();
+            $table->dateTime('expiry');
             $table->timestamps();
         });
     }
