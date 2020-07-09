@@ -162,7 +162,6 @@ class ApartmentController extends Controller
       'beds' => 'required|integer',
       'services' => 'array'
     ]);
-
     //Se dall'input arriva un indirizzo valido
     if(getGeocode("status",$validatedData) == 'OK') {
 
@@ -218,9 +217,9 @@ class ApartmentController extends Controller
   // FUNZIONE FILTRO PARAMETRI RICERCA
   public function filter($ids, $validatedData) {
     $apartments = [];
-    $apServices = [];
     // Pusho dentro apartments gli appartamenti con gli id che ritornano dalla ricerca, gia ordinati per distanza
     foreach ($ids as $id) {
+      $apServices = [];
       $apartment = Apartment::findOrFail($id);
       // se l'appartamento è visibile
       if($apartment['show'] == 1) {
@@ -233,8 +232,10 @@ class ApartmentController extends Controller
               $apServices[] = $service->id;
             }
             $count = count($reqServices);
+            $finalArray = array_intersect($apServices, $reqServices);
+
             // controllo corrispondenza tra servizi richiesti e servizi dell'appartamento
-            if((count(array_intersect($apServices, $reqServices)) == $count)) {
+            if((count($finalArray) == $count)) {
               $apartments[] = Apartment::findOrFail($id);
             }
           } else {
@@ -242,7 +243,8 @@ class ApartmentController extends Controller
           }
         }
       }
-    } return $apartments;
+    }
+    return $apartments;
   }
 }
 // Funzione per ottenere lat e lon dall'indirizo passato dall'input
