@@ -4,6 +4,11 @@
   @foreach ($sponsored_apts as $sponsored)
     <h2>ID: {{ $sponsored['id'] }}</h2>
     <h2>NAME: {{ $sponsored['name'] }}</h2>
+    <ul>
+      @foreach ($sponsored -> services as $service)
+        <li>{{ $service['name'] }}</li>
+      @endforeach
+    </ul>
   @endforeach
 @endif
 
@@ -12,4 +17,9 @@
 @foreach ($notSponsored_apts as $notSponsored)
   <h2>ID: {{ $notSponsored['id'] }}</h2>
   <h2>NAME: {{ $notSponsored['name'] }}</h2>
+  <ul>
+    @foreach ($notSponsored -> services as $service)
+      <li>{{ $service['name'] }}</li>
+    @endforeach
+  </ul>
 @endforeach

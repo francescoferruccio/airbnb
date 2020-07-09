@@ -9,6 +9,8 @@
 @import 'components/navsearchbar';
 // Bootstrap
 @import '~bootstrap/scss/bootstrap';
+@import '~@fortawesome/fontawesome-free/scss/fontawesome.scss';
+@import '~@fortawesome/fontawesome-free/scss/solid.scss';
 
 *{
   box-sizing: border-box;
@@ -41,7 +43,7 @@
   }
 }
 
-.inputField{
+.inputField {
   display: flex;
   flex-grow: 1;
   height: 68px;
