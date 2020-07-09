@@ -5,9 +5,71 @@
   width: 100%;
   display: flex;
   flex-direction: column;
-  #map{
-    height: 400px;
-    width: auto;
-    max-width: 660px;
+  .apartmentDetails{
+    display: flex;
+    width: 100%;
+    height: auto;
+    padding-bottom: 20px;
+    border-bottom: 2px solid #FF385C;
+
+
+    .photoApartmentName{
+      display: flex;
+      justify-content: center;
+      position: relative;
+      width: 50%;
+
+      img{
+        width: 50%;
+        height: auto;
+        border-radius: 20px;
+        // position: relative;
+      }
+
+      h3{
+        position: absolute;
+        left:3%;
+        top:2%;
+        color: #FF385C;
+        font-weight: bolder;
+        border: 1px solid;
+        padding: 3px;
+        box-shadow: 5px 10px rgba(#888888, 0.31);
+        border-radius: 10px;
+      }
+
+    }
+    .contaninerMap{
+      width:50%;
+      height: 100%;
+      #map{
+        height: 300px;
+        max-width: 660px;
+        border-radius: 20px;
+      }
+    }
   }
+
+  .provashow{
+    display: flex;
+    p{
+      width: 60%;
+      margin-right: 5%;
+    }
+    ul{
+      width: 40%;
+    }
+  }
+
+
+}
+
+
+
+
+
+
+.containerTotPropr{
+ display: flex;
+
 }

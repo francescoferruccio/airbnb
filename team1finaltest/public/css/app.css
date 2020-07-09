@@ -9,10 +9,65 @@
   flex-direction: column;
 }
 
-.showContainer #map {
-  height: 400px;
-  width: auto;
+.showContainer .apartmentDetails {
+  display: flex;
+  width: 100%;
+  height: auto;
+  padding-bottom: 20px;
+  border-bottom: 2px solid #FF385C;
+}
+
+.showContainer .apartmentDetails .photoApartmentName {
+  display: flex;
+  justify-content: center;
+  position: relative;
+  width: 50%;
+}
+
+.showContainer .apartmentDetails .photoApartmentName img {
+  width: 50%;
+  height: auto;
+  border-radius: 20px;
+}
+
+.showContainer .apartmentDetails .photoApartmentName h3 {
+  position: absolute;
+  left: 3%;
+  top: 2%;
+  color: #FF385C;
+  font-weight: bolder;
+  border: 1px solid;
+  padding: 3px;
+  box-shadow: 5px 10px rgba(136, 136, 136, 0.31);
+  border-radius: 10px;
+}
+
+.showContainer .apartmentDetails .contaninerMap {
+  width: 50%;
+  height: 100%;
+}
+
+.showContainer .apartmentDetails .contaninerMap #map {
+  height: 300px;
   max-width: 660px;
+  border-radius: 20px;
+}
+
+.showContainer .provashow {
+  display: flex;
+}
+
+.showContainer .provashow p {
+  width: 60%;
+  margin-right: 5%;
+}
+
+.showContainer .provashow ul {
+  width: 40%;
+}
+
+.containerTotPropr {
+  display: flex;
 }
 
 .crud-container {
