@@ -214,6 +214,13 @@
   transform: rotate(-45deg);
 }
 
+.statsContainer {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+}
+
 /*!
  * Bootstrap v4.5.0 (https://getbootstrap.com/)
  * Copyright 2011-2020 The Bootstrap Authors

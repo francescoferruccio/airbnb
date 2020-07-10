@@ -5,6 +5,7 @@ use App\User;
 use App\Apartment;
 use App\Service;
 use App\View;
+use App\Message;
 use Str;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
@@ -215,6 +216,31 @@ class ApartmentController extends Controller
       return redirect()->route('home')->withErrors(['Inserisci un indirizzo valido']);
     }
 
+  }
+
+  public function stats($id) {
+    $apartment = Apartment::findOrFail($id);
+
+    $days = 7;
+    $lastWeekViews = [];
+    $lastWeekMsgs = [];
+    $date = [];
+    $last7days = today()->subDays($days)->toDateString();
+    $apartmentViews = $apartment -> views;
+    $apartmentMsgs = Message::where('apartment_id', $id)->get();
+    // dd($apartmentMsgs);
+
+    for ($i=$days; $i > 0; $i--) {
+      $views = $apartmentViews->where('created_at', '<=', today()->subDays($i-2))->where('created_at', '>=', today()->subDays($i-1));
+      $msg = $apartmentMsgs->where('created_at', '<=', today()->subDays($i-2))->where('created_at', '>=', today()->subDays($i-1));
+      $date[] = now()->subDays($i-1)->format('l');
+      $lastWeekViews[] = $views->count();
+      $lastWeekMsgs[] = $msg->count();
+    }
+
+    $messages = Message::where('apartment_id', $id)->get();
+
+    return view('stats', compact('lastWeekViews', 'lastWeekMsgs', 'date'));
   }
 
   // FUNZIONE FILTRO PARAMETRI RICERCA

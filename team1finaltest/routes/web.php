@@ -25,3 +25,5 @@ Route::get('/message/{id}', 'MessageController@message')->name('message');
 Route::post('/sent/{id}', 'MessageController@sent')->name('sent');
 //Casella messaggi
 Route::get('/inbox', 'MessageController@inbox')->name('inbox')->middleware('auth');
+//Pagina statistiche appartamento
+Route::get('/stats/{id}', 'ApartmentController@stats')->name('stats')->middleware('auth');

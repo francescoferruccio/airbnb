@@ -52,8 +52,8 @@ function start(){
 
 }
 
-  // Algolia autocomplete script
   function init(){
+    // Algolia autocomplete script
     if ($('.searchBar').length) {
       rangeSlider();
     }
@@ -65,9 +65,10 @@ function start(){
         container: document.querySelector('#address-input')
       });
     }
-      ricercaAvanzata();
-      scrollNav();
-      chiudiNav();
+
+    ricercaAvanzata();
+    scrollNav();
+    chiudiNav();
   };
 
   // funzione mostra searchbar nav sullo scroll
