@@ -13,7 +13,7 @@
     height: 450px;
     margin: 0 auto;
     padding-bottom: 20px;
-    border-bottom: 2px solid #FF385C;
+
 
 
     .photoApartmentName{
@@ -43,6 +43,7 @@
             max-width: 440px;
             height: 300px;
             border-radius: 20px;
+            box-shadow: 5px 10px rgba(136, 136, 136, 0.31);
           }
         }
     }
@@ -62,27 +63,28 @@
         max-width: 440px;
         border-radius: 20px;
         min-width: 300px;
+        box-shadow: 5px 10px rgba(136, 136, 136, 0.31);
       }
     }
   }
 
-  .provashow{
-    width: 80%;
-    margin: 0 auto;
-    display: flex;
-    padding:20px 0;
-    p{
-      width: 60%;
-      margin-right: 5%;
-      font-size: 20px;
-    }
-    ul{
-      width: 40%;
-      li{
+    .provashow{
+      width: 80%;
+      margin: 0 auto;
+      display: flex;
+      padding:20px 0;
+      border-bottom: 2px solid #FF385C;
+      border-top: 2px solid #FF385C;
+      p{
+        width: 60%;
+        margin-right: 5%;
         font-size: 20px;
       }
+      ul{
+        width: 40%;
+        li{
+          font-size: 20px;
+        }
+      }
     }
   }
-
-
-}

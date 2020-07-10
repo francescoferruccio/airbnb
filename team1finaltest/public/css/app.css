@@ -17,7 +17,6 @@
   height: 450px;
   margin: 0 auto;
   padding-bottom: 20px;
-  border-bottom: 2px solid #FF385C;
 }
 
 .showContainer .apartmentDetails .photoApartmentName {
@@ -53,6 +52,7 @@
   max-width: 440px;
   height: 300px;
   border-radius: 20px;
+  box-shadow: 5px 10px rgba(136, 136, 136, 0.31);
 }
 
 .showContainer .apartmentDetails .contaninerMap {
@@ -73,6 +73,7 @@
   max-width: 440px;
   border-radius: 20px;
   min-width: 300px;
+  box-shadow: 5px 10px rgba(136, 136, 136, 0.31);
 }
 
 .showContainer .provashow {
@@ -80,6 +81,8 @@
   margin: 0 auto;
   display: flex;
   padding: 20px 0;
+  border-bottom: 2px solid #FF385C;
+  border-top: 2px solid #FF385C;
 }
 
 .showContainer .provashow p {
@@ -104,13 +107,12 @@
 }
 
 .messageContainer {
-  min-height: 70vh;
+  min-height: 50vh;
   margin-top: 100px;
-  width: 80%;
+  width: 100%;
   margin: 0 auto;
-  border-top: 2px solid #FF385C;
-  height: 500px;
-  padding-top: 150px;
+  height: 300px;
+  padding-top: 50px;
 }
 
 .messageContainer .formContainer {
@@ -17536,4 +17538,136 @@ readers do not read off random characters that represent icons */
 }
 
 /* fine footer */
+
+@media screen and (max-width: 800px) {
+  .showContainer {
+    margin-top: 70px;
+    min-height: 70vh;
+    padding: 30px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .showContainer .apartmentDetails {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    min-width: 100%;
+    height: 100%;
+    margin: 0 auto;
+    padding-bottom: 20px;
+    border-bottom: 2px solid #FF385C;
+  }
+
+  .showContainer .apartmentDetails .photoApartmentName {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    width: 100%;
+  }
+
+  .showContainer .apartmentDetails .photoApartmentName .housename {
+    height: 10%;
+  }
+
+  .showContainer .apartmentDetails .photoApartmentName .housename h3 {
+    font-weight: bolder;
+    border: 1px solid #FF385C;
+    padding: 3px;
+    box-shadow: 5px 10px rgba(136, 136, 136, 0.31);
+    border-radius: 10px;
+    width: 60%;
+    min-width: 200px;
+    margin-bottom: 20px;
+  }
+
+  .showContainer .apartmentDetails .photoApartmentName .houseimg {
+    height: 250px;
+  }
+
+  .showContainer .apartmentDetails .photoApartmentName .houseimg img {
+    width: 100%;
+    min-width: 220px;
+    max-width: 300px;
+    height: 220px;
+    border-radius: 20px;
+    box-shadow: 5px 10px rgba(136, 136, 136, 0.31);
+  }
+
+  .showContainer .apartmentDetails .contaninerMap {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+  }
+
+  .showContainer .apartmentDetails .contaninerMap .maptitle {
+    height: 10%;
+    border: 2px solid #FF385C;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    box-shadow: 5px 10px rgba(136, 136, 136, 0.31);
+    padding: 5px;
+  }
+
+  .showContainer .apartmentDetails .contaninerMap #map {
+    height: 300px;
+    width: 100%;
+    max-width: 440px;
+    border-radius: 20px;
+    min-width: 300px;
+    box-shadow: 5px 10px rgba(136, 136, 136, 0.31);
+  }
+
+  .showContainer .provashow {
+    width: 100%;
+    margin: 0 auto;
+    display: flex;
+    padding: 20px 0;
+  }
+
+  .showContainer .provashow p {
+    width: 60%;
+    margin-right: 5%;
+    font-size: 20px;
+  }
+
+  .showContainer .provashow ul {
+    width: 40%;
+  }
+
+  .showContainer .provashow ul li {
+    font-size: 20px;
+  }
+
+  .footer {
+    min-height: 15vh;
+    display: flex;
+    padding: 50px;
+    border-bottom: 1px solid lightgrey;
+    background-color: #FF385C;
+    width: 100%;
+  }
+
+  .footer ul {
+    width: 100%;
+  }
+
+  .footer ul li {
+    list-style-type: none;
+  }
+
+  .footer ul li a {
+    text-decoration: none;
+    color: grey;
+    font-size: 14px;
+    line-height: 30px;
+  }
+}
 

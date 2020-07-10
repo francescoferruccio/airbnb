@@ -388,3 +388,126 @@
 }
 
 /* fine footer */
+
+
+// media query SHOW------------------------------>
+  @media screen and (max-width: 800px) {
+  .showContainer{
+    margin-top: 70px;
+    min-height: 70vh;
+    padding: 30px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    .apartmentDetails{
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+      min-width: 100%;
+      height: 100%;
+      margin: 0 auto;
+      padding-bottom: 20px;
+      border-bottom: 2px solid #FF385C;
+
+
+      .photoApartmentName{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        position: relative;
+        width: 100%;
+        .housename{
+          height: 10%;
+            h3{
+              font-weight: bolder;
+              border: 1px solid #FF385C;
+              padding: 3px;
+              box-shadow: 5px 10px rgba(136, 136, 136, 0.31);
+              border-radius: 10px;
+              width: 60%;
+              min-width: 200px;
+              margin-bottom: 20px;
+            }
+          }
+          .houseimg{
+            height: 250px;
+            img{
+              width: 100%;
+              min-width: 220px;
+              max-width: 300px;
+              height: 220px;
+              border-radius: 20px;
+              box-shadow: 5px 10px rgba(136, 136, 136, 0.31);
+            }
+          }
+      }
+
+      .contaninerMap{
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        align-items: center;
+        .maptitle{
+          height: 10%;
+          border: 2px solid #FF385C;
+          border-radius: 10px;
+          margin-bottom: 20px;
+          box-shadow: 5px 10px rgba(136, 136, 136, 0.31);
+          padding: 5px;
+        }
+        #map{
+          height: 300px;
+          width: 100%;
+          max-width: 440px;
+          border-radius: 20px;
+          min-width: 300px;
+          box-shadow: 5px 10px rgba(136, 136, 136, 0.31);
+
+        }
+      }
+    }
+
+      .provashow{
+        width: 100%;
+        margin: 0 auto;
+        display: flex;
+        padding:20px 0;
+        p{
+          width: 60%;
+          margin-right: 5%;
+          font-size: 20px;
+        }
+        ul{
+          width: 40%;
+          li{
+            font-size: 20px;
+          }
+        }
+      }
+    }
+    .footer{
+      min-height: 15vh;
+      display: flex;
+      padding:50px;
+      border-bottom: 1px solid lightgrey;
+      background-color: #FF385C;
+      width: 100%;
+
+      ul{
+        width: 100%;
+        li{
+          list-style-type: none;
+          a {
+            text-decoration: none;
+            color: grey;
+            font-size: 14px;
+            line-height: 30px;
+          }
+        }
+      }
+    }
+  }

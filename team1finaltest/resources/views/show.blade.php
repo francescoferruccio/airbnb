@@ -15,7 +15,7 @@
     </div>
     <div class="contaninerMap">
       <div class="maptitle">
-        <h2>Posizione nella mappa</h2>
+        <h3>Posizione nella mappa</h3>
       </div>
       <div id="map">
         {{-- WARNING:  lasciare vuoto, contenuto mappa dinamico --}}
@@ -58,7 +58,7 @@
         <input class="email" type="email" name="email" placeholder="ex. mario@rossi@gmail.com" value=@auth
           "{{Auth::user() -> email}}" readonly
         @endauth >
-        <textarea name="message" rows="8" cols="80" placeholder="Inserisci la domanda per il proprietario dell'appartamento..."></textarea>
+        <textarea name="message" rows="8" cols="60" placeholder="Inserisci la domanda per il proprietario dell'appartamento..."></textarea>
         <input type="submit" name="submit" value="Invia">
       </form>
     </div>
