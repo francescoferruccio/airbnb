@@ -23,7 +23,9 @@
                     <p>Non hai nessun appartamento</p>
                   @endif
                   @foreach ($userApartments as $apartment)
-                    <p>{{ $apartment['name'] }} - <a href="{{ route('edit', $apartment['id']) }}">MODIFICA</a> </p>
+                    <p>{{ $apartment['name'] }}
+                    - <a href="{{ route('edit', $apartment['id']) }}">MODIFICA</a>
+                    - <a href="{{ route('stats', $apartment['id']) }}">STATISTICHE</a></p>
                   @endforeach
                 </div>
             </div>

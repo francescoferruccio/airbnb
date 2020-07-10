@@ -27,3 +27,7 @@ Route::post('/sent/{id}', 'MessageController@sent')->name('sent');
 Route::get('/inbox', 'MessageController@inbox')->name('inbox')->middleware('auth');
 //Pagina statistiche appartamento
 Route::get('/stats/{id}', 'ApartmentController@stats')->name('stats')->middleware('auth');
+//Pagina pagamenti
+Route::get('/pay', 'PaymentController@pay')->name('pay');
+//Pagina pagamenti
+Route::post('/checkout', 'PaymentController@checkout')->name('checkout');
