@@ -4,11 +4,13 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 Use Braintree;
+use App\Sponsorship;
+use App\Apartment;
 
 class PaymentController extends Controller
 {
   // FUNZIONE CHE CREA IL TOKEN O LO INVIA ALLA VIEW
-  public function pay() {
+  public function pay($id) {
     $gateway = new Braintree\Gateway([
       'environment' => 'sandbox',
       'merchantId' => 'rv7zxkpc3tn2p49c',
@@ -18,11 +20,11 @@ class PaymentController extends Controller
 
     $clientToken = $gateway->clientToken()->generate();
 
-    return view('pay', compact('clientToken'));
+    return view('pay', compact('clientToken', 'id'));
   }
 
   // FUNZIONE CHE CREA E PROCESSA IL PAGAMENTO
-  public function checkout(Request $request) {
+  public function checkout(Request $request, $id) {
 
     $gateway = new Braintree\Gateway([
       'environment' => 'sandbox',
@@ -44,9 +46,20 @@ class PaymentController extends Controller
       ]
     ]);
 
+    $amount = floatval($amount);
+
     // controllo l'esito della transazione e restituisco il risultato
     if ($result->success) {
         $transaction = $result->transaction;
+
+        $apartment = Apartment::findOrFail($id);
+        $sponsorship = Sponsorship::where('price', '=', $amount)->first();
+
+        $apartment -> sponsorships() -> attach($sponsorship, [
+          'transaction_id' => $transaction->id,
+          'end_sponsorship' => now()->addHours($sponsorship->duration)
+        ]);
+
         return back() -> with('success', 'La transazione è andata a buon fine. ID TRANSAZIONE: ' . $transaction->id);
     } else {
         $errorString = "";

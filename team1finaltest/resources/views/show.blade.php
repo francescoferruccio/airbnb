@@ -34,33 +34,37 @@
       </ul>
     </div>
 
-
-    {{-- @foreach ($apartment -> sponsorships as $sponsorship)
-      <p>Transaction ID: {{ $sponsorship->pivot->transaction_id }}</p>
-      <p>Sponsorship ID: {{ $sponsorship->pivot->sponsorship_id}}</p>
-      <p>CREATED AT: {{ $sponsorship->pivot->created_at}}</p>
-    @endforeach --}}
-
   <div class="containerTotPropr">
 
     <div class="messageContainer">
 
     <div class="formContainer">
+        @if ($user_id && $apartment -> user_id == $user_id)
+          <div>
+            <a href="{{ route('stats', $apartment->id) }}">STATISTICHE</a>
+            @if (!$active)
+              <a href="{{ route('pay', $apartment->id) }}">SPONSORIZZA</a>
+            @else
+              <span>Il tuo appartamento è già sponsorizzato</span>
+            @endif
+          </div>
+        @elseif($user_id == null || $apartment -> user_id != $user_id)
+          <form  action="{{route('sent', $apartment -> id)}}" method="post">
+            @csrf
+            @method ('POST')
 
-      <form  action="{{route('sent', $apartment -> id)}}" method="post">
-        @csrf
-        @method ('POST')
+            @if($errors->any())
+              <h2>{{$errors->first()}}</h2>
+            @endif
 
-        @if($errors->any())
-            <h2>{{$errors->first()}}</h2>
-          @endif
+            <input class="email" type="email" name="email" placeholder="ex. mario@rossi@gmail.com" value=@auth
+              "{{Auth::user() -> email}}" readonly
+            @endauth >
+            <textarea name="message" rows="8" cols="60" placeholder="Inserisci la domanda per il proprietario dell'appartamento..."></textarea>
+            <input type="submit" name="submit" value="Invia">
+          </form>
+        @endif
 
-        <input class="email" type="email" name="email" placeholder="ex. mario@rossi@gmail.com" value=@auth
-          "{{Auth::user() -> email}}" readonly
-        @endauth >
-        <textarea name="message" rows="8" cols="60" placeholder="Inserisci la domanda per il proprietario dell'appartamento..."></textarea>
-        <input type="submit" name="submit" value="Invia">
-      </form>
     </div>
     </div>
   </div>

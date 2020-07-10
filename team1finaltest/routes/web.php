@@ -28,6 +28,6 @@ Route::get('/inbox', 'MessageController@inbox')->name('inbox')->middleware('auth
 //Pagina statistiche appartamento
 Route::get('/stats/{id}', 'ApartmentController@stats')->name('stats')->middleware('auth');
 //Pagina pagamenti
-Route::get('/pay', 'PaymentController@pay')->name('pay');
+Route::get('/pay/{id}', 'PaymentController@pay')->name('pay');
 //Pagina pagamenti
-Route::post('/checkout', 'PaymentController@checkout')->name('checkout');
+Route::post('/checkout/{id}', 'PaymentController@checkout')->name('checkout');

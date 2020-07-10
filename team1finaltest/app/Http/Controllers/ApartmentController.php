@@ -32,7 +32,21 @@ class ApartmentController extends Controller
 
     View::createView($apartment);
 
-    return view('show', compact('apartment'));
+    foreach ($apartment->sponsorships as $sponsorship) {
+      $end_sponsorship = $sponsorship->pivot->end_sponsorship;
+    }
+
+    $active = true;
+    if(count($apartment->sponsorships) == 0 || $end_sponsorship < now()) {
+      $active = false;
+    }
+
+    $user_id = null;
+    if(Auth::check()) {
+      $user_id = Auth::user()->id;
+    }
+
+    return view('show', compact('apartment', 'active', 'user_id'));
   }
 
   // FUNZIONE CREATE APPARTAMENTO
@@ -159,6 +173,7 @@ class ApartmentController extends Controller
 
   //Funzione per la rotta search
   public function search(Request $request) {
+
     $validatedData = $request->validate([
       'address' => 'required|string',
       'radius' => 'required|integer',

@@ -15,15 +15,18 @@
     @endif
 
     {{-- FORM PAGAMENTO BRAINTREE --}}
-    <form method="post" id="payment-form" action="{{ route('checkout') }}">
+    <form method="post" id="payment-form" action="{{ route('checkout', $id) }}">
       @csrf
       @method('POST')
       <section>
-        <label for="amount">
-          <span class="input-label">Amount</span>
-          <div class="input-wrapper amount-wrapper">
-            <input id="amount" name="amount" type="tel" min="1" placeholder="Amount" value="10">
-          </div>
+        <div class="subscription">
+          <input type="radio" id="basic" name="amount" value="2.99" checked>
+          <label for="basic">2.99€ - Basic - 24h</label><br>
+          <input type="radio" id="medium" name="amount" value="5.99">
+          <label for="medium">5.99€ - Medium - 3 days</label><br>
+          <input type="radio" id="pro" name="amount" value="9.99">
+          <label for="pro">9.99€ - Pro - 6 days</label>
+        </div>
         </label>
 
         <div class="bt-drop-in-wrapper">
