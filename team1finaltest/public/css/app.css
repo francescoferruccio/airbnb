@@ -216,6 +216,34 @@
   transform: rotate(-45deg);
 }
 
+.appartamententiNormali {
+  min-height: 50vh;
+  margin-top: 55px;
+  width: 80%;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin-bottom: 30px;
+  border-bottom: 2px solid #FF385C;
+  background-color: rgba(116, 140, 156, 0.06);
+}
+
+.appartamententiNormali .titoloappartamententiNormali h1 {
+  color: green;
+  box-shadow: 0px 8px 20px 0px rgba(0, 0, 0, 0.15);
+  border-radius: 10px;
+  border: 1px solid #FF385C;
+  margin-bottom: 10px;
+  padding: 10px;
+}
+
+.appartamententiNormali img {
+  border-radius: 10px;
+  box-shadow: 0px 8px 20px 0px rgba(0, 0, 0, 0.15);
+  max-height: 300px;
+}
+
 .statsContainer {
   width: 50%;
   display: flex;
@@ -17679,6 +17707,27 @@ readers do not read off random characters that represent icons */
     color: grey;
     font-size: 14px;
     line-height: 30px;
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .appartamententiNormali {
+    min-height: 70vh;
+    margin-top: 55px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .appartamententiNormali img {
+    border-radius: 10px;
+    box-shadow: 0px 8px 20px 0px rgba(0, 0, 0, 0.15);
+  }
+
+  .appartamententiNormali h1 {
+    color: green;
   }
 }
 
