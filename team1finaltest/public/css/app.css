@@ -435,6 +435,29 @@
 
 /* header */
 
+#customNav {
+  height: 55px;
+  padding: 0;
+}
+
+#customContainer {
+  padding-left: 150px;
+  padding-right: 150px;
+}
+
+#customContainer span.logoTitle {
+  font-size: 20px;
+  color: #f7575c;
+  font-weight: bold;
+  vertical-align: sub;
+  margin-left: -24px;
+}
+
+#customContainer img {
+  width: 70px;
+  height: auto;
+}
+
 /* search */
 
 .searchBar {
