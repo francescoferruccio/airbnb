@@ -17354,7 +17354,8 @@ readers do not read off random characters that represent icons */
 
 /* nascondi ricerca avanzata */
 
-#ricercaAvanzata {
+#ricercaAvanzata,
+#ricercaAvanzata2 {
   outline: 0;
   border: transparent;
   border-radius: 4px;
@@ -17363,7 +17364,8 @@ readers do not read off random characters that represent icons */
   padding: 2px;
 }
 
-#containerRicercaAvanzata {
+#containerRicercaAvanzata,
+#containerRicercaAvanzata2 {
   padding: 10px 0;
   display: none;
 }

@@ -16,7 +16,7 @@
             {{-- searchbar a comparsa --}}
             <div class="navSearch">
               <div class="apriSearch">
-                Inserire searchbar
+                @include('searchNav')
                 <div class="closeSearch">
                 </div>
               </div>

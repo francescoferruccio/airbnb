@@ -47752,7 +47752,18 @@ function init() {
     });
   }
 
+  if ($('#address-input2').length) {
+    var places = __webpack_require__(/*! places.js */ "./node_modules/places.js/index.js");
+
+    var placesAutocomplete = places({
+      appId: 'pl790YEJF771',
+      apiKey: 'd7b6722b1028dec18f077435d29bbe21',
+      container: document.querySelector('#address-input2')
+    });
+  }
+
   ricercaAvanzata();
+  ricercaAvanzata2();
   scrollNav();
   chiudiNav();
 }
@@ -47785,6 +47796,12 @@ function chiudiNav() {
 function ricercaAvanzata() {
   $("#ricercaAvanzata").click(function () {
     $("#containerRicercaAvanzata").fadeToggle("slow");
+  });
+}
+
+function ricercaAvanzata2() {
+  $("#ricercaAvanzata2").click(function () {
+    $("#containerRicercaAvanzata2").fadeToggle("slow");
   });
 } //Slider della searchBar (Raggio KM)
 
@@ -47887,8 +47904,8 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\Users\Dani\Desktop\Boolean Career\boolbnb\team1finaltest\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\Users\Dani\Desktop\Boolean Career\boolbnb\team1finaltest\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\users\fabio\desktop\gitboolean\airbnb\team1finaltest\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\users\fabio\desktop\gitboolean\airbnb\team1finaltest\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ }),

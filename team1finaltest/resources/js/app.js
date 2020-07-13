@@ -65,8 +65,17 @@ function start(){
         container: document.querySelector('#address-input')
       });
     }
+    if ($('#address-input2').length) {
+      var places = require('places.js');
+      var placesAutocomplete = places({
+        appId: 'pl790YEJF771',
+        apiKey: 'd7b6722b1028dec18f077435d29bbe21',
+        container: document.querySelector('#address-input2')
+      });
+    }
 
     ricercaAvanzata();
+    ricercaAvanzata2();
     scrollNav();
     chiudiNav();
   };
@@ -103,6 +112,12 @@ function start(){
     function ricercaAvanzata(){
       $("#ricercaAvanzata").click(function(){
       $("#containerRicercaAvanzata").fadeToggle("slow");
+      });
+    }
+
+    function ricercaAvanzata2(){
+      $("#ricercaAvanzata2").click(function(){
+      $("#containerRicercaAvanzata2").fadeToggle("slow");
       });
     }
 
