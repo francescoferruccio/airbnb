@@ -2,18 +2,6 @@
 
 @section('content')
   <div class="pay">
-    {{-- MESSAGGI ESITO TRANSAZIONE --}}
-    @if (session('success'))
-      {{ session('success')}}
-    @endif
-    @if (count($errors) > 0)
-      <ul>
-        @foreach ($errors->all() as $error)
-          <li>{{ $error }}</li>
-        @endforeach
-      </ul>
-    @endif
-
     {{-- FORM PAGAMENTO BRAINTREE --}}
     <form method="post" id="payment-form" action="{{ route('checkout', $id) }}">
       @csrf

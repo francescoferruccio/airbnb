@@ -69,7 +69,7 @@ class PaymentController extends Controller
           'end_sponsorship' => now()->addHours($sponsorship->duration)
         ]);
 
-        return back() -> with('success', 'La transazione è andata a buon fine. ID TRANSAZIONE: ' . $transaction->id);
+        return redirect() -> route('user')->with('success', 'La transazione è andata a buon fine. ID TRANSAZIONE: ' . $transaction->id);
       } else {
         $errorString = "";
 
