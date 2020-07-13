@@ -26,30 +26,31 @@ class PaymentController extends Controller
   // FUNZIONE CHE CREA E PROCESSA IL PAGAMENTO
   public function checkout(Request $request, $id) {
 
-    $gateway = new Braintree\Gateway([
-      'environment' => 'sandbox',
-      'merchantId' => 'rv7zxkpc3tn2p49c',
-      'publicKey' => 'nqndd73tpz5wbjvf',
-      'privateKey' => 'e55934ed19ac8014a361c6b56b3a3fe4'
-    ]);
+    if (checkPost($request)) {
+      $gateway = new Braintree\Gateway([
+        'environment' => 'sandbox',
+        'merchantId' => 'rv7zxkpc3tn2p49c',
+        'publicKey' => 'nqndd73tpz5wbjvf',
+        'privateKey' => 'e55934ed19ac8014a361c6b56b3a3fe4'
+      ]);
 
-    // prendo importo e token dalla request
-    $amount = $request["amount"];
-    $nonce = $request["payment_method_nonce"];
+      // prendo importo e token dalla request
+      $amount = $request["amount"];
+      $nonce = $request["payment_method_nonce"];
 
-    // creo la transazione
-    $result = $gateway->transaction()->sale([
-      'amount' => $amount,
-      'paymentMethodNonce' => $nonce,
-      'options' => [
+      // creo la transazione
+      $result = $gateway->transaction()->sale([
+        'amount' => $amount,
+        'paymentMethodNonce' => $nonce,
+        'options' => [
           'submitForSettlement' => true
-      ]
-    ]);
+        ]
+      ]);
 
-    $amount = floatval($amount);
+      $amount = floatval($amount);
 
-    // controllo l'esito della transazione e restituisco il risultato
-    if ($result->success) {
+      // controllo l'esito della transazione e restituisco il risultato
+      if ($result->success) {
         $transaction = $result->transaction;
 
         $apartment = Apartment::findOrFail($id);
@@ -61,14 +62,26 @@ class PaymentController extends Controller
         ]);
 
         return back() -> with('success', 'La transazione è andata a buon fine. ID TRANSAZIONE: ' . $transaction->id);
-    } else {
+      } else {
         $errorString = "";
 
         foreach($result->errors->deepAll() as $error) {
-            $errorString .= 'Error: ' . $error->code . ": " . $error->message . "\n";
+          $errorString .= 'Error: ' . $error->code . ": " . $error->message . "\n";
         }
 
         return back() -> withErrors('Qualcosa è andato storto. ERRORE: ' . $result->message);
+      }
+    }else {
+      return redirect() -> route('home');
     }
+
+
+  }
+}
+
+function checkPost($request)
+{
+  if ($request->method() === 'POST') {
+    return true;
   }
 }

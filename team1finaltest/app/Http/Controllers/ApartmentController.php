@@ -28,6 +28,7 @@ class ApartmentController extends Controller
 
   // FUNZIONE SHOW
   public function show($id) {
+
     $apartment = Apartment::findOrFail($id);
 
     View::createView($apartment);
@@ -66,52 +67,56 @@ class ApartmentController extends Controller
 
   // FUNZIONE STORE APPARTAMENTO
   public function store(Request $request, $id){
+    if (checkPost($request)) {
+      $user = User::findOrFail($id);
 
-    $user = User::findOrFail($id);
+      // VALIDAZIONE DATA ARRIVATI DAL FORM CREATE
+      $validatedData = $request -> validate([
+        "name" => "required|string",
+        "description" => "required|string",
+        "rooms" => "required|integer|min:1|max:50",
+        "beds" => "required|integer|min:1|max:50",
+        "bathrooms" => "required|integer|min:1|max:50",
+        "size" => "required|numeric",
+        "address" => "required|string",
+        "picture" => "required|image|mimes:jpeg,bmp,png,jpg|max:5000",
+        "services" => "nullable|array"
+      ]);
 
-    // VALIDAZIONE DATA ARRIVATI DAL FORM CREATE
-    $validatedData = $request -> validate([
-      "name" => "required|string",
-      "description" => "required|string",
-      "rooms" => "required|integer|min:1|max:50",
-      "beds" => "required|integer|min:1|max:50",
-      "bathrooms" => "required|integer|min:1|max:50",
-      "size" => "required|numeric",
-      "address" => "required|string",
-      "picture" => "required|image|mimes:jpeg,bmp,png,jpg|max:5000",
-      "services" => "nullable|array"
-    ]);
+      // ISTANZA DI UN NUOVO APPARTAMENTO
+      $apartment = new Apartment;
+      //ASSEGNARE LE COLONNE DELL'APPARTAMENTO CON RELATIVI CAMPI
+      $apartment -> name = $validatedData['name'];
+      $apartment -> description = $validatedData['description'];
+      $apartment -> rooms = $validatedData['rooms'];
+      $apartment -> beds = $validatedData['beds'];
+      $apartment -> bathrooms = $validatedData['bathrooms'];
+      $apartment -> size = $validatedData['size'];
+      $apartment -> address = $validatedData['address'];
+      $apartment -> latitude = getGeocode("lat", $validatedData);
+      $apartment -> longitude = getGeocode("lng", $validatedData);
+      $apartment -> show = 1;
+      $apartment -> user_id = $user -> id;
 
-    // ISTANZA DI UN NUOVO APPARTAMENTO
-    $apartment = new Apartment;
-    //ASSEGNARE LE COLONNE DELL'APPARTAMENTO CON RELATIVI CAMPI
-    $apartment -> name = $validatedData['name'];
-    $apartment -> description = $validatedData['description'];
-    $apartment -> rooms = $validatedData['rooms'];
-    $apartment -> beds = $validatedData['beds'];
-    $apartment -> bathrooms = $validatedData['bathrooms'];
-    $apartment -> size = $validatedData['size'];
-    $apartment -> address = $validatedData['address'];
-    $apartment -> latitude = getGeocode("lat", $validatedData);
-    $apartment -> longitude = getGeocode("lng", $validatedData);
-    $apartment -> show = 1;
-    $apartment -> user_id = $user -> id;
+      //Convertire l'img in stringa accettata dal database ,validarla e salvarla
+      imgConverter($request, $apartment);
 
-    //Convertire l'img in stringa accettata dal database ,validarla e salvarla
-    imgConverter($request, $apartment);
+      $apartment -> save();
 
-    $apartment -> save();
+      // VALIDAZIONE DEI SERVIZI E RELAZIONARLI ALL'APPARTAMENTO
+      if (!array_key_exists('services',$validatedData)) {
+        $apartment -> services() -> sync([]);
+      }else {
+        $apartment -> services() -> sync($validatedData['services']);
+      }
 
-    // VALIDAZIONE DEI SERVIZI E RELAZIONARLI ALL'APPARTAMENTO
-    if (!array_key_exists('services',$validatedData)) {
-      $apartment -> services() -> sync([]);
+      return redirect() -> route('user')
+      -> with("status","Appartamento aggiunto con successo");
     }else {
-      $apartment -> services() -> sync($validatedData['services']);
+      return redirect() -> route('home');
     }
 
-    return redirect() -> route('user')
-    -> with("status","Appartamento aggiunto con successo");
-  }
+    }
 
   public function edit($id) {
     $apartment = Apartment::findOrFail($id);
@@ -126,109 +131,120 @@ class ApartmentController extends Controller
 
   //Funzione per la rotta update
   public function update(Request $request, $id) {
-    $validatedData = $request->validate([
-      "name" => "required|string",
-      "description" => "required|string",
-      "rooms" => "required|integer|min:1|max:50",
-      "beds" => "required|integer|min:1|max:50",
-      "bathrooms" => "required|integer|min:1|max:50",
-      "size" => "required|numeric",
-      "address" => "required|string",
-      "picture" => "image|mimes:jpeg,bmp,png,jpg|max:5000",
-      "services" => "nullable|array",
-      "show" => "required|boolean"
-    ]);
+    if (checkPost($request)) {
+      $validatedData = $request->validate([
+        "name" => "required|string",
+        "description" => "required|string",
+        "rooms" => "required|integer|min:1|max:50",
+        "beds" => "required|integer|min:1|max:50",
+        "bathrooms" => "required|integer|min:1|max:50",
+        "size" => "required|numeric",
+        "address" => "required|string",
+        "picture" => "image|mimes:jpeg,bmp,png,jpg|max:5000",
+        "services" => "nullable|array",
+        "show" => "required|boolean"
+      ]);
 
-    // ISTANZA DI UN NUOVO APPARTAMENTO
-    $apartment = Apartment::findOrFail($id);
-    //ASSEGNARE LE COLONNE DELL'APPARTAMENTO CON RELATIVI CAMPI
-    $apartment -> name = $validatedData['name'];
-    $apartment -> description = $validatedData['description'];
-    $apartment -> rooms = $validatedData['rooms'];
-    $apartment -> beds = $validatedData['beds'];
-    $apartment -> bathrooms = $validatedData['bathrooms'];
-    $apartment -> size = $validatedData['size'];
-    $apartment -> address = $validatedData['address'];
-    $apartment -> latitude = getGeocode("lat", $validatedData);
-    $apartment -> longitude = getGeocode("lng", $validatedData);
-    $apartment -> show = $validatedData['show'];
+      // ISTANZA DI UN NUOVO APPARTAMENTO
+      $apartment = Apartment::findOrFail($id);
+      //ASSEGNARE LE COLONNE DELL'APPARTAMENTO CON RELATIVI CAMPI
+      $apartment -> name = $validatedData['name'];
+      $apartment -> description = $validatedData['description'];
+      $apartment -> rooms = $validatedData['rooms'];
+      $apartment -> beds = $validatedData['beds'];
+      $apartment -> bathrooms = $validatedData['bathrooms'];
+      $apartment -> size = $validatedData['size'];
+      $apartment -> address = $validatedData['address'];
+      $apartment -> latitude = getGeocode("lat", $validatedData);
+      $apartment -> longitude = getGeocode("lng", $validatedData);
+      $apartment -> show = $validatedData['show'];
 
-    if (array_key_exists('picture', $validatedData)) {
-      //Se l'utente decide di cambiare l'immagine, la riconverto e la salvo in database
-      imgConverter($request, $apartment);
-    }
+      if (array_key_exists('picture', $validatedData)) {
+        //Se l'utente decide di cambiare l'immagine, la riconverto e la salvo in database
+        imgConverter($request, $apartment);
+      }
 
-    $apartment -> save();
+      $apartment -> save();
 
-    // VALIDAZIONE DEI SERVIZI E RELAZIONARLI ALL'APPARTAMENTO
-    if (!array_key_exists('services',$validatedData)) {
-      $apartment -> services() -> sync([]);
+      // VALIDAZIONE DEI SERVIZI E RELAZIONARLI ALL'APPARTAMENTO
+      if (!array_key_exists('services',$validatedData)) {
+        $apartment -> services() -> sync([]);
+      }else {
+        $apartment -> services() -> sync($validatedData['services']);
+      }
+
+      return redirect() -> route('user')
+      -> with("status","Appartamento modificato con successo");
+
     }else {
-      $apartment -> services() -> sync($validatedData['services']);
+      return redirect() -> route('home');
     }
 
-    return redirect() -> route('user')
-    -> with("status","Appartamento modificato con successo");
-  }
+    }
 
   //Funzione per la rotta search
   public function search(Request $request) {
 
-    $validatedData = $request->validate([
-      'address' => 'required|string',
-      'radius' => 'required|integer',
-      'rooms' => 'required|integer',
-      'beds' => 'required|integer',
-      'services' => 'array'
-    ]);
-    //Se dall'input arriva un indirizzo valido
-    if(getGeocode("status",$validatedData) == 'OK') {
+    if (checkPost($request)) {
+      $validatedData = $request->validate([
+        'address' => 'required|string',
+        'radius' => 'required|integer',
+        'rooms' => 'required|integer',
+        'beds' => 'required|integer',
+        'services' => 'array'
+      ]);
+      //Se dall'input arriva un indirizzo valido
+      if(getGeocode("status",$validatedData) == 'OK') {
 
-      $lat = getGeocode("lat", $validatedData);
-      $lng = getGeocode("lng", $validatedData);
-      $distance = $validatedData['radius'];
+        $lat = getGeocode("lat", $validatedData);
+        $lng = getGeocode("lng", $validatedData);
+        $distance = $validatedData['radius'];
 
-      $query = Apartment::getByDistance($lat, $lng, $distance);
+        $query = Apartment::getByDistance($lat, $lng, $distance);
 
-      //Se non si trova un appartamento nella zona ricercata
-      if(empty($query)) {
-        return redirect()->route('home')->withErrors(['Nessun appartamento trovato']);
-      }
-
-      $ids = [];
-
-      //Extract the id's
-      foreach($query as $apartment) {
-        array_push($ids, $apartment->id);
-      }
-
-      // richiamo la funzione filtro e salvo il risultato
-      $apartments = self::filter($ids, $validatedData);
-      $sponsored_id = [];
-      foreach ($apartments as $apartment) {
-        // ci ricaviamo gli id degli appartamenti filtrati con sponsorships attive
-        $sponsorship = $apartment -> sponsorships() -> where('apartment_sponsorship.end_sponsorship', '>', now()) ->get();
-        if(count($sponsorship)) {
-          $apt_id = $sponsorship[0]->pivot->apartment_id;
-          $sponsored_id[] = $apt_id;
+        //Se non si trova un appartamento nella zona ricercata
+        if(empty($query)) {
+          return redirect()->route('home')->withErrors(['Nessun appartamento trovato']);
         }
-      }
-      // ci ricaviamo gli appartamenti corrispondenti agli id sponsorizzati
-      $sponsored_apts = [];
-      foreach ($sponsored_id as $id) {
-        $sponsored_apts[] = Apartment::findOrFail($id);
-      }
 
-      // eliminiamo i duplicati dagli appartamenti filtrati inizialmente
-      $notSponsored_apts = array_diff_key($apartments, $sponsored_apts);
+        $ids = [];
 
-      if(!count($apartments)) {
-        return redirect()->route('home')->withErrors(['Nessun appartamento soddisfa le tue richieste.']);
+        //Extract the id's
+        foreach($query as $apartment) {
+          array_push($ids, $apartment->id);
+        }
+
+        // richiamo la funzione filtro e salvo il risultato
+        $apartments = self::filter($ids, $validatedData);
+        $sponsored_id = [];
+        foreach ($apartments as $apartment) {
+          // ci ricaviamo gli id degli appartamenti filtrati con sponsorships attive
+          $sponsorship = $apartment -> sponsorships() -> where('apartment_sponsorship.end_sponsorship', '>', now()) ->get();
+          if(count($sponsorship)) {
+            $apt_id = $sponsorship[0]->pivot->apartment_id;
+            $sponsored_id[] = $apt_id;
+          }
+        }
+        // ci ricaviamo gli appartamenti corrispondenti agli id sponsorizzati
+        $sponsored_apts = [];
+        foreach ($sponsored_id as $id) {
+          $sponsored_apts[] = Apartment::findOrFail($id);
+        }
+
+        // eliminiamo i duplicati dagli appartamenti filtrati inizialmente
+        $notSponsored_apts = array_diff_key($apartments, $sponsored_apts);
+
+        if(!count($apartments)) {
+          return redirect()->route('home')->withErrors(['Nessun appartamento soddisfa le tue richieste.']);
+        } else {
+          return view('search', compact('sponsored_apts', 'notSponsored_apts'));
+        }
       } else {
-        return view('search', compact('sponsored_apts', 'notSponsored_apts'));
+        return redirect()->route('home')->withErrors(['Inserisci un indirizzo valido']);
       }
-    } else {
-      return redirect()->route('home')->withErrors(['Inserisci un indirizzo valido']);
+
+    }else {
+      return redirect() -> route('home');
     }
 
   }
@@ -329,4 +345,13 @@ function imgConverter($request, $apartment){
   $apartment -> picture = $filePath;
 
   $image->storeAs($folder, $name.'.'.$ext, "public");
+}
+
+//CHECK POST ROUTES
+
+function checkPost($request)
+{
+  if ($request->method() === 'POST') {
+    return true;
+  }
 }
