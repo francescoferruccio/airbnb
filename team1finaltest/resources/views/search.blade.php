@@ -1,4 +1,3 @@
-
 @extends('mainLayout')
 
 @section('content')
@@ -25,17 +24,17 @@
 
 
 
-    @foreach ($notSponsored_apts as $notSponsored)
+  @foreach ($notSponsored_apts as $notSponsored)
 
-    <div class="appartamententiNormali">
-      <img src="{{$notSponsored['picture']}}" alt="">
-      <h2>ID: {{ $notSponsored['id'] }}</h2>
-      <h2>NAME: {{ $notSponsored['name'] }}</h2>
-      <ul>
-        @foreach ($notSponsored -> services as $service)
-          <li>{{ $service['name'] }}</li>
-        @endforeach
-      </ul>
+  <div class="appartamententiNormali">
+    <img src="{{$notSponsored['picture']}}" alt="">
+    <h2>ID: {{ $notSponsored['id'] }}</h2>
+    <h2>NAME: {{ $notSponsored['name'] }}</h2>
+    <ul>
+      @foreach ($notSponsored -> services as $service)
+        <li>{{ $service['name'] }}</li>
+      @endforeach
+    </ul>
 
   </div>
     @endforeach
