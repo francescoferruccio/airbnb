@@ -47771,14 +47771,21 @@ function init() {
 ; // funzione mostra searchbar nav sullo scroll
 
 function scrollNav() {
-  $(window).scroll(function () {
-    if ($(this).scrollTop() > 190) {
-      $('.navSearch').fadeIn(1000);
-    } else {
-      $('.navSearch').fadeOut(1000);
-      $(".apriSearch").hide();
-    }
-  });
+  var location = window.location.href;
+
+  if (window.location.pathname == '/search' || location.includes('show/')) {
+    $('.navSearch').show();
+  } else {
+    $(window).scroll(function () {
+      if ($(this).scrollTop() > 190) {
+        $('.navSearch').fadeIn(1000);
+      } else {
+        $('.navSearch').fadeOut(300);
+        $(".apriSearch").hide();
+      }
+    });
+  }
+
   $("#stileNavSearch").click(function () {
     event.preventDefault();
     $(".apriSearch").slideDown();
@@ -47904,8 +47911,8 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\users\fabio\desktop\gitboolean\airbnb\team1finaltest\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\users\fabio\desktop\gitboolean\airbnb\team1finaltest\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! E:\Boolean\esercizi\repo-github\airbnb\team1finaltest\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! E:\Boolean\esercizi\repo-github\airbnb\team1finaltest\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ }),

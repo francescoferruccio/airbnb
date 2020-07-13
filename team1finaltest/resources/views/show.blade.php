@@ -10,7 +10,7 @@
         <h3>Nome: {{$apartment -> name}} </h3>
       </div>
       <div class="houseimg">
-        <img src="{{ $apartment->picture}}" alt="">
+        <img src="{{ $apartment->picture }}" alt="">
       </div>
     </div>
     <div class="contaninerMap">

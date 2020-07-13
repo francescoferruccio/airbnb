@@ -10,15 +10,20 @@
     <link rel="stylesheet" href="/css/app.css">
   </head>
   <body>
-    <main>
+    <header>
       @include('nav')
 
       @include('header')
+    </header>
+    <main>
 
       @yield("content")
 
-      @include('footer')
     </main>
+    <footer>
 
+      @include('footer')
+
+    </footer>
   </body>
 </html>

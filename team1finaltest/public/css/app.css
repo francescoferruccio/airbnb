@@ -168,12 +168,12 @@
   cursor: pointer;
   box-shadow: rgba(0, 0, 0, 0.18) 0px 1px 2px;
   font-weight: bold;
-  padding: 10px;
+  padding: 8px;
   outline: 0;
 }
 
 .apriSearch {
-  background-color: white;
+  background-color: rgba(248, 250, 252, 0.9);
   height: 50vh;
   width: 100vw;
   z-index: 2000;
@@ -216,7 +216,11 @@
   transform: rotate(-45deg);
 }
 
-.appartamententiNormali {
+.search-content {
+  margin-top: 55px;
+}
+
+.search-content .appartamententiNormali {
   min-height: 50vh;
   margin-top: 55px;
   width: 80%;
@@ -229,7 +233,7 @@
   background-color: rgba(116, 140, 156, 0.06);
 }
 
-.appartamententiNormali .titoloappartamententiNormali h1 {
+.search-content .appartamententiNormali .titoloappartamententiNormali h1 {
   color: green;
   box-shadow: 0px 8px 20px 0px rgba(0, 0, 0, 0.15);
   border-radius: 10px;
@@ -238,7 +242,7 @@
   padding: 10px;
 }
 
-.appartamententiNormali img {
+.search-content .appartamententiNormali img {
   border-radius: 10px;
   box-shadow: 0px 8px 20px 0px rgba(0, 0, 0, 0.15);
   max-height: 300px;
@@ -17280,7 +17284,6 @@ readers do not read off random characters that represent icons */
   display: flex;
   justify-content: center;
   padding: 15px;
-  background-color: #F8FAFC;
 }
 
 .searchBar form {

@@ -83,21 +83,27 @@ function start(){
   // funzione mostra searchbar nav sullo scroll
 
   function scrollNav(){
-    $(window).scroll(function() {
-      if ($(this).scrollTop()>190)
-      {
-        $('.navSearch').fadeIn(1000);
-      }
-      else
-      {
-        $('.navSearch').fadeOut(1000);
-        $(".apriSearch").hide();
-      }
-    });
+    const location = window.location.href;
+
+    if (window.location.pathname == '/search' || location.includes('show/')) {
+      $('.navSearch').show();
+    } else {
+      $(window).scroll(function() {
+        if ($(this).scrollTop()>190)
+        {
+          $('.navSearch').fadeIn(1000);
+        }
+        else
+        {
+          $('.navSearch').fadeOut(300);
+          $(".apriSearch").hide();
+        }
+      });
+    }
     $("#stileNavSearch").click(function(){
       event.preventDefault();
       $(".apriSearch").slideDown();
-  });
+    });
   }
 
   // x per chiudere la schermata di ricerca allargata nav

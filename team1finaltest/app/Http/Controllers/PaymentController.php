@@ -6,21 +6,29 @@ use Illuminate\Http\Request;
 Use Braintree;
 use App\Sponsorship;
 use App\Apartment;
+use Illuminate\Support\Facades\Auth;
 
 class PaymentController extends Controller
 {
   // FUNZIONE CHE CREA IL TOKEN O LO INVIA ALLA VIEW
   public function pay($id) {
-    $gateway = new Braintree\Gateway([
-      'environment' => 'sandbox',
-      'merchantId' => 'rv7zxkpc3tn2p49c',
-      'publicKey' => 'nqndd73tpz5wbjvf',
-      'privateKey' => 'e55934ed19ac8014a361c6b56b3a3fe4'
-    ]);
+    $apartment = Apartment::findOrFail($id);
 
-    $clientToken = $gateway->clientToken()->generate();
+    if(Auth::user()->id == $apartment['user_id']) {
 
-    return view('pay', compact('clientToken', 'id'));
+      $gateway = new Braintree\Gateway([
+        'environment' => 'sandbox',
+        'merchantId' => 'rv7zxkpc3tn2p49c',
+        'publicKey' => 'nqndd73tpz5wbjvf',
+        'privateKey' => 'e55934ed19ac8014a361c6b56b3a3fe4'
+      ]);
+
+      $clientToken = $gateway->clientToken()->generate();
+
+      return view('pay', compact('clientToken', 'id'));
+    } else {
+      return redirect() -> route('home');
+    }
   }
 
   // FUNZIONE CHE CREA E PROCESSA IL PAGAMENTO

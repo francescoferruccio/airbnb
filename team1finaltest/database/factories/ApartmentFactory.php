@@ -17,7 +17,7 @@ $factory->define(Apartment::class, function (Faker $faker) {
       "address" => $faker -> address(),
       "latitude" => $faker -> latitude($min = -90, $max = 90),
       "longitude" => $faker -> longitude($min = -180, $max = 180),
-      "picture" => 'images/carduno.jpg',
+      "picture" => '/images/carduno.jpg',
       "show" => $faker -> boolean($chanceOfGettingTrue = 50)
 
     ];
