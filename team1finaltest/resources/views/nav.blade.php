@@ -13,6 +13,9 @@
             <ul class="navbar-nav mr-auto">
 
             </ul>
+
+            @if ( (\Route::current()->getName() == 'home') || (\Route::current()->getName() == 'show') || (\Route::current()->getName() == 'search') )
+
             {{-- searchbar a comparsa --}}
             <div class="navSearch">
               <div class="apriSearch">
@@ -22,6 +25,7 @@
               </div>
               <button id="stileNavSearch" type="button" name="button">Scegli dove andare</button>
             </div>
+          @endif
 
             <!-- Right Side Of Navbar -->
             <ul class="navbar-nav ml-auto">
