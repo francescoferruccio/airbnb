@@ -2,6 +2,12 @@
 $body-bg: #f8fafc;
 
 // Typography
+@font-face {
+  font-family: myFont;
+  src: url('fonts/vendor/ModernSans-Light.otf');
+}
+
+
 $font-family-sans-serif: 'Nunito', sans-serif;
 $font-size-base: 0.9rem;
 $line-height-base: 1.6;
@@ -17,3 +23,5 @@ $yellow: #ffed4a;
 $green: #38c172;
 $teal: #4dc0b5;
 $cyan: #6cb2eb;
+
+$housecolor: rgb(146, 23, 77);

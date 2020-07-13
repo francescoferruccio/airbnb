@@ -3,6 +3,8 @@
 
 // Variables
 @import 'variables';
+
+// Components
 @import 'components/show';
 @import 'components/crud';
 @import 'components/message';
@@ -10,6 +12,8 @@
 @import 'components/search';
 @import 'components/stats';
 @import 'components/pay';
+@import 'components/header';
+
 // Bootstrap
 @import '~bootstrap/scss/bootstrap';
 @import '~@fortawesome/fontawesome-free/scss/fontawesome.scss';
@@ -21,233 +25,35 @@
   padding: 0;
 }
 
+body{
+  font-family: 'myFont';
+}
+
+input[type="search"]::-webkit-search-decoration,
+input[type="search"]::-webkit-search-cancel-button,
+input[type="search"]::-webkit-search-results-button,
+input[type="search"]::-webkit-search-results-decoration {
+  -webkit-appearance:none;
+}
+
 /* parte navbar */
 
 /* fine navbar */
-/* parte header */
-.header{
-  margin-top: 55px;
-  height: 380px;
-  padding-top: 45px;
-}
-/* header */
 
-/* search */
-
-.searchBar{
-  height: 100%;
-  display: flex;
-  justify-content: center;
-  padding: 15px;
-
-  form{
-    width: 100%;
-    max-width: 790px;
-  }
-}
-
-.inputField {
-  display: flex;
-  flex-grow: 1;
-  height: 68px;
-  align-items: center;
-  box-shadow: 0px 8px 20px 0px rgba(0, 0, 0, 0.15);
-  margin-bottom: 30px;
-  background-color: #f8fafc;
-  border-radius: 15px;
-  width: 100%;
-  .bottoneCerca{
-    height: 100%;
-    width: 100%;
-    border-radius: 0 15px 15px 0;
-    white-space: nowrap;
-    font-size: 16px;
-    color: #fff;
-    border: 0;
-    width: 40%;
-    cursor: pointer;
-    background-color: #FF385C;
-    border-radius: 0 15px 15px 0;
-    &:hover{
-      background: #C10303;
-    }
-    &:focus{
-      outline: 0;
-      box-shadow: none;
-    }
-  }
-  .algolia-places{
-    height: 100%;
-    background-color: #F3DBDB;
-    border-radius: 15px 0 0 15px;
-    input{
-      height: 100%;
-      border: 0;
-      display: block;
-      width: 100%;
-      padding: 10px 0;
-      font-size: 16px;
-      color: #000;
-      border-radius: 15px 0 0 15px;
-      background-color: #F3DBDB;
-      background: transparent;
-      padding-left: 20px;
-      &:focus{
-        box-shadow: none;
-        outline: 0;
-      }
-
-    }
-  }
-
-}
-
-
-/* fine bottone search */
-/* fine searchbar */
-
-/* nascondi ricerca avanzata */
-
-#ricercaAvanzata, #ricercaAvanzata2{
-    outline: 0;
-    border: transparent;
-    border-radius: 4px;
-    background-color: #FF385C;
-    color: #FFF;
-    padding: 2px;
-}
-
-#containerRicercaAvanzata, #containerRicercaAvanzata2{
-  padding: 10px 0;
-  display: none;
-}
-/* inizio range slider */
-
-.slider {
-  -webkit-appearance: none;
-  width: 100%;
-  height: 15px;
-  border-radius: 5px;
-  background: #F3DBDB;
-  outline: none;
-  opacity: 0.7;
-  -webkit-transition: .2s;
-  transition: opacity .2s;
-}
-
-.slider::-webkit-slider-thumb {
-  -webkit-appearance: none;
-  appearance: none;
-  width: 25px;
-  height: 25px;
-  border-radius: 50%;
-  background: #FF385C;
-  cursor: pointer;
-}
-
-.slider::-webkit-slider-thumb:hover{
-  background-color: #C10303;
-}
-
-.slider::-moz-range-thumb {
-  width: 25px;
-  height: 25px;
-  border-radius: 50%;
-  background: #FF385C;
-  cursor: pointer;
-}
-
-.slider::-moz-range-thumb:hover{
-  background-color: #C10303;
-}
-
-.textValues{
-  display: flex;
-  justify-content: space-between;
-}
-
-.range{
-  display: flex;
-  justify-content: center;
-  padding-top: 10px;
-}
-/* fine range slider */
-
-/* parte input numbers */
-.numbersService{
-  display: flex;
-  width: 100%;
-  justify-content: space-around;
-  .rooms,
-  .beds {
-    width: 20%;
-    input{
-      width: 60%;
-      background-color: #F3DBDB;
-      border: 0;
-      outline: transparent;
-      border-radius: 10px;
-      padding-left: 10px;
-    }
-  }
-/* checkboxes */
-  .service{
-    width: 60%;
-    .containerCheckbox{
-      position: relative;
-      cursor: pointer;
-      -webkit-user-select: none;
-      -moz-user-select: none;
-      -ms-user-select: none;
-      user-select: none;
-      input {
-        position: absolute;
-        opacity: 0;
-        cursor: pointer;
-      }
-      .checkmark {
-        position: absolute;
-        top: 0;
-        left: 0;
-        height: 16px;
-        width: 16px;
-        background-color: #F3DBDB;;
-        }
-      input:checked ~ .checkmark {
-        background-color: #ff385c;
-        }
-      .checkmark:after {
-        content: "";
-        position: absolute;
-        display: none;
-        }
-      input:checked ~ .checkmark:after {
-        display: block;
-        }
-      .checkmark:after {
-        left: 6px;
-        top: 3px;
-        width: 5px;
-        height: 10px;
-        border: solid white;
-        border-width: 0 3px 3px 0;
-        -webkit-transform: rotate(45deg);
-        -ms-transform: rotate(45deg);
-        transform: rotate(45deg);
-        }
-    }
-    .serviceText{
-      margin-left: 20px;
-    }
-  }
-}
-/* fine parte input numbers */
 /* inizio content */
 .content{
   display: flex;
   flex-wrap: wrap;
   width: 100%;
   justify-content: center;
+  margin: 70px 0;
+
+  .sponsoredTitle{
+    width: 100%;
+    text-align: center;
+    margin-bottom: 15px;
+    color: $housecolor;
+  }
 
   .cardRent{
     cursor: pointer;
@@ -260,6 +66,18 @@
     width: calc(100% / 4);
     background-color: #FFF;
     margin: 20px;
+    transition: transform .2s;
+    position: relative;
+    .star{
+      position: absolute;
+      color: gold;
+      font-size: 30px;
+      top: 0;
+      left: 20px;
+    }
+    &:hover{
+      transform: scale(1.1);
+    }
 
     .cardimg{
       height: 70%;
@@ -269,13 +87,39 @@
         max-height: 100%;
         width: 100%;
         border-radius: 30px 30px 0 0;
+
       }
     }
     .cardtext{
+      padding-top: 10px;
       height: 30%;
       width: 100%;
-      p{
+      text-align: start;
+      padding-left: 8px;
+      h2{
+        font-size: 24px;
         text-align: center;
+        text-transform: capitalize;
+        color: $housecolor;
+        font-weight: bold;
+      }
+      h3{
+        font-size: 18px;
+        text-align: center;
+      }
+      .services{
+        width: 70%;
+        margin: 12px auto 0;
+        ul{
+          display: flex;
+          justify-content: space-around;
+          list-style-position: inside;
+          list-style-type: none;
+          img{
+            width: 20px;
+            height: auto;
+          }
+        }
       }
     }
 
@@ -312,147 +156,3 @@
 }
 
 /* fine footer */
-
-
-// media query SHOW------------------------------>
-  @media screen and (max-width: 800px) {
-  .showContainer{
-    margin-top: 70px;
-    min-height: 70vh;
-    padding: 30px;
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    .apartmentDetails{
-      display: flex;
-      flex-direction: column;
-      width: 100%;
-      min-width: 100%;
-      height: 100%;
-      margin: 0 auto;
-      padding-bottom: 20px;
-      border-bottom: 2px solid #FF385C;
-
-
-      .photoApartmentName{
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        position: relative;
-        width: 100%;
-        .housename{
-          height: 10%;
-            h3{
-              font-weight: bolder;
-              border: 1px solid #FF385C;
-              padding: 3px;
-              box-shadow: 5px 10px rgba(136, 136, 136, 0.31);
-              border-radius: 10px;
-              width: 60%;
-              min-width: 200px;
-              margin-bottom: 20px;
-            }
-          }
-          .houseimg{
-            height: 250px;
-            img{
-              width: 100%;
-              min-width: 220px;
-              max-width: 300px;
-              height: 220px;
-              border-radius: 20px;
-              box-shadow: 5px 10px rgba(136, 136, 136, 0.31);
-            }
-          }
-      }
-
-      .contaninerMap{
-        width: 100%;
-        height: 100%;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-around;
-        align-items: center;
-        .maptitle{
-          height: 10%;
-          border: 2px solid #FF385C;
-          border-radius: 10px;
-          margin-bottom: 20px;
-          box-shadow: 5px 10px rgba(136, 136, 136, 0.31);
-          padding: 5px;
-        }
-        #map{
-          height: 300px;
-          width: 100%;
-          max-width: 440px;
-          border-radius: 20px;
-          min-width: 300px;
-          box-shadow: 5px 10px rgba(136, 136, 136, 0.31);
-
-        }
-      }
-    }
-
-      .provashow{
-        width: 100%;
-        margin: 0 auto;
-        display: flex;
-        padding:20px 0;
-        p{
-          width: 60%;
-          margin-right: 5%;
-          font-size: 20px;
-        }
-        ul{
-          width: 40%;
-          li{
-            font-size: 20px;
-          }
-        }
-      }
-    }
-    .footer{
-      min-height: 15vh;
-      display: flex;
-      padding:50px;
-      border-bottom: 1px solid lightgrey;
-      background-color: #FF385C;
-      width: 100%;
-
-      ul{
-        width: 100%;
-        li{
-          list-style-type: none;
-          a {
-            text-decoration: none;
-            color: grey;
-            font-size: 14px;
-            line-height: 30px;
-          }
-        }
-      }
-    }
-  }
-  // media query SEARCH ------------------------------------------------------------------------------------>
-  @media screen and (max-width: 800px){
-    .appartamententiNormali{
-      min-height: 70vh;
-      margin-top: 55px;
-      width: 100%;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-
-      img{
-        border-radius: 10px;
-        box-shadow: 0px 8px 20px 0px rgba(0, 0, 0, 0.15);
-      }
-
-      h1{
-        color: green;
-      }
-    }
-  }

@@ -11,6 +11,14 @@ function start(){
 
     init();
 
+    ricercaAvanzata();
+
+    ricercaAvanzata2();
+
+    scrollNav();
+    
+    chiudiNav();
+
     // Funzione MAPS Google
     const location = window.location.href;
     if (location.includes('show/')) {
@@ -55,8 +63,15 @@ function start(){
   function init(){
     // Algolia autocomplete script
     if ($('.searchBar').length) {
-      rangeSlider('myRange', 'demo');
-      rangeSlider('myRange2', 'demo2');
+
+        switch (window.location.pathname) {
+          case '/':
+          rangeSlider('myRange', 'demo');
+          rangeSlider('myRange2', 'demo2');
+            break;
+          default:
+          rangeSlider('myRange2', 'demo2');
+        }
     }
     if ($('#address-input').length) {
       var places = require('places.js');
@@ -74,11 +89,6 @@ function start(){
         container: document.querySelector('#address-input2')
       });
     }
-
-    ricercaAvanzata();
-    ricercaAvanzata2();
-    scrollNav();
-    chiudiNav();
   };
 
   // funzione mostra searchbar nav sullo scroll
@@ -134,20 +144,12 @@ function start(){
     var slider = document.getElementById(idRange);
     var output = document.getElementById(idSpan);
 
-    // var slider2 = document.getElementById("myRange2");
-    // var output2 = document.getElementById("demo2");
-
     output.innerHTML = slider.value;
 
     slider.oninput = function() {
       output.innerHTML = this.value;
-    };
+    }
 
-    // output2.innerHTML = slider2.value;
-    //
-    // slider2.oninput = function() {
-    //   output2.innerHTML = this.value;
-    // };
   }
 
   function initMap(lat,lon) {

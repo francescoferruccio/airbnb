@@ -26,11 +26,11 @@
     <div class="provashow">
       <p> <strong>Description:</strong> {{$apartment -> description}} </p>
       <ul>
-        <li><i class="fa fa-wifi" aria-hidden="true"></i>     Wi-fi</li>
-        <li><i class="fa fa-car" aria-hidden="true"></i>     Posto Auto</li>
-        <li><i class="fa fa-tint" aria-hidden="true"></i>     Sauna</li>
-        <li><i class="fa fa-user" aria-hidden="true"></i>     Portineria</li>
-        <li><i class="fa fa-window-maximize" aria-hidden="true"></i>     Vista Mare</li>
+        @foreach ($apartment -> services -> sortBy('id') as $service)
+          <li>
+            <img src="/images/{{$service['name']}}.svg" alt="{{$service['name']}}"> {{$service['name']}}
+          </li>
+        @endforeach
       </ul>
     </div>
 

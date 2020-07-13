@@ -22,7 +22,6 @@ class ApartmentController extends Controller
         ['show', '=', 1]
       ]);
     })->get();
-
     return view('home', compact('sponsored'));
   }
 

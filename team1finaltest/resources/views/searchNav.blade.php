@@ -23,7 +23,7 @@
           <p>50 km</p>
           <p>100 km</p>
         </div>
-        <input type="range" name="radius" min="1" max="100" value="50" class="slider" id="myRange2">
+        <input type="range" name="radius" min="1" max="100" value="20" class="slider" id="myRange2">
         <p class="range">Raggio:&nbsp;<span id="demo2"></span></p>
     </div>
     <div class="numbersService">

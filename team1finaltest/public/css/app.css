@@ -1,5 +1,10 @@
 @import url(https://fonts.googleapis.com/css?family=Nunito);@charset "UTF-8";
 
+@font-face {
+  font-family: myFont;
+  src: url(/fonts/ModernSans-Light.otf?719b1c92bd89ce6c2001bddeb3b1dba5);
+}
+
 .showContainer {
   margin-top: 55px;
   min-height: 70vh;
@@ -91,12 +96,145 @@
   font-size: 20px;
 }
 
-.showContainer .provashow ul {
-  width: 40%;
+.showContainer .provashow ul li {
+  line-height: 40px;
 }
 
-.showContainer .provashow ul li {
-  font-size: 20px;
+.showContainer .provashow ul img {
+  width: 25px;
+  height: auto;
+}
+
+@media screen and (max-width: 800px) {
+  .showContainer {
+    margin-top: 70px;
+    min-height: 70vh;
+    padding: 30px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .showContainer .apartmentDetails {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    min-width: 100%;
+    height: 100%;
+    margin: 0 auto;
+    padding-bottom: 20px;
+    border-bottom: 2px solid #FF385C;
+  }
+
+  .showContainer .apartmentDetails .photoApartmentName {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    width: 100%;
+  }
+
+  .showContainer .apartmentDetails .photoApartmentName .housename {
+    height: 10%;
+  }
+
+  .showContainer .apartmentDetails .photoApartmentName .housename h3 {
+    font-weight: bolder;
+    border: 1px solid #FF385C;
+    padding: 3px;
+    box-shadow: 5px 10px rgba(136, 136, 136, 0.31);
+    border-radius: 10px;
+    width: 60%;
+    min-width: 200px;
+    margin-bottom: 20px;
+  }
+
+  .showContainer .apartmentDetails .photoApartmentName .houseimg {
+    height: 250px;
+  }
+
+  .showContainer .apartmentDetails .photoApartmentName .houseimg img {
+    width: 100%;
+    min-width: 220px;
+    max-width: 300px;
+    height: 220px;
+    border-radius: 20px;
+    box-shadow: 5px 10px rgba(136, 136, 136, 0.31);
+  }
+
+  .showContainer .apartmentDetails .contaninerMap {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+  }
+
+  .showContainer .apartmentDetails .contaninerMap .maptitle {
+    height: 10%;
+    border: 2px solid #FF385C;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    box-shadow: 5px 10px rgba(136, 136, 136, 0.31);
+    padding: 5px;
+  }
+
+  .showContainer .apartmentDetails .contaninerMap #map {
+    height: 300px;
+    width: 100%;
+    max-width: 440px;
+    border-radius: 20px;
+    min-width: 300px;
+    box-shadow: 5px 10px rgba(136, 136, 136, 0.31);
+  }
+
+  .showContainer .provashow {
+    width: 100%;
+    margin: 0 auto;
+    display: flex;
+    padding: 20px 0;
+  }
+
+  .showContainer .provashow p {
+    width: 60%;
+    margin-right: 5%;
+    font-size: 20px;
+  }
+
+  .showContainer .provashow ul {
+    width: 40%;
+  }
+
+  .showContainer .provashow ul li {
+    font-size: 20px;
+  }
+
+  .footer {
+    min-height: 15vh;
+    display: flex;
+    padding: 50px;
+    border-bottom: 1px solid lightgrey;
+    background-color: #FF385C;
+    width: 100%;
+  }
+
+  .footer ul {
+    width: 100%;
+  }
+
+  .footer ul li {
+    list-style-type: none;
+  }
+
+  .footer ul li a {
+    text-decoration: none;
+    color: grey;
+    font-size: 14px;
+    line-height: 30px;
+  }
 }
 
 .crud-container {
@@ -248,6 +386,27 @@
   max-height: 300px;
 }
 
+@media screen and (max-width: 800px) {
+  .appartamententiNormali {
+    min-height: 70vh;
+    margin-top: 55px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .appartamententiNormali img {
+    border-radius: 10px;
+    box-shadow: 0px 8px 20px 0px rgba(0, 0, 0, 0.15);
+  }
+
+  .appartamententiNormali h1 {
+    color: green;
+  }
+}
+
 .statsContainer {
   width: 50%;
   display: flex;
@@ -265,6 +424,260 @@
 .pay form {
   margin: auto;
 }
+
+/* parte header */
+
+.header {
+  margin-top: 55px;
+  height: 380px;
+  padding-top: 45px;
+}
+
+/* header */
+
+/* search */
+
+.searchBar {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 15px;
+}
+
+.searchBar h2 {
+  text-align: left;
+  color: #92174d;
+}
+
+.searchBar form {
+  width: 100%;
+  max-width: 790px;
+}
+
+.inputField {
+  display: flex;
+  flex-grow: 1;
+  height: 68px;
+  align-items: center;
+  box-shadow: 0px 8px 20px 0px rgba(0, 0, 0, 0.15);
+  margin-bottom: 30px;
+  background-color: #f8fafc;
+  border-radius: 15px;
+  width: 100%;
+  border: 1px solid #f8fafc;
+}
+
+.inputField .bottoneCerca {
+  height: 100%;
+  width: 100%;
+  border-radius: 0 15px 15px 0;
+  white-space: nowrap;
+  font-size: 16px;
+  color: #fff;
+  border: 0;
+  width: 40%;
+  cursor: pointer;
+  background-color: #FF385C;
+  border-radius: 0 15px 15px 0;
+}
+
+.inputField .bottoneCerca:hover {
+  background: #C10303;
+}
+
+.inputField .bottoneCerca:focus {
+  outline: 0;
+  box-shadow: none;
+}
+
+.inputField .algolia-places {
+  height: 100%;
+  background-color: #F3DBDB;
+  border-radius: 15px 0 0 15px;
+}
+
+.inputField .algolia-places input {
+  height: 100%;
+  border: 0;
+  display: block;
+  width: 100%;
+  padding: 10px 0;
+  font-size: 16px;
+  color: #000;
+  border-radius: 15px 0 0 15px;
+  background-color: #F3DBDB;
+  background: transparent;
+  padding-left: 20px;
+}
+
+.inputField .algolia-places input:focus {
+  box-shadow: none;
+  outline: 0;
+}
+
+/* fine bottone search */
+
+/* fine searchbar */
+
+/* nascondi ricerca avanzata */
+
+#ricercaAvanzata,
+#ricercaAvanzata2 {
+  outline: 0;
+  border: transparent;
+  border-radius: 10px;
+  background-color: #FF385C;
+  color: #FFF;
+  padding: 4px;
+  border: 1px solid #f8fafc;
+  box-shadow: 0px 8px 20px 0px rgba(0, 0, 0, 0.15);
+}
+
+#ricercaAvanzata:hover,
+#ricercaAvanzata2:hover {
+  background: #C10303;
+}
+
+#containerRicercaAvanzata,
+#containerRicercaAvanzata2 {
+  padding: 10px 0;
+  display: none;
+}
+
+/* inizio range slider */
+
+.slider {
+  -webkit-appearance: none;
+  width: 100%;
+  height: 15px;
+  border-radius: 5px;
+  background: #F3DBDB;
+  outline: none;
+  opacity: 0.7;
+  transition: opacity 0.2s;
+}
+
+.slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  background: #FF385C;
+  cursor: pointer;
+}
+
+.slider::-webkit-slider-thumb:hover {
+  background-color: #C10303;
+}
+
+.slider::-moz-range-thumb {
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  background: #FF385C;
+  cursor: pointer;
+}
+
+.slider::-moz-range-thumb:hover {
+  background-color: #C10303;
+}
+
+.textValues {
+  display: flex;
+  justify-content: space-between;
+}
+
+.range {
+  display: flex;
+  justify-content: center;
+  padding-top: 10px;
+}
+
+/* fine range slider */
+
+/* parte input numbers */
+
+.numbersService {
+  display: flex;
+  width: 100%;
+  justify-content: space-around;
+  /* checkboxes */
+}
+
+.numbersService .rooms,
+.numbersService .beds {
+  width: 20%;
+}
+
+.numbersService .rooms input,
+.numbersService .beds input {
+  width: 60%;
+  background-color: #F3DBDB;
+  border: 0;
+  outline: transparent;
+  border-radius: 10px;
+  padding-left: 10px;
+}
+
+.numbersService .service {
+  width: 60%;
+}
+
+.numbersService .service .containerCheckbox {
+  position: relative;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.numbersService .service .containerCheckbox input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.numbersService .service .containerCheckbox .checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 16px;
+  width: 16px;
+  background-color: #F3DBDB;
+}
+
+.numbersService .service .containerCheckbox input:checked ~ .checkmark {
+  background-color: #ff385c;
+}
+
+.numbersService .service .containerCheckbox .checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+.numbersService .service .containerCheckbox input:checked ~ .checkmark:after {
+  display: block;
+}
+
+.numbersService .service .containerCheckbox .checkmark:after {
+  left: 6px;
+  top: 3px;
+  width: 5px;
+  height: 10px;
+  border: solid white;
+  border-width: 0 3px 3px 0;
+  transform: rotate(45deg);
+}
+
+.numbersService .service .serviceText {
+  margin-left: 20px;
+}
+
+/* fine parte input numbers */
 
 /*!
  * Bootstrap v4.5.0 (https://getbootstrap.com/)
@@ -17263,249 +17676,20 @@ readers do not read off random characters that represent icons */
   padding: 0;
 }
 
+body {
+  font-family: "myFont";
+}
+
+input[type=search]::-webkit-search-decoration,
+input[type=search]::-webkit-search-cancel-button,
+input[type=search]::-webkit-search-results-button,
+input[type=search]::-webkit-search-results-decoration {
+  -webkit-appearance: none;
+}
+
 /* parte navbar */
 
 /* fine navbar */
-
-/* parte header */
-
-.header {
-  margin-top: 55px;
-  height: 380px;
-  padding-top: 45px;
-}
-
-/* header */
-
-/* search */
-
-.searchBar {
-  height: 100%;
-  display: flex;
-  justify-content: center;
-  padding: 15px;
-}
-
-.searchBar form {
-  width: 100%;
-  max-width: 790px;
-}
-
-.inputField {
-  display: flex;
-  flex-grow: 1;
-  height: 68px;
-  align-items: center;
-  box-shadow: 0px 8px 20px 0px rgba(0, 0, 0, 0.15);
-  margin-bottom: 30px;
-  background-color: #f8fafc;
-  border-radius: 15px;
-  width: 100%;
-}
-
-.inputField .bottoneCerca {
-  height: 100%;
-  width: 100%;
-  border-radius: 0 15px 15px 0;
-  white-space: nowrap;
-  font-size: 16px;
-  color: #fff;
-  border: 0;
-  width: 40%;
-  cursor: pointer;
-  background-color: #FF385C;
-  border-radius: 0 15px 15px 0;
-}
-
-.inputField .bottoneCerca:hover {
-  background: #C10303;
-}
-
-.inputField .bottoneCerca:focus {
-  outline: 0;
-  box-shadow: none;
-}
-
-.inputField .algolia-places {
-  height: 100%;
-  background-color: #F3DBDB;
-  border-radius: 15px 0 0 15px;
-}
-
-.inputField .algolia-places input {
-  height: 100%;
-  border: 0;
-  display: block;
-  width: 100%;
-  padding: 10px 0;
-  font-size: 16px;
-  color: #000;
-  border-radius: 15px 0 0 15px;
-  background-color: #F3DBDB;
-  background: transparent;
-  padding-left: 20px;
-}
-
-.inputField .algolia-places input:focus {
-  box-shadow: none;
-  outline: 0;
-}
-
-/* fine bottone search */
-
-/* fine searchbar */
-
-/* nascondi ricerca avanzata */
-
-#ricercaAvanzata,
-#ricercaAvanzata2 {
-  outline: 0;
-  border: transparent;
-  border-radius: 4px;
-  background-color: #FF385C;
-  color: #FFF;
-  padding: 2px;
-}
-
-#containerRicercaAvanzata,
-#containerRicercaAvanzata2 {
-  padding: 10px 0;
-  display: none;
-}
-
-/* inizio range slider */
-
-.slider {
-  -webkit-appearance: none;
-  width: 100%;
-  height: 15px;
-  border-radius: 5px;
-  background: #F3DBDB;
-  outline: none;
-  opacity: 0.7;
-  transition: opacity 0.2s;
-}
-
-.slider::-webkit-slider-thumb {
-  -webkit-appearance: none;
-  appearance: none;
-  width: 25px;
-  height: 25px;
-  border-radius: 50%;
-  background: #FF385C;
-  cursor: pointer;
-}
-
-.slider::-webkit-slider-thumb:hover {
-  background-color: #C10303;
-}
-
-.slider::-moz-range-thumb {
-  width: 25px;
-  height: 25px;
-  border-radius: 50%;
-  background: #FF385C;
-  cursor: pointer;
-}
-
-.slider::-moz-range-thumb:hover {
-  background-color: #C10303;
-}
-
-.textValues {
-  display: flex;
-  justify-content: space-between;
-}
-
-.range {
-  display: flex;
-  justify-content: center;
-  padding-top: 10px;
-}
-
-/* fine range slider */
-
-/* parte input numbers */
-
-.numbersService {
-  display: flex;
-  width: 100%;
-  justify-content: space-around;
-  /* checkboxes */
-}
-
-.numbersService .rooms,
-.numbersService .beds {
-  width: 20%;
-}
-
-.numbersService .rooms input,
-.numbersService .beds input {
-  width: 60%;
-  background-color: #F3DBDB;
-  border: 0;
-  outline: transparent;
-  border-radius: 10px;
-  padding-left: 10px;
-}
-
-.numbersService .service {
-  width: 60%;
-}
-
-.numbersService .service .containerCheckbox {
-  position: relative;
-  cursor: pointer;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-}
-
-.numbersService .service .containerCheckbox input {
-  position: absolute;
-  opacity: 0;
-  cursor: pointer;
-}
-
-.numbersService .service .containerCheckbox .checkmark {
-  position: absolute;
-  top: 0;
-  left: 0;
-  height: 16px;
-  width: 16px;
-  background-color: #F3DBDB;
-}
-
-.numbersService .service .containerCheckbox input:checked ~ .checkmark {
-  background-color: #ff385c;
-}
-
-.numbersService .service .containerCheckbox .checkmark:after {
-  content: "";
-  position: absolute;
-  display: none;
-}
-
-.numbersService .service .containerCheckbox input:checked ~ .checkmark:after {
-  display: block;
-}
-
-.numbersService .service .containerCheckbox .checkmark:after {
-  left: 6px;
-  top: 3px;
-  width: 5px;
-  height: 10px;
-  border: solid white;
-  border-width: 0 3px 3px 0;
-  transform: rotate(45deg);
-}
-
-.numbersService .service .serviceText {
-  margin-left: 20px;
-}
-
-/* fine parte input numbers */
 
 /* inizio content */
 
@@ -17514,6 +17698,14 @@ readers do not read off random characters that represent icons */
   flex-wrap: wrap;
   width: 100%;
   justify-content: center;
+  margin: 70px 0;
+}
+
+.content .sponsoredTitle {
+  width: 100%;
+  text-align: center;
+  margin-bottom: 15px;
+  color: #92174d;
 }
 
 .content .cardRent {
@@ -17527,6 +17719,20 @@ readers do not read off random characters that represent icons */
   width: calc(100% / 4);
   background-color: #FFF;
   margin: 20px;
+  transition: transform 0.2s;
+  position: relative;
+}
+
+.content .cardRent .star {
+  position: absolute;
+  color: gold;
+  font-size: 30px;
+  top: 0;
+  left: 20px;
+}
+
+.content .cardRent:hover {
+  transform: scale(1.1);
 }
 
 .content .cardRent .cardimg {
@@ -17541,12 +17747,41 @@ readers do not read off random characters that represent icons */
 }
 
 .content .cardRent .cardtext {
+  padding-top: 10px;
   height: 30%;
   width: 100%;
+  text-align: start;
+  padding-left: 8px;
 }
 
-.content .cardRent .cardtext p {
+.content .cardRent .cardtext h2 {
+  font-size: 24px;
   text-align: center;
+  text-transform: capitalize;
+  color: #92174d;
+  font-weight: bold;
+}
+
+.content .cardRent .cardtext h3 {
+  font-size: 18px;
+  text-align: center;
+}
+
+.content .cardRent .cardtext .services {
+  width: 70%;
+  margin: 12px auto 0;
+}
+
+.content .cardRent .cardtext .services ul {
+  display: flex;
+  justify-content: space-around;
+  list-style-position: inside;
+  list-style-type: none;
+}
+
+.content .cardRent .cardtext .services ul img {
+  width: 20px;
+  height: auto;
 }
 
 /* fine content */
@@ -17582,157 +17817,4 @@ readers do not read off random characters that represent icons */
 }
 
 /* fine footer */
-
-@media screen and (max-width: 800px) {
-  .showContainer {
-    margin-top: 70px;
-    min-height: 70vh;
-    padding: 30px;
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-  }
-
-  .showContainer .apartmentDetails {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    min-width: 100%;
-    height: 100%;
-    margin: 0 auto;
-    padding-bottom: 20px;
-    border-bottom: 2px solid #FF385C;
-  }
-
-  .showContainer .apartmentDetails .photoApartmentName {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    position: relative;
-    width: 100%;
-  }
-
-  .showContainer .apartmentDetails .photoApartmentName .housename {
-    height: 10%;
-  }
-
-  .showContainer .apartmentDetails .photoApartmentName .housename h3 {
-    font-weight: bolder;
-    border: 1px solid #FF385C;
-    padding: 3px;
-    box-shadow: 5px 10px rgba(136, 136, 136, 0.31);
-    border-radius: 10px;
-    width: 60%;
-    min-width: 200px;
-    margin-bottom: 20px;
-  }
-
-  .showContainer .apartmentDetails .photoApartmentName .houseimg {
-    height: 250px;
-  }
-
-  .showContainer .apartmentDetails .photoApartmentName .houseimg img {
-    width: 100%;
-    min-width: 220px;
-    max-width: 300px;
-    height: 220px;
-    border-radius: 20px;
-    box-shadow: 5px 10px rgba(136, 136, 136, 0.31);
-  }
-
-  .showContainer .apartmentDetails .contaninerMap {
-    width: 100%;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    align-items: center;
-  }
-
-  .showContainer .apartmentDetails .contaninerMap .maptitle {
-    height: 10%;
-    border: 2px solid #FF385C;
-    border-radius: 10px;
-    margin-bottom: 20px;
-    box-shadow: 5px 10px rgba(136, 136, 136, 0.31);
-    padding: 5px;
-  }
-
-  .showContainer .apartmentDetails .contaninerMap #map {
-    height: 300px;
-    width: 100%;
-    max-width: 440px;
-    border-radius: 20px;
-    min-width: 300px;
-    box-shadow: 5px 10px rgba(136, 136, 136, 0.31);
-  }
-
-  .showContainer .provashow {
-    width: 100%;
-    margin: 0 auto;
-    display: flex;
-    padding: 20px 0;
-  }
-
-  .showContainer .provashow p {
-    width: 60%;
-    margin-right: 5%;
-    font-size: 20px;
-  }
-
-  .showContainer .provashow ul {
-    width: 40%;
-  }
-
-  .showContainer .provashow ul li {
-    font-size: 20px;
-  }
-
-  .footer {
-    min-height: 15vh;
-    display: flex;
-    padding: 50px;
-    border-bottom: 1px solid lightgrey;
-    background-color: #FF385C;
-    width: 100%;
-  }
-
-  .footer ul {
-    width: 100%;
-  }
-
-  .footer ul li {
-    list-style-type: none;
-  }
-
-  .footer ul li a {
-    text-decoration: none;
-    color: grey;
-    font-size: 14px;
-    line-height: 30px;
-  }
-}
-
-@media screen and (max-width: 800px) {
-  .appartamententiNormali {
-    min-height: 70vh;
-    margin-top: 55px;
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-  }
-
-  .appartamententiNormali img {
-    border-radius: 10px;
-    box-shadow: 0px 8px 20px 0px rgba(0, 0, 0, 0.15);
-  }
-
-  .appartamententiNormali h1 {
-    color: green;
-  }
-}
 

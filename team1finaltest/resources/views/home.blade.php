@@ -5,15 +5,30 @@
 
   <div class="content">
     @isset($sponsored)
-
+      <div class="sponsoredTitle">
+        <h2>Appartamenti in evidenza</h2>
+      </div>
       @foreach ($sponsored as $apartment)
         <div class="cardRent"onclick="window.location='{{route('show', $apartment['id'])}}'">
+          {{-- <span class="star"> <i class="fas fa-star"></i> </span> --}}
+          {{-- <div class="cardAddress">
+            {{$apartment['address']}}
+          </div> --}}
           <div class="cardimg">
             <img src="{{ $apartment['picture'] }}" alt="fdkcrw">
           </div>
           <div class="cardtext">
-            <h1>NAME: {{ $apartment['name'] }}</h1>
-            <p>{{ $apartment['description'] }}</p>
+            <h2>{{ $apartment['name'] }}</h2>
+            <h3>{{$apartment['address']}}</h3>
+            <div class="services">
+              <ul>
+                @foreach ($apartment -> services -> sortBy('id') as $service)
+                  <li>
+                    <img src="/images/{{$service['name']}}.svg" alt="{{$service['name']}}">
+                  </li>
+                @endforeach
+              </ul>
+            </div>
           </div>
         </div>
       @endforeach

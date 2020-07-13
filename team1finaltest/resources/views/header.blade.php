@@ -2,8 +2,17 @@
 @if (\Request::is('/'))
 
 <div class="header">
+
   <div class="searchBar">
     <form action="{{ route('search') }}" method="post">
+      <h2>
+        @if (Auth::check() && Auth::user() -> firstname )
+          Ciao {{ Auth::user() -> firstname }}, quale sarà la tua prossima meta?
+        @else
+          Quale sarà la tua prossima meta?
+        @endif
+      </h2>
+
         @csrf
         @method('POST')
         <div class="inputField">
@@ -23,7 +32,7 @@
             <p>50 km</p>
             <p>100 km</p>
           </div>
-          <input type="range" name="radius" min="1" max="100" value="50" class="slider" id="myRange">
+          <input type="range" name="radius" min="1" max="100" value="20" class="slider" id="myRange">
           <p class="range">Raggio:&nbsp;<span id="demo"></span></p>
       </div>
       <div class="numbersService">
