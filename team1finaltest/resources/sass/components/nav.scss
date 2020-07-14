@@ -1,0 +1,162 @@
+.noeffect{
+  text-decoration: none;
+  color: inherit;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  &:hover{
+    text-decoration: none;
+  }
+}
+
+.mynav{
+  background-color: #fff;
+  height: 55px;
+  width: 100%;
+  padding: 0 150px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: fixed;
+  z-index: 2000;
+  top: 0;
+  right: 0;
+  left: 0;
+  box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+  .nav-logo{
+    height: 100%;
+    a{
+      margin-top: 5px;
+      span.logoTitle{
+        font-size: 20px;
+        color: #f7575c;
+        font-weight: bold;
+        vertical-align: sub;
+        margin-left: -24px;
+      }
+      img{
+        width: 70px;
+        height: 45px;
+        max-height: 100%;
+      }
+    }
+  }
+
+  .burger{
+
+    position: relative;
+    &:before{
+      font-family: "Font Awesome 5 Free";
+      content: "  \f0c9";
+      font-weight: 900;
+      font-size: 25px;
+    }
+    .burger-box{
+      display: none;
+      position: absolute;
+      width: 150px;
+      height: 110px;
+      top: 100%;
+      right: 0;
+      z-index: 1000;
+      min-width: 11rem;
+      margin: 0.125rem 0 0;
+      list-style: none;
+      background-color: #fff;
+      background-clip: padding-box;
+      border: 1px solid rgba(0, 0, 0, 0.15);
+      border-radius: 0.25rem;
+      padding: 10px 37px;
+      font-size: 0.9rem;
+      color: #212529;
+      text-align: left;
+      .burger-list{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        list-style-type: none;
+        list-style-position: inside;
+
+        li{
+          .burger-link{
+            display: block;
+          }
+        }
+      }
+    }
+  }
+  .mynav-menu{
+
+    height: 100%;
+    font-size: 18px;
+    padding-top: 14px;
+
+    ul{
+      margin: 0;
+      list-style-type: none;
+      .cmd{
+        display: inline-block;
+
+
+      }
+      .nav-drop{
+        position: relative;
+        .caret{
+          cursor: pointer;
+          &:after{
+            font-family: "Font Awesome 5 Free";
+            content: "  \f0d7";
+            font-weight: 900;
+          }
+        }
+
+        .drop-menu{
+          display: none;
+          height: 110px;
+          width: 150px;
+          border: 1px solid black;
+          position: absolute;
+          top: 100%;
+          left: 0;
+          z-index: 1000;
+          min-width: 11rem;
+          margin: 0.125rem 0 0;
+          list-style: none;
+          background-color: #fff;
+          background-clip: padding-box;
+          border: 1px solid rgba(0, 0, 0, 0.15);
+          border-radius: 0.25rem;
+          .drop-sub-menu{
+            height: 100%;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            padding: 0 37px;
+            font-size: 0.9rem;
+            color: #212529;
+            text-align: left;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 850px){
+  .burger{
+    display: block;
+  }
+  .mynav-menu{
+    display: none;
+  }
+}
+
+@media screen and (min-width: 851px){
+  .burger{
+    display: none;
+  }
+  .mynav-menu{
+    display: block;
+  }
+}

@@ -11,7 +11,7 @@
   </head>
   <body>
     <header>
-      @include('nav')
+      @include('components.nav')
 
       @include('header')
     </header>

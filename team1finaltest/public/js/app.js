@@ -47699,7 +47699,13 @@ function start() {
   scrollNav();
   chiudiNav();
   ricercaAvanzata();
-  ricercaAvanzata2(); // Funzione MAPS Google
+  ricercaAvanzata2();
+  $('.caret').click(function () {
+    $('.drop-menu').toggle();
+  });
+  $('.burger').click(function () {
+    $('.burger-box').toggle();
+  }); // Funzione MAPS Google
 
   var location = window.location.href;
 
@@ -47919,8 +47925,8 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\Users\Simone\Documents\eserciziboolean\airbnb\team1finaltest\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\Users\Simone\Documents\eserciziboolean\airbnb\team1finaltest\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\Users\Dani\Desktop\Boolean Career\boolbnb\team1finaltest\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\Users\Dani\Desktop\Boolean Career\boolbnb\team1finaltest\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ }),

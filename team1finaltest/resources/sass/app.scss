@@ -13,7 +13,8 @@
 @import 'components/stats';
 @import 'components/pay';
 @import 'components/header';
-@import 'components/user';
+@import 'components/nav';
+
 // Bootstrap
 @import '~bootstrap/scss/bootstrap';
 @import '~@fortawesome/fontawesome-free/scss/fontawesome.scss';
@@ -63,26 +64,19 @@ input[type="search"]::-webkit-search-results-decoration {
     justify-content: center;
     align-items: center;
     border-radius:30px;
-    width: calc(100% / 4);
+    width: calc( (100% / 3) - 80px);
     background-color: #FFF;
-    margin: 20px;
+    margin: 20px 40px;
     transition: transform .2s;
     position: relative;
-    .star{
-      position: absolute;
-      color: gold;
-      font-size: 30px;
-      top: 0;
-      left: 20px;
-    }
+
     &:hover{
       transform: scale(1.1);
     }
 
     .cardimg{
-      height: 70%;
       width: 100%;
-
+      min-height: 70%;
       img{
         max-height: 100%;
         width: 100%;
@@ -91,11 +85,10 @@ input[type="search"]::-webkit-search-results-decoration {
       }
     }
     .cardtext{
-      padding-top: 10px;
-      height: 30%;
       width: 100%;
-      text-align: start;
-      padding-left: 8px;
+      min-height: 30%;
+      padding-top: 10px;
+
       h2{
         font-size: 24px;
         text-align: center;
@@ -132,12 +125,13 @@ input[type="search"]::-webkit-search-results-decoration {
 .footer{
   min-height: 15vh;
   display: flex;
-  padding: 10px 150px;
+  justify-content: space-around;
+  padding: 20px 0;
   border-bottom: 1px solid lightgrey;
   background-color: #FF385C;
 
   ul{
-    width: 33%;
+
     li{
       list-style-type: none;
       a {
@@ -151,8 +145,46 @@ input[type="search"]::-webkit-search-results-decoration {
 }
 
 .sottoFooter{
-  padding: 10px 150px;
   color: grey;
 }
 
 /* fine footer */
+
+@media screen and (max-width: 970px) {
+  .content{
+    flex-direction: column;
+    margin-top: 200px;
+    display: flex;
+    align-items: center;
+    .cardRent{
+      width: 70%;
+      min-width: 200px;
+      margin: 25px auto;
+
+    }
+  }
+
+  .searchBar{
+    align-items: flex-start;
+    max-width: 100%;
+    padding: 10px 0 0 50px;
+    form{
+      max-width: 60%;
+      min-width: 260px;
+    h2{
+      font-size: 25px;
+    }
+  }
+}
+
+.inputField{
+  input[name="address"]{
+    font-size: 15px;
+  }
+}
+
+footer{
+  max-width: 100vw;
+}
+
+}

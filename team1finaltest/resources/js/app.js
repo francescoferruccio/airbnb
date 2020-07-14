@@ -19,6 +19,14 @@ function start(){
 
     ricercaAvanzata2();
 
+    $('.caret').click(function () {
+      $('.drop-menu').toggle();
+    })
+
+    $('.burger').click(function () {
+      $('.burger-box').toggle();
+    })
+
 
     // Funzione MAPS Google
     const location = window.location.href;
