@@ -16,7 +16,9 @@
     <div class="row justify-content-center">
         <div class="col-md-12">
             <div class="card">
-                <div class="card-header">{{ __('Profilo Utente') }}</div>
+                <div class='userHeader'>
+                  <span>{{ __('Profilo Utente') }}</span>
+                </div>
 
 
                 {{-- parte profilo utente e dati con inserisci appartamento --}}

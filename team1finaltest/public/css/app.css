@@ -698,6 +698,24 @@
 
 /* fine parte input numbers */
 
+.container {
+  margin-top: 55px;
+}
+
+.userHeader {
+  height: 40px;
+  background: white;
+  background: linear-gradient(135deg, white 20%, #ff385c 73%, #ff385c 100%);
+  display: flex;
+  align-items: center;
+}
+
+.userHeader span {
+  margin-left: 15px;
+  font-weight: bold;
+  font-size: 18px;
+}
+
 .titleAppartamenti {
   margin: 20px 0;
 }
