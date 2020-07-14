@@ -11,13 +11,14 @@ function start(){
 
     init();
 
+    scrollNav();
+
+    chiudiNav();
+
     ricercaAvanzata();
 
     ricercaAvanzata2();
 
-    scrollNav();
-    
-    chiudiNav();
 
     // Funzione MAPS Google
     const location = window.location.href;
@@ -94,9 +95,10 @@ function start(){
   // funzione mostra searchbar nav sullo scroll
 
   function scrollNav(){
-    const location = window.location.href;
+    $('.navSearch').hide();
+    const wlocation = location.pathname;
 
-    if (window.location.pathname == '/search' || location.includes('show/')) {
+    if (wlocation == '/search' || wlocation.includes('/show')) {
       $('.navSearch').show();
     } else {
       $(window).scroll(function() {

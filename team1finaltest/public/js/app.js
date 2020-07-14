@@ -47696,10 +47696,10 @@ __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js"); // window
 
 function start() {
   init();
-  ricercaAvanzata();
-  ricercaAvanzata2();
   scrollNav();
-  chiudiNav(); // Funzione MAPS Google
+  chiudiNav();
+  ricercaAvanzata();
+  ricercaAvanzata2(); // Funzione MAPS Google
 
   var location = window.location.href;
 
@@ -47778,9 +47778,10 @@ function init() {
 ; // funzione mostra searchbar nav sullo scroll
 
 function scrollNav() {
-  var location = window.location.href;
+  $('.navSearch').hide();
+  var wlocation = location.pathname;
 
-  if (window.location.pathname == '/search' || location.includes('show/')) {
+  if (wlocation == '/search' || wlocation.includes('/show')) {
     $('.navSearch').show();
   } else {
     $(window).scroll(function () {

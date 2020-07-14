@@ -295,10 +295,6 @@
   border: 1px solid black;
 }
 
-.navSearch {
-  display: none;
-}
-
 .navSearch #stileNavSearch {
   border-radius: 24px;
   background-color: transparent;
