@@ -36,17 +36,21 @@
   }
 }
 
-.inbox {
-
-  table {
-    margin: auto;
-    max-width: 1100px;
-  }
-
-  table,
-  td,
-  tr,
-  th {
-    border: 1px solid black;
+.msgcontainer{
+  // min-height: 50vh;
+  background-color: white;
+  height: auto;
+  padding: 25px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  .msgsubcontainer{
+    display: flex;
+    flex-direction: column;
+    .msgcard{
+      margin: 5px 0;
+      border: 1px solid red;
+      padding: 5px;
+    }
   }
 }

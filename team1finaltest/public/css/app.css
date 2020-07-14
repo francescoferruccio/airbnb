@@ -283,16 +283,24 @@
   border-radius: 10px;
 }
 
-.inbox table {
-  margin: auto;
-  max-width: 1100px;
+.msgcontainer {
+  background-color: white;
+  height: auto;
+  padding: 25px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-.inbox table,
-.inbox td,
-.inbox tr,
-.inbox th {
-  border: 1px solid black;
+.msgcontainer .msgsubcontainer {
+  display: flex;
+  flex-direction: column;
+}
+
+.msgcontainer .msgsubcontainer .msgcard {
+  margin: 5px 0;
+  border: 1px solid red;
+  padding: 5px;
 }
 
 .navSearch #stileNavSearch {
