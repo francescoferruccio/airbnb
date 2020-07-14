@@ -698,6 +698,15 @@
 
 /* fine parte input numbers */
 
+.titleAppartamenti {
+  margin: 20px 0;
+}
+
+.titleAppartamenti h2 {
+  text-align: center;
+  color: #92174d;
+}
+
 .topProfile {
   display: flex;
   width: 100%;
@@ -738,7 +747,7 @@
 .appartamenti {
   width: 100%;
   display: flex;
-  justify-content: flex-start;
+  justify-content: center;
   flex-wrap: wrap;
 }
 
@@ -748,28 +757,36 @@
   overflow: hidden;
   margin: 20px 5px;
   width: calc((100% / 4) - 10px);
+  flex-basis: 257px;
   height: 320px;
 }
 
-.appartamenti .cardProfile .cardimg {
+.appartamenti .cardProfile a {
+  text-decoration: none;
+  color: #000;
+}
+
+.appartamenti .cardProfile a .cardimg {
   height: 50%;
   width: auto;
 }
 
-.appartamenti .cardProfile .cardimg img {
+.appartamenti .cardProfile a .cardimg img {
   max-height: 100%;
   width: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 
-.appartamenti .cardProfile .cardtext {
+.appartamenti .cardProfile a .cardtext {
   padding-top: 10px;
-  height: 30%;
+  height: 100px;
   width: 100%;
   text-align: start;
   padding-left: 8px;
 }
 
-.appartamenti .cardProfile .cardtext h2 {
+.appartamenti .cardProfile a .cardtext h2 {
   font-size: 24px;
   text-align: center;
   text-transform: capitalize;
@@ -777,19 +794,30 @@
   font-weight: bold;
 }
 
-.appartamenti .cardProfile .cardtext h3 {
+.appartamenti .cardProfile a .cardtext h3 {
   font-size: 18px;
   text-align: center;
 }
 
-.appartamenti .cardProfile .cardtext .services {
+.appartamenti .cardProfile .services {
   width: 100%;
   margin: 12px auto 0;
   text-align: center;
 }
 
-.appartamenti .cardProfile .cardtext .services a {
+.appartamenti .cardProfile .services a {
   color: #FF385C;
+}
+
+@media screen and (max-width: 500px) {
+  .topProfile {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .topProfile .profile {
+    margin-bottom: 10px;
+  }
 }
 
 /*!

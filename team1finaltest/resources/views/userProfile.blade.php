@@ -40,25 +40,30 @@
                       <p> Data di nascita: {{ Auth::user()->dateofbirth }} </p>
                     </div>
                   </div>
+                  <div class="titleAppartamenti">
+                    <h2>I tuoi appartamenti</h2>
+                  </div>
                   <div class="appartamenti">
                     @if ($userApartments->count() == 0)
                       <p>Non hai nessun appartamento</p>
                     @endif
                     @foreach ($userApartments as $apartment)
-                      <div class="cardProfile">
-                        <div class="cardimg">
-                          <img src="{{ $apartment['picture'] }}" alt="fdkcrw">
-                        </div>
-                        <div class="cardtext">
-                          <h2>{{ $apartment['name'] }}</h2>
-                          <h3>{{$apartment['address']}}</h3>
+                        <div class="cardProfile">
+                          <a href="{{ route('show', $apartment['id']) }}">
+                          <div class="cardimg">
+                            <img src="{{ $apartment['picture'] }}" alt="fdkcrw">
+                          </div>
+                          <div class="cardtext">
+                            <h2>{{ $apartment['name'] }}</h2>
+                            <h3>{{$apartment['address']}}</h3>
+                          </div>
+                        </a>
                           <div class="services">
                             <span>Modifica: </span>  <a href="{{ route('edit', $apartment['id']) }}"><i class="fas fa-edit"></i></a>
-                          <span>Grafico: </span>  <a href="{{ route('stats', $apartment['id']) }}"><i class="fas fa-chart-bar"></i></i></a>
-                          <span>Sponsorizza: </span>  <a href="{{ route('pay', $apartment['id']) }}"><i class="fas fa-euro-sign"></i></a>
+                            <span>Grafico: </span>  <a href="{{ route('stats', $apartment['id']) }}"><i class="fas fa-chart-bar"></i></i></a>
+                            <span>Sponsorizza: </span>  <a href="{{ route('pay', $apartment['id']) }}"><i class="fas fa-euro-sign"></i></a>
                           </div>
                         </div>
-                      </div>
 
                     @endforeach
                   </div>
