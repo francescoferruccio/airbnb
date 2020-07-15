@@ -50,6 +50,7 @@
     .serviceApartment{
       width: 20%;
       .specifiche{
+        border-bottom: 2px solid #FF385C;
         .iconList{
           font-size: 25px;
           list-style: none;
@@ -57,13 +58,18 @@
       }
     }
     .service{
+      padding-top: 20px;
       ul{
         list-style: none;
         line-height: 35px;
         text-transform: capitalize;
+        li{
+          font-size: 20px;
+        }
         img{
           width: 27.75px;
           height: 25px;
+          vertical-align: text-bottom;
         }
       }
     }

@@ -489,31 +489,82 @@ table tr:nth-child(2n+1) {
 }
 
 .search-content .appartamententiNormali {
-  min-height: 50vh;
+  min-height: 400px;
   margin-top: 55px;
-  width: 80%;
+  padding: 30px;
+  width: 60%;
   margin: 0 auto;
   display: flex;
-  justify-content: space-around;
-  align-items: center;
+  justify-content: space-between;
   margin-bottom: 30px;
   border-bottom: 2px solid #FF385C;
   background-color: rgba(116, 140, 156, 0.06);
 }
 
-.search-content .appartamententiNormali .titoloappartamententiNormali h1 {
-  color: green;
-  box-shadow: 0px 8px 20px 0px rgba(0, 0, 0, 0.15);
-  border-radius: 10px;
-  border: 1px solid #FF385C;
-  margin-bottom: 10px;
-  padding: 10px;
+.search-content .appartamententiNormali .imgApartment {
+  width: 30%;
 }
 
-.search-content .appartamententiNormali img {
+.search-content .appartamententiNormali .imgApartment img {
   border-radius: 10px;
   box-shadow: 0px 8px 20px 0px rgba(0, 0, 0, 0.15);
-  max-height: 300px;
+  max-height: 400px;
+  max-width: 100%;
+}
+
+.search-content .appartamententiNormali .textApartment {
+  width: 40%;
+}
+
+.search-content .appartamententiNormali .textApartment .titleApartment h2 {
+  font-size: 40px;
+  color: #FF385C;
+  font-weight: bolder;
+}
+
+.search-content .appartamententiNormali .textApartment .titleApartment h4 {
+  font-style: italic;
+  font-size: 25px;
+  font-weight: bolder;
+}
+
+.search-content .appartamententiNormali .textApartment .descriptionApartment p {
+  font-size: 22px;
+  font-style: oblique;
+  margin-top: 30px;
+}
+
+.search-content .appartamententiNormali .serviceApartment {
+  width: 20%;
+}
+
+.search-content .appartamententiNormali .serviceApartment .specifiche {
+  border-bottom: 2px solid #FF385C;
+}
+
+.search-content .appartamententiNormali .serviceApartment .specifiche .iconList {
+  font-size: 25px;
+  list-style: none;
+}
+
+.search-content .appartamententiNormali .service {
+  padding-top: 20px;
+}
+
+.search-content .appartamententiNormali .service ul {
+  list-style: none;
+  line-height: 35px;
+  text-transform: capitalize;
+}
+
+.search-content .appartamententiNormali .service ul li {
+  font-size: 20px;
+}
+
+.search-content .appartamententiNormali .service ul img {
+  width: 27.75px;
+  height: 25px;
+  vertical-align: text-bottom;
 }
 
 @media screen and (max-width: 800px) {
@@ -18194,6 +18245,10 @@ input[type=search]::-webkit-search-results-decoration {
   -webkit-appearance: none;
 }
 
+main {
+  min-height: calc(85vh - 110px);
+}
+
 /* parte navbar */
 
 /* fine navbar */
@@ -18288,28 +18343,33 @@ input[type=search]::-webkit-search-results-decoration {
 
 /* inizio footer */
 
-.footer {
+footer {
   min-height: 15vh;
-  display: flex;
-  justify-content: space-around;
-  padding: 20px 0;
-  border-bottom: 1px solid lightgrey;
-  background-color: #FF385C;
 }
 
-.footer ul li {
+footer .footer {
+  display: flex;
+  justify-content: space-around;
+  padding-top: 20px;
+  border-bottom: 1px solid lightgrey;
+  background-color: #FF385C;
+  max-height: 90%;
+}
+
+footer .footer ul li {
   list-style-type: none;
 }
 
-.footer ul li a {
+footer .footer ul li a {
   text-decoration: none;
   color: grey;
   font-size: 14px;
   line-height: 30px;
 }
 
-.sottoFooter {
+footer .sottoFooter {
   color: grey;
+  max-height: 10%;
 }
 
 /* fine footer */
