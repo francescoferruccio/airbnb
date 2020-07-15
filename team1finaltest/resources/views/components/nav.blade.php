@@ -70,8 +70,7 @@
           @else
             <li class="nav-drop">
 
-              {{ Auth::user()->firstname }} {{ Auth::user()->lastname }}
-              <span class="caret"></span>
+              <span class="caret">{{ Auth::user()->firstname }} {{ Auth::user()->lastname }}</span>
 
               <div class="drop-menu">
                 <div class="drop-sub-menu">

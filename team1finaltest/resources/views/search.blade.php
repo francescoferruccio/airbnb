@@ -3,17 +3,55 @@
 @section('content')
   <div class="search-content">
     {{-- se ci sono appartamenti sponsorizzati li stampiamo per primi --}}
+
     @if (count($sponsored_apts))
-      <h1>Appartamenti in evidenza</h1>
-      @foreach ($sponsored_apts as $sponsored)
-        <h2>NAME: {{ $sponsored['name'] }}</h2>
-        <ul>
-          @foreach ($sponsored -> services as $service)
-            <li>{{ $service['name'] }}</li>
-          @endforeach
-        </ul>
-      @endforeach
-    @endif
+      <div class="sponsorApartments">
+        <div class="titleSponsored">
+          <h2> Non lasciarti scappare le migliori occasioni!</h2>
+        </div>
+        @foreach ($sponsored_apts as $sponsored)
+          <div class="apartmentContainer sponsored">
+            <div class="imgApartment">
+              <img src="{{$sponsored['picture']}}" alt="">
+            </div>
+            <div class="textApartment">
+              <div class="titleApartment">
+                <h2>{{ $sponsored['name'] }}</h2>
+                <h4>{{ $sponsored['address'] }}</h4>
+              </div>
+              <div class="descriptionApartment">
+                <p>{{ $sponsored['description'] }}</p>
+              </div>
+
+            </div>
+            <div class="serviceApartment">
+              <div class="specifiche">
+                <ul class="iconList">
+                  <li><i class="fas fa-toilet"></i>  {{ $sponsored['rooms'] }}</li>
+                  <li><i class="fas fa-bed"></i>  {{ $sponsored['beds'] }}</li>
+                  <li><i class="fas fa-toilet"></i>  {{ $sponsored['bathrooms'] }}</li>
+                  <li><i class="fas fa-square"></i>  {{ $sponsored['size'] }}</li>
+                </ul>
+              </div>
+              <div class="service">
+
+                <ul>
+                  @foreach ($sponsored -> services as $service)
+                      <li><img src="/images/{{$service['name']}}.svg" alt="">
+                    @php
+                    if (strpos($service -> name, '_')) {
+                          $service -> name = str_replace("_", " ", $service -> name);
+                        }
+                    @endphp
+                      {{$service['name']}}</li>
+                  @endforeach
+                </ul>
+              </div>
+          </div>
+          </div>
+        @endforeach
+      @endif
+      </div>
 
     {{-- stampiamo il resto degli appartamenti --}}
 
@@ -26,7 +64,7 @@
 
     @foreach ($notSponsored_apts as $notSponsored)
 
-      <div class="appartamententiNormali">
+      <div class="apartmentContainer">
         <div class="imgApartment">
           <img src="{{$notSponsored['picture']}}" alt="">
         </div>

@@ -86,10 +86,11 @@
     }
   }
   .mynav-menu{
-
+    cursor: pointer;
     height: 100%;
     font-size: 18px;
     padding-top: 14px;
+
 
     ul{
       margin: 0;
@@ -99,14 +100,17 @@
 
 
       }
-      .nav-drop{
+      li.nav-drop{
         position: relative;
         .caret{
-          cursor: pointer;
+            opacity: 0.7;
           &:after{
             font-family: "Font Awesome 5 Free";
             content: "  \f0d7";
             font-weight: 900;
+          }
+          &:hover{
+            opacity: 1;
           }
         }
 

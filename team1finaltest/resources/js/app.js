@@ -19,7 +19,7 @@ function start(){
 
     ricercaAvanzata2();
 
-    $('.caret').click(function () {
+    $('.mynav-menu').click(function () {
       $('.drop-menu').toggle();
     })
 
@@ -27,6 +27,15 @@ function start(){
       $('.burger-box').toggle();
     })
 
+  //   if ($('.drop-menu').css('display') == 'block') {
+  //   $(document).click(function(event) {
+  //     $('.drop-menu').hide();
+  //   });
+  // }
+
+      // if ($('.burger-box').css('display') != 'block') {
+      //   $('.burger-box').hide();
+      // }
 
     // Funzione MAPS Google
     const location = window.location.href;
@@ -104,8 +113,6 @@ function start(){
 
   function scrollNav(){
     $('.navSearch').hide();
-
-
 
     const wlocation = location.pathname;
     if (wlocation == '/search' || wlocation.includes('/show')) {

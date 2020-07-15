@@ -2,7 +2,27 @@
 .search-content {
   margin-top: 55px;
 
-  .appartamententiNormali{
+  .sponsorApartments{
+    min-height: 500px;
+    border: 2px solid #FF385C;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    .titleSponsored{
+      h2{
+        color: #FF385C;
+        font-weight: bold;
+      }
+    }
+    .sponsored{
+      border: 1px solid lightblue;
+      border-radius: 15px;
+    }
+  }
+
+
+  .apartmentContainer{
     min-height: 400px;
     margin-top: 55px;
     padding: 30px;
@@ -13,6 +33,7 @@
     margin-bottom: 30px;
     border-bottom: 2px solid #FF385C;
     background-color: rgba(116, 140, 156, 0.06);
+
 
 
     .imgApartment{
