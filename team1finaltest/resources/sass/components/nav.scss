@@ -24,6 +24,8 @@
   left: 0;
   box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
   .nav-logo{
+    display: flex;
+    align-items: center;
     height: 100%;
     a{
       margin-top: 5px;
