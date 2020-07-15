@@ -5,7 +5,7 @@
     <title>BoolBnb</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <script src="/js/app.js" charset="utf-8"></script>
-
+    <link rel="icon" href="{{ URL::asset('/images/favicon-32x32.png') }}" type="image/png"/>
     <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
     <link rel="stylesheet" href="/css/app.css">
   </head>
