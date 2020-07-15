@@ -314,6 +314,14 @@
   outline: 0;
 }
 
+.navSearch #stileNavSearch:before {
+  font-family: "Font Awesome 5 Free";
+  content: "  \F002";
+  font-weight: 900;
+  color: #ff385c;
+  margin-right: 5px;
+}
+
 .navSearch .apriSearch {
   background-color: rgba(248, 250, 252, 0.9);
   width: 100vw;
@@ -550,6 +558,14 @@
 #ricercaAvanzata:hover,
 #ricercaAvanzata2:hover {
   background: #C10303;
+}
+
+#ricercaAvanzata:after,
+#ricercaAvanzata2:after {
+  font-family: "Font Awesome 5 Free";
+  content: "  \F0B0";
+  font-weight: 900;
+  color: #fff;
 }
 
 #containerRicercaAvanzata,

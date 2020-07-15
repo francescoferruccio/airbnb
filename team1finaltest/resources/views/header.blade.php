@@ -21,7 +21,7 @@
         </div>
 
         {{-- bottone ricerca avanzata --}}
-      <div>
+      <div class="filter">
         <button id="ricercaAvanzata" type="button" name="button">Ricerca Avanzata</button>
       </div>
       {{-- range slider km --}}

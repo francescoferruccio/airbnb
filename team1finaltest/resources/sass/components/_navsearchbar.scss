@@ -8,6 +8,13 @@
     font-weight: bold;
     padding: 8px;
     outline: 0;
+    &:before{
+      font-family: "Font Awesome 5 Free";
+      content: "  \f002";
+      font-weight: 900;
+      color: rgb(255, 56, 92);
+      margin-right: 5px;
+    }
   }
   .apriSearch{
     background-color: rgba(248, 250, 252, 0.9);
