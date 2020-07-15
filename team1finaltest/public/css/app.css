@@ -883,6 +883,146 @@
   }
 }
 
+.container {
+  margin-top: 55px;
+}
+
+.userHeader {
+  height: 40px;
+  background: white;
+  background: linear-gradient(135deg, white 20%, #ff385c 73%, #ff385c 100%);
+  display: flex;
+  align-items: center;
+}
+
+.userHeader span {
+  margin-left: 15px;
+  font-weight: bold;
+  font-size: 18px;
+}
+
+.titleAppartamenti {
+  margin: 20px 0;
+}
+
+.titleAppartamenti h2 {
+  text-align: center;
+  color: #92174d;
+}
+
+.topProfile {
+  display: flex;
+  width: 100%;
+}
+
+.topProfile .profile,
+.topProfile .profileInfo {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.topProfile .profile .profilePic,
+.topProfile .profileInfo .profilePic {
+  border-radius: 100%;
+}
+
+.topProfile .profile button,
+.topProfile .profileInfo button {
+  border-radius: 24px;
+  background-color: #FF385C;
+  border: 0;
+  cursor: pointer;
+  box-shadow: rgba(0, 0, 0, 0.18) 0px 1px 2px;
+  font-weight: bold;
+  padding: 8px;
+  outline: 0;
+}
+
+.topProfile .profile button a,
+.topProfile .profileInfo button a {
+  color: white;
+  text-decoration: none;
+}
+
+.appartamenti {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.appartamenti .cardProfile {
+  box-shadow: rgba(0, 0, 0, 0.15) 0px 2px 8px;
+  border-radius: 30px;
+  overflow: hidden;
+  margin: 20px 5px;
+  width: calc((100% / 4) - 10px);
+  flex-basis: 257px;
+  height: 320px;
+}
+
+.appartamenti .cardProfile a {
+  text-decoration: none;
+  color: #000;
+}
+
+.appartamenti .cardProfile a .cardimg {
+  height: 50%;
+  width: auto;
+}
+
+.appartamenti .cardProfile a .cardimg img {
+  max-height: 100%;
+  width: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+.appartamenti .cardProfile a .cardtext {
+  padding-top: 10px;
+  height: 100px;
+  width: 100%;
+  text-align: start;
+  padding-left: 8px;
+}
+
+.appartamenti .cardProfile a .cardtext h2 {
+  font-size: 24px;
+  text-align: center;
+  text-transform: capitalize;
+  color: #92174d;
+  font-weight: bold;
+}
+
+.appartamenti .cardProfile a .cardtext h3 {
+  font-size: 18px;
+  text-align: center;
+}
+
+.appartamenti .cardProfile .services {
+  width: 100%;
+  margin: 12px auto 0;
+  text-align: center;
+}
+
+.appartamenti .cardProfile .services a {
+  color: #FF385C;
+}
+
+@media screen and (max-width: 500px) {
+  .topProfile {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .topProfile .profile {
+    margin-bottom: 10px;
+  }
+}
+
 /*!
  * Bootstrap v4.5.0 (https://getbootstrap.com/)
  * Copyright 2011-2020 The Bootstrap Authors
