@@ -20,14 +20,15 @@
       labels: {!! json_encode($date) !!},
       datasets: [{
         label: 'Visualizzazioni settimana',
-        backgroundColor: 'rgb(255, 99, 132)',
-        borderColor: 'rgb(255, 99, 132)',
+        backgroundColor: '#FF385C',
+        borderColor: '#FF385C',
         data: {!! json_encode($lastWeekViews) !!}
       }]
     },
 
     // Configuration options go here
     options: {
+        responsive: true,
         scales: {
             yAxes: [{
                 ticks: {
@@ -49,8 +50,8 @@
       labels: {!! json_encode($date) !!},
       datasets: [{
         label: 'Messaggi settimana',
-        backgroundColor: 'rgb(255, 99, 132)',
-        borderColor: 'rgb(255, 99, 132)',
+        backgroundColor: '#FF385C',
+        borderColor: '#FF385C',
         data: {!! json_encode($lastWeekMsgs) !!}
       }]
     },
