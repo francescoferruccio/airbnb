@@ -3,41 +3,70 @@
   margin-top: 55px;
 
   .appartamententiNormali{
-    min-height: 50vh;
+    min-height: 400px;
     margin-top: 55px;
-    width: 80%;
+    padding: 30px;
+    width: 60%;
     margin: 0 auto;
     display: flex;
-    // flex-direction: column;
-    justify-content: space-around;
-    align-items: center;
+    justify-content: space-between;
     margin-bottom: 30px;
     border-bottom: 2px solid #FF385C;
     background-color: rgba(116, 140, 156, 0.06);
 
 
-    .titoloappartamententiNormali{
-
-
-
-
-      h1{
-        color: green;
-        box-shadow: 0px 8px 20px 0px rgba(0, 0, 0, 0.15);
+    .imgApartment{
+      width: 30%;
+      img{
         border-radius: 10px;
-        border: 1px solid #FF385C;
-        margin-bottom: 10px;
-        padding: 10px;
-
+        box-shadow: 0px 8px 20px 0px rgba(0, 0, 0, 0.15);
+        max-height: 400px;
+        max-width: 100%;
       }
 
     }
-    img{
-      border-radius: 10px;
-      box-shadow: 0px 8px 20px 0px rgba(0, 0, 0, 0.15);
-      max-height: 300px;
+    .textApartment{
+      width: 40%;
+      .titleApartment{
+        h2{
+          font-size: 40px;
+          color: #FF385C;
+          font-weight: bolder;
+        }
+        h4{
+          font-style: italic;
+          font-size: 25px;
+          font-weight: bolder;
+        }
+      }
+      .descriptionApartment{
+        p{
+          font-size: 22px;
+          font-style: oblique;
+          margin-top:30px;
+        }
+      }
     }
-
+    .serviceApartment{
+      width: 20%;
+      .specifiche{
+        .iconList{
+          font-size: 25px;
+          list-style: none;
+        }
+      }
+    }
+    .service{
+      ul{
+        list-style: none;
+        line-height: 35px;
+        text-transform: capitalize;
+        img{
+          width: 27.75px;
+          height: 25px;
+        }
+      }
+    }
   }
 }
 

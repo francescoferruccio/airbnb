@@ -37,7 +37,9 @@ input[type="search"]::-webkit-search-results-button,
 input[type="search"]::-webkit-search-results-decoration {
   -webkit-appearance:none;
 }
-
+main{
+  min-height: calc(85vh - 110px);
+}
 /* parte navbar */
 
 /* fine navbar */
@@ -127,32 +129,36 @@ input[type="search"]::-webkit-search-results-decoration {
 /* fine content */
 
 /* inizio footer */
-
-.footer{
+footer{
   min-height: 15vh;
-  display: flex;
-  justify-content: space-around;
-  padding: 20px 0;
-  border-bottom: 1px solid lightgrey;
-  background-color: #FF385C;
+  .footer{
+    display: flex;
+    justify-content: space-around;
+    padding-top: 20px;
+    border-bottom: 1px solid lightgrey;
+    background-color: #FF385C;
+    max-height: 90%;
 
-  ul{
+    ul{
 
-    li{
-      list-style-type: none;
-      a {
-        text-decoration: none;
-        color: grey;
-        font-size: 14px;
-        line-height: 30px;
+      li{
+        list-style-type: none;
+        a {
+          text-decoration: none;
+          color: grey;
+          font-size: 14px;
+          line-height: 30px;
+        }
       }
     }
   }
+
+  .sottoFooter{
+    color: grey;
+    max-height: 10%;
+  }
 }
 
-.sottoFooter{
-  color: grey;
-}
 
 /* fine footer */
 
