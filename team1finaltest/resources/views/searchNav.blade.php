@@ -1,15 +1,12 @@
 <div class="searchBar">
+  
   <form action="{{ route('search') }}" method="post">
       @csrf
       @method('POST')
-    {{-- <div class="formInterno"> --}}
       <div class="inputField">
         <input name="address" type="search" id="address-input2" placeholder="Dove vuoi andare?" required>
-      {{-- <div class="inputField secondoWrap"> --}}
         <button class="bottoneCerca" type="submit" name="button">CERCA</button>
       </div>
-      {{-- </div> --}}
-    {{-- </div> --}}
 
       {{-- bottone ricerca avanzata --}}
     <div>

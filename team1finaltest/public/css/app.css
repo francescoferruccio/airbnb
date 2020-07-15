@@ -314,9 +314,8 @@
   outline: 0;
 }
 
-.apriSearch {
+.navSearch .apriSearch {
   background-color: rgba(248, 250, 252, 0.9);
-  height: 50vh;
   width: 100vw;
   z-index: 2000;
   position: absolute;
@@ -325,37 +324,23 @@
   display: none;
 }
 
-.apriSearch .closeSearch {
+.navSearch .apriSearch .closeSearch {
   z-index: 2100;
   position: absolute;
-  top: 20px;
-  right: 200px;
+  top: 0;
+  left: 10px;
   cursor: pointer;
-  width: 32px;
-  height: 32px;
   opacity: 0.3;
 }
 
-.apriSearch .closeSearch:hover {
+.navSearch .apriSearch .closeSearch:hover {
   opacity: 1;
 }
 
-.apriSearch .closeSearch:before,
-.apriSearch .closeSearch:after {
-  position: absolute;
-  left: 15px;
-  content: " ";
-  height: 33px;
-  width: 2px;
-  background-color: #333;
-}
-
-.apriSearch .closeSearch:before {
-  transform: rotate(45deg);
-}
-
-.apriSearch .closeSearch:after {
-  transform: rotate(-45deg);
+.navSearch .apriSearch .closeSearch:after {
+  font-family: "Font Awesome 5 Free";
+  content: "  \F00D";
+  font-weight: 900;
 }
 
 .search-content {
@@ -483,6 +468,7 @@
 }
 
 .inputField {
+  position: relative;
   display: flex;
   flex-grow: 1;
   height: 68px;
@@ -757,6 +743,7 @@
 }
 
 .mynav .burger {
+  cursor: pointer;
   position: relative;
 }
 
@@ -770,8 +757,8 @@
 .mynav .burger .burger-box {
   display: none;
   position: absolute;
-  width: 150px;
-  height: 110px;
+  max-width: 200px;
+  max-height: 200px;
   top: 100%;
   right: 0;
   z-index: 1000;
@@ -782,7 +769,7 @@
   background-clip: padding-box;
   border: 1px solid rgba(0, 0, 0, 0.15);
   border-radius: 0.25rem;
-  padding: 10px 37px;
+  padding: 10px 10px 10px 17px;
   font-size: 0.9rem;
   color: #212529;
   text-align: left;
@@ -831,8 +818,8 @@
 
 .mynav .mynav-menu ul .nav-drop .drop-menu {
   display: none;
-  height: 110px;
-  width: 150px;
+  max-height: 110px;
+  max-width: 150px;
   border: 1px solid black;
   position: absolute;
   top: 100%;
@@ -853,7 +840,7 @@
   display: flex;
   flex-direction: column;
   justify-content: space-around;
-  padding: 0 37px;
+  padding: 10px 10px 10px 17px;
   font-size: 0.9rem;
   color: #212529;
   text-align: left;
@@ -866,6 +853,23 @@
 
   .mynav-menu {
     display: none;
+  }
+
+  .mynav {
+    padding: 0;
+    justify-content: space-around;
+  }
+
+  span.logoTitle {
+    display: none;
+  }
+
+  .apriSearch {
+    padding: 10px 0;
+  }
+
+  .apriSearch .searchBar {
+    padding: 10px;
   }
 }
 
@@ -17916,11 +17920,12 @@ input[type=search]::-webkit-search-results-decoration {
   justify-content: center;
   align-items: center;
   border-radius: 30px;
-  width: calc( (100% / 3) - 80px);
   background-color: #FFF;
   margin: 20px 40px;
   transition: transform 0.2s;
   position: relative;
+  height: 400px;
+  max-width: 420px;
 }
 
 .content .cardRent:hover {
@@ -17929,19 +17934,21 @@ input[type=search]::-webkit-search-results-decoration {
 
 .content .cardRent .cardimg {
   width: 100%;
-  min-height: 70%;
+  min-height: 60%;
 }
 
 .content .cardRent .cardimg img {
-  max-height: 100%;
+  height: 100%;
   width: 100%;
   border-radius: 30px 30px 0 0;
 }
 
 .content .cardRent .cardtext {
   width: 100%;
-  min-height: 30%;
-  padding-top: 10px;
+  min-height: 40%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
 }
 
 .content .cardRent .cardtext h2 {
@@ -18013,9 +18020,14 @@ input[type=search]::-webkit-search-results-decoration {
   }
 
   .content .cardRent {
-    width: 70%;
-    min-width: 200px;
-    margin: 25px auto;
+    width: calc(100% - 60px);
+    max-width: 420px;
+    min-width: 300px;
+    margin: 25px 30px;
+  }
+
+  .apriSearch .searchBar form {
+    margin: auto;
   }
 
   .searchBar {

@@ -47791,11 +47791,19 @@ function scrollNav() {
     $('.navSearch').show();
   } else {
     $(window).scroll(function () {
+      var screenWdth = $(window).width();
+
       if ($(this).scrollTop() > 190) {
         $('.navSearch').fadeIn(1000);
+
+        if (screenWdth <= 850) {
+          $('.burger').show();
+        }
       } else {
         $('.navSearch').fadeOut(300);
-        $(".apriSearch").hide();
+        $(".apriSearch").hide(); // if (screenWdth <= 850) {
+        //   $('.burger').show();
+        // }
       }
     });
   }
@@ -47803,6 +47811,7 @@ function scrollNav() {
   $("#stileNavSearch").click(function () {
     event.preventDefault();
     $(".apriSearch").slideDown();
+    $(".burger").hide();
   });
 } // x per chiudere la schermata di ricerca allargata nav
 
@@ -47810,6 +47819,11 @@ function scrollNav() {
 function chiudiNav() {
   $(".closeSearch").on("click", function () {
     $(".apriSearch").fadeOut(1000);
+    var screenWdth = $(window).width();
+
+    if (screenWdth <= 850) {
+      $('.burger').show();
+    }
   });
 } // funzione mostra e nascondi ricerca avanzata
 
