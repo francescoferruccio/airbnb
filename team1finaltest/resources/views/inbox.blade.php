@@ -1,32 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-  {{-- <div class="inbox">
-    <table>
-      <thead>
-        <tr>
-          <th>Mittente</th>
-          <th>Messaggio</th>
-          <th>Appartamento</th>
-        </tr>
-      </thead>
-      <tbody>
-        @foreach ($allMessages as $message)
-          <tr>
-            <td>{{ $message['email'] }}</td>
-            <td>{{ $message['message'] }}</td>
-            <td>
-              @foreach ($apartments as $apartment)
-                @if ($apartment['id'] == $message['apartment_id'])
-                  <a href="{{ route('show', $apartment['id']) }}">{{ $apartment['name'] }}</a>
-                @endif
-              @endforeach
-            </td>
-          </tr>
-        @endforeach
-      </tbody>
-    </table>
-  </div> --}}
+
   <div class="container">
     <div class="row justify-content-center">
       <div class="col-md-12">
@@ -34,37 +9,47 @@
           <div class='userHeader'>
             <span>{{ __('Messaggi Ricevuti') }}</span>
           </div>
-          <div class="msgcontainer">
-            <div class="msgsubcontainer">
-              @foreach ($allMessages as $message)
-                <div class="msgcard">
-                  <div><b>Email mittente:</b> {{$message["email"]}}</div>
-                  <div><b>Messaggio:</b> {{$message["message"]}}</div>
+
+          <div class="table-users">
 
 
-                  @foreach ($apartments as $apartment)
-                    @if ($apartment['id'] == $message['apartment_id'])
-                      <div>
-                        <b>Nome appartamento:</b> <a href="{{ route('show', $apartment['id']) }}">{{ $apartment['name'] }}</a>
+            <table cellspacing="0">
+               <tr>
+                  <th>Email</th>
+                  <th>Message</th>
+                  <th>Name</th>
+                  <th>Picture</th>
 
-                      </div>
-                    @endif
-                  @endforeach
-
-                </div>
-
-              @endforeach
-
-            </div>
-
+               </tr>
+               @foreach ($allMessages as $message)
+                <tr>
+                 <td>{{$message["email"]}}</td>
+                 <td>{{$message["message"]}}</td>
+                 @foreach ($apartments as $apartment)
+                   @if ($apartment['id'] == $message['apartment_id'])
+                     <td>
+                       <a href="{{ route('show', $apartment['id']) }}">{{ $apartment['name'] }}</a>
+                     </td>
+                     <td>
+                       <img class="tdimg" src="{{$apartment['picture']}}" alt="img">
+                     </td>
+                   @endif
+                 @endforeach
+                </tr>
+               @endforeach
+           </table>
           </div>
-
-
-
         </div>
       </div>
     </div>
 
   </div>
+
+
+
+
+
+
+
 
 @endsection
