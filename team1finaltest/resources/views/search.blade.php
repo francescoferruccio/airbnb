@@ -7,7 +7,7 @@
     @if (count($sponsored_apts))
       <div class="sponsorApartments">
         <div class="titleSponsored">
-          <h2> Non lasciarti scappare le migliori occasioni!</h2>
+          <h2>Le nostre scelte top</h2>
         </div>
         @foreach ($sponsored_apts as $sponsored)
           <div class="apartmentContainer sponsored">

@@ -136,15 +136,15 @@ table {
 }
 
 @media screen and (max-width: 500px) {
-   .header {
+   // .header {
+   //
+   //    font-size: 2em;
+   //    font-weight: 700;
+   //    padding: 0;
+   //    text-shadow: 2px 2px 0 rgba(0,0,0,0.1);
+   // }
 
-      font-size: 2em;
-      font-weight: 700;
-      padding: 0;
-      text-shadow: 2px 2px 0 rgba(0,0,0,0.1);
-   }
-
-   img {
+   img.tdimg {
       border: 3px solid;
       height: $imageBig;
       margin: 0.5rem 0;

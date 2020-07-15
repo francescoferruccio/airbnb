@@ -15,8 +15,7 @@
 @import 'components/header';
 @import 'components/nav';
 @import 'components/user';
-@import 'components/createApartment';
-@import 'components/login';
+
 // Bootstrap
 @import '~bootstrap/scss/bootstrap';
 @import '~@fortawesome/fontawesome-free/scss/fontawesome.scss';
@@ -51,7 +50,7 @@ main{
   flex-wrap: wrap;
   width: 100%;
   justify-content: center;
-  margin: 70px 0;
+  padding: 30px 0;
 
   .sponsoredTitle{
     width: 100%;
@@ -137,7 +136,7 @@ footer{
     justify-content: space-around;
     padding-top: 20px;
     border-bottom: 1px solid lightgrey;
-    background-color: #FF385C;
+    background-color: rgba(135, 215, 222, 0.66);
     max-height: 90%;
 
     ul{
@@ -164,16 +163,26 @@ footer{
 /* fine footer */
 
 @media screen and (max-width: 970px) {
+  header{
+
+    max-height: 540px;
+    .header{
+      height: 100%;
+      padding-bottom: 20px;
+    }
+  }
   .content{
     flex-direction: column;
-    margin-top: 200px;
     display: flex;
     align-items: center;
+    padding-top: 70px;
     .cardRent{
+      height: 430px;
       width: calc(100% - 60px);
       max-width: 420px;
       min-width: 300px;
       margin: 25px 30px;
+
 
     }
   }

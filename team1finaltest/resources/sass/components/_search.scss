@@ -3,23 +3,48 @@
   margin-top: 55px;
 
   .sponsorApartments{
+    padding: 30px 0;
+    max-width: 80%;
     min-height: 500px;
-    border: 2px solid #FF385C;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
     align-items: center;
+    margin: 80px auto 30px;
+    background-color: rgba(135, 215, 222, 0.66);
+
     .titleSponsored{
+      margin-bottom: 20px;
       h2{
-        color: #FF385C;
+        color: #92174d;
         font-weight: bold;
+        font-size: 2rem;
       }
     }
     .sponsored{
-      border: 1px solid lightblue;
+      background-color: #fff;
+      border: 2px inset #FF385C;
       border-radius: 15px;
+      position: relative;
+      box-shadow: 19px 5px 30px 0px rgba(0, 0, 0, 0.71);
+      cursor: pointer;
+      transition: transform .2s;
+      &:hover{
+        transform: scale(1.04);
+      }
+
+      &:before{
+        position: absolute;
+        font-family: "Font Awesome 5 Free";
+        content: "Sponsored \F005";
+        font-weight: 900;
+        bottom: 25px;
+        font-size: 16px;
+        color: #FF385C;
+      }
     }
   }
+
 
 
   .apartmentContainer{
@@ -31,18 +56,21 @@
     display: flex;
     justify-content: space-between;
     margin-bottom: 30px;
-    border-bottom: 2px solid #FF385C;
     background-color: rgba(116, 140, 156, 0.06);
-
-
+    cursor: pointer;
+    border: 1px dotted black;
+    border-radius: 10px;
 
     .imgApartment{
       width: 30%;
+      max-height: 340px;
       img{
         border-radius: 10px;
         box-shadow: 0px 8px 20px 0px rgba(0, 0, 0, 0.15);
-        max-height: 400px;
+
         max-width: 100%;
+        height: 70%;
+        max-height: 340px;
       }
 
     }
@@ -50,7 +78,7 @@
       width: 40%;
       .titleApartment{
         h2{
-          font-size: 40px;
+          font-size: 32px;
           color: #FF385C;
           font-weight: bolder;
         }

@@ -387,14 +387,7 @@ table tr:nth-child(2n+1) {
 }
 
 @media screen and (max-width: 500px) {
-  .header {
-    font-size: 2em;
-    font-weight: 700;
-    padding: 0;
-    text-shadow: 2px 2px 0 rgba(0, 0, 0, 0.1);
-  }
-
-  img {
+  img.tdimg {
     border: 3px solid;
     height: 100px;
     margin: 0.5rem 0;
@@ -489,22 +482,49 @@ table tr:nth-child(2n+1) {
 }
 
 .search-content .sponsorApartments {
+  padding: 30px 0;
+  max-width: 80%;
   min-height: 500px;
-  border: 2px solid #FF385C;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
+  margin: 80px auto 30px;
+  background-color: rgba(135, 215, 222, 0.66);
+}
+
+.search-content .sponsorApartments .titleSponsored {
+  margin-bottom: 20px;
 }
 
 .search-content .sponsorApartments .titleSponsored h2 {
-  color: #FF385C;
+  color: #92174d;
   font-weight: bold;
+  font-size: 2rem;
 }
 
 .search-content .sponsorApartments .sponsored {
-  border: 1px solid lightblue;
+  background-color: #fff;
+  border: 2px inset #FF385C;
   border-radius: 15px;
+  position: relative;
+  box-shadow: 19px 5px 30px 0px rgba(0, 0, 0, 0.71);
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.search-content .sponsorApartments .sponsored:hover {
+  transform: scale(1.04);
+}
+
+.search-content .sponsorApartments .sponsored:before {
+  position: absolute;
+  font-family: "Font Awesome 5 Free";
+  content: "Sponsored \F005";
+  font-weight: 900;
+  bottom: 25px;
+  font-size: 16px;
+  color: #FF385C;
 }
 
 .search-content .apartmentContainer {
@@ -516,19 +536,23 @@ table tr:nth-child(2n+1) {
   display: flex;
   justify-content: space-between;
   margin-bottom: 30px;
-  border-bottom: 2px solid #FF385C;
   background-color: rgba(116, 140, 156, 0.06);
+  cursor: pointer;
+  border: 1px dotted black;
+  border-radius: 10px;
 }
 
 .search-content .apartmentContainer .imgApartment {
   width: 30%;
+  max-height: 340px;
 }
 
 .search-content .apartmentContainer .imgApartment img {
   border-radius: 10px;
   box-shadow: 0px 8px 20px 0px rgba(0, 0, 0, 0.15);
-  max-height: 400px;
   max-width: 100%;
+  height: 70%;
+  max-height: 340px;
 }
 
 .search-content .apartmentContainer .textApartment {
@@ -536,7 +560,7 @@ table tr:nth-child(2n+1) {
 }
 
 .search-content .apartmentContainer .textApartment .titleApartment h2 {
-  font-size: 40px;
+  font-size: 32px;
   color: #FF385C;
   font-weight: bolder;
 }
@@ -773,9 +797,9 @@ table tr:nth-child(2n+1) {
 /* parte header */
 
 .header {
-  margin-top: 55px;
-  height: 380px;
-  padding-top: 45px;
+  height: 430px;
+  padding-top: 55px;
+  background-color: rgba(135, 215, 222, 0.66);
 }
 
 /* header */
@@ -1392,120 +1416,6 @@ table tr:nth-child(2n+1) {
   .topProfile .profile {
     margin-bottom: 10px;
   }
-}
-
-.apartmentHeader {
-  height: 40px;
-  background: white;
-  background: linear-gradient(135deg, white 20%, #ff385c 73%, #ff385c 100%);
-  display: flex;
-  align-items: center;
-}
-
-.apartmentHeader span {
-  margin-left: 15px;
-  font-weight: bold;
-  font-size: 18px;
-}
-
-.loginHeader {
-  height: 40px;
-  background: white;
-  background: linear-gradient(135deg, white 20%, #ff385c 73%, #ff385c 100%);
-  display: flex;
-  align-items: center;
-}
-
-.loginHeader span {
-  margin-left: 15px;
-  font-weight: bold;
-  font-size: 18px;
-}
-
-.stileForm {
-  outline: 0;
-  border: 1px solid grey;
-  padding: 4px;
-}
-
-.stileForm:focus {
-  border: 0.1rem solid #ff385c;
-}
-
-.containerCheckbox {
-  position: relative;
-  cursor: pointer;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-}
-
-.containerCheckbox input {
-  position: absolute;
-  opacity: 0;
-  cursor: pointer;
-}
-
-.containerCheckbox .checkmark {
-  position: absolute;
-  top: 0;
-  left: 0;
-  height: 16px;
-  width: 16px;
-  background-color: #F3DBDB;
-}
-
-.containerCheckbox input:checked ~ .checkmark {
-  background-color: #ff385c;
-}
-
-.containerCheckbox .checkmark:after {
-  content: "";
-  position: absolute;
-  display: none;
-}
-
-.containerCheckbox input:checked ~ .checkmark:after {
-  display: block;
-}
-
-.containerCheckbox .checkmark:after {
-  left: 6px;
-  top: 3px;
-  width: 5px;
-  height: 10px;
-  border: solid white;
-  border-width: 0 3px 3px 0;
-  transform: rotate(45deg);
-}
-
-.containerCheckbox .serviceText {
-  margin-left: 20px;
-}
-
-.bottoneSubmitLogin {
-  background-color: #ff385c;
-  color: white;
-  outline: 0;
-  padding: 10px 24px;
-  border: none;
-  border-radius: 4px;
-  box-shadow: rgba(0, 0, 0, 0.18) 0px 1px 2px;
-}
-
-.bottoneSubmitLogin:hover {
-  border: 1px solid #ff385c;
-  background-color: white;
-  color: #ff385c;
-}
-
-.passwordDimenticata {
-  color: #ff385c;
-}
-
-.passwordDimenticata:hover {
-  color: #C10303;
 }
 
 /*!
@@ -18531,7 +18441,7 @@ main {
   flex-wrap: wrap;
   width: 100%;
   justify-content: center;
-  margin: 70px 0;
+  padding: 30px 0;
 }
 
 .content .sponsoredTitle {
@@ -18623,7 +18533,7 @@ footer .footer {
   justify-content: space-around;
   padding-top: 20px;
   border-bottom: 1px solid lightgrey;
-  background-color: #FF385C;
+  background-color: rgba(135, 215, 222, 0.66);
   max-height: 90%;
 }
 
@@ -18646,14 +18556,24 @@ footer .sottoFooter {
 /* fine footer */
 
 @media screen and (max-width: 970px) {
+  header {
+    max-height: 540px;
+  }
+
+  header .header {
+    height: 100%;
+    padding-bottom: 20px;
+  }
+
   .content {
     flex-direction: column;
-    margin-top: 200px;
     display: flex;
     align-items: center;
+    padding-top: 70px;
   }
 
   .content .cardRent {
+    height: 430px;
     width: calc(100% - 60px);
     max-width: 420px;
     min-width: 300px;
