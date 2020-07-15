@@ -1,0 +1,14 @@
+.apartmentHeader {
+  height: 40px;
+  background: rgb(255,255,255);
+  background: linear-gradient(135deg, rgba(255,255,255,1) 20%, rgba(255,56,92,1) 73%, rgba(255,56,92,1) 100%);
+
+  display: flex;
+  align-items: center;
+
+  span {
+    margin-left: 15px;
+    font-weight: bold;
+    font-size: 18px;
+  }
+}

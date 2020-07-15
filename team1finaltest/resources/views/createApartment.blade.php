@@ -6,7 +6,7 @@
     <div class="row justify-content-center">
       <div class="col-md-6">
         <div class="card">
-          <div class="card-header">{{ __('Inserisci il tuo appartamento') }}</div>
+          <div class="apartmentHeader">{{ __('Inserisci il tuo appartamento') }}</div>
           @if (session('status'))
               <div class="alert alert-success" role="alert">
                   {{ session('status') }}

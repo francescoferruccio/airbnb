@@ -1,0 +1,95 @@
+.loginHeader {
+  height: 40px;
+  background: rgb(255,255,255);
+  background: linear-gradient(135deg, rgba(255,255,255,1) 20%, rgba(255,56,92,1) 73%, rgba(255,56,92,1) 100%);
+
+  display: flex;
+  align-items: center;
+
+  span {
+    margin-left: 15px;
+    font-weight: bold;
+    font-size: 18px;
+  }
+}
+
+
+.stileForm{
+  outline: 0;
+  border: 1px solid grey;
+  padding: 4px;
+
+  &:focus{
+    border: 0.1rem solid red;
+  }
+}
+
+
+.containerCheckbox{
+  position: relative;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+  }
+  .checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 16px;
+    width: 16px;
+    background-color: #F3DBDB;
+    }
+  input:checked ~ .checkmark {
+    background-color: #ff385c;
+    }
+  .checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+    }
+  input:checked ~ .checkmark:after {
+    display: block;
+    }
+  .checkmark:after {
+    left: 6px;
+    top: 3px;
+    width: 5px;
+    height: 10px;
+    border: solid white;
+    border-width: 0 3px 3px 0;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+    }
+    .serviceText{
+      margin-left: 20px;
+    }
+}
+
+.bottoneSubmitLogin{
+  background-color: #ff385c;
+  color: white;
+  outline: 0;
+  padding: 10px 24px;
+  border: none;
+  border-radius: 4px;
+  box-shadow: rgba(0, 0, 0, 0.18) 0px 1px 2px;
+  &:hover{
+    border: 1px solid #ff385c;
+    background-color: white;
+    color: #ff385c;
+  }
+}
+
+.passwordDimenticata{
+  color: #ff385c;
+  &:hover{
+    color: #C10303;
+}
+}
