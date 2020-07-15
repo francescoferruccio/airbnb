@@ -1,19 +1,27 @@
 @extends('mainLayout')
 
+
 @section('content')
   <div class="pay">
+    <h2>Scegli il tuo piano</h2>
     {{-- FORM PAGAMENTO BRAINTREE --}}
     <form method="post" id="payment-form" action="{{ route('checkout', $id) }}">
       @csrf
       @method('POST')
       <section>
         <div class="subscription">
-          <input type="radio" id="basic" name="amount" value="2.99" checked>
-          <label for="basic">2.99€ - Basic - 24h</label><br>
-          <input type="radio" id="medium" name="amount" value="5.99">
-          <label for="medium">5.99€ - Medium - 3 days</label><br>
-          <input type="radio" id="pro" name="amount" value="9.99">
-          <label for="pro">9.99€ - Pro - 6 days</label>
+          <div class="inputGroup">
+            <input type="radio" id="basic" name="amount" value="2.99" checked>
+            <label for="basic">2.99€ - Basic - 24h</label>
+          </div>
+          <div class="inputGroup">
+            <input type="radio" id="medium" name="amount" value="5.99">
+            <label for="medium">5.99€ - Medium - 3 days</label>
+          </div>
+          <div class="inputGroup">
+            <input type="radio" id="pro" name="amount" value="9.99">
+            <label for="pro">9.99€ - Pro - 6 days</label>
+          </div>
         </div>
         </label>
 
@@ -21,9 +29,10 @@
           <div id="bt-dropin"></div>
         </div>
       </section>
-
       <input id="nonce" name="payment_method_nonce" type="hidden" />
-      <button id="form-button" class="button" type="submit"><span>Test Transaction</span></button>
+      <div class="paga">
+        <button id="form-button" class="button" type="submit"><span>Sponsorizza ora</span></button>
+      </div>
     </form>
   </div>
 
