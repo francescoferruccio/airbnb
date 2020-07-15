@@ -1429,7 +1429,7 @@ table tr:nth-child(2n+1) {
 }
 
 .stileForm:focus {
-  border: 0.1rem solid red;
+  border: 0.1rem solid #ff385c;
 }
 
 .containerCheckbox {
