@@ -10,7 +10,7 @@
           <h2>Le nostre scelte top</h2>
         </div>
         @foreach ($sponsored_apts as $sponsored)
-          <div class="apartmentContainer sponsored">
+          <div class="apartmentContainer sponsored" onclick="window.location='{{route('show', $sponsored['id'])}}'">
             <div class="imgApartment">
               <img src="{{$sponsored['picture']}}" alt="">
             </div>
@@ -38,12 +38,6 @@
                 <ul>
                   @foreach ($sponsored -> services as $service)
                       <li><img src="/images/{{$service['name']}}.svg" alt="">
-                    @php
-                    if (strpos($service -> name, '_')) {
-                          $service -> name = str_replace("_", " ", $service -> name);
-                        }
-                    @endphp
-                      {{$service['name']}}</li>
                   @endforeach
                 </ul>
               </div>
@@ -61,50 +55,46 @@
 
 
 
+    <div class="notContainer">
+      @foreach ($notSponsored_apts as $notSponsored)
+          <div class="apartmentContainer notSponsored" onclick="window.location='{{route('show', $notSponsored['id'])}}'">
+            <div class="imgApartment">
+              <img src="{{$notSponsored['picture']}}" alt="">
+            </div>
+            {{-- <h2>ID: {{ $notSponsored['id'] }}</h2> --}}
+            <div class="textApartment">
+              <div class="titleApartment">
+                <h2>{{ $notSponsored['name'] }}</h2>
+                <h4>{{ $notSponsored['address'] }}</h4>
+              </div>
+              <div class="descriptionApartment">
+                <p>{{ $notSponsored['description'] }}</p>
+              </div>
 
-    @foreach ($notSponsored_apts as $notSponsored)
+            </div>
+            <div class="serviceApartment">
+              <div class="specifiche">
+                <ul class="iconList">
+                  <li><i class="fas fa-toilet"></i>  {{ $notSponsored['rooms'] }}</li>
+                  <li><i class="fas fa-bed"></i>  {{ $notSponsored['beds'] }}</li>
+                  <li><i class="fas fa-toilet"></i>  {{ $notSponsored['bathrooms'] }}</li>
+                  <li><i class="fas fa-square"></i>  {{ $notSponsored['size'] }}</li>
+                </ul>
+              </div>
+              <div class="service">
 
-      <div class="apartmentContainer">
-        <div class="imgApartment">
-          <img src="{{$notSponsored['picture']}}" alt="">
-        </div>
-        {{-- <h2>ID: {{ $notSponsored['id'] }}</h2> --}}
-        <div class="textApartment">
-          <div class="titleApartment">
-            <h2>{{ $notSponsored['name'] }}</h2>
-            <h4>{{ $notSponsored['address'] }}</h4>
-          </div>
-          <div class="descriptionApartment">
-            <p>{{ $notSponsored['description'] }}</p>
-          </div>
+                <ul>
+                  @foreach ($notSponsored -> services as $service)
+                    <li><img src="/images/{{$service['name']}}.svg" alt="">
+                    @endforeach
+                  </ul>
+                </div>
+              </div>
+            </div>
 
-        </div>
-        <div class="serviceApartment">
-          <div class="specifiche">
-            <ul class="iconList">
-              <li><i class="fas fa-toilet"></i>  {{ $notSponsored['rooms'] }}</li>
-              <li><i class="fas fa-bed"></i>  {{ $notSponsored['beds'] }}</li>
-              <li><i class="fas fa-toilet"></i>  {{ $notSponsored['bathrooms'] }}</li>
-              <li><i class="fas fa-square"></i>  {{ $notSponsored['size'] }}</li>
-            </ul>
-          </div>
-          <div class="service">
+        @endforeach
+    </div>
 
-            <ul>
-              @foreach ($notSponsored -> services as $service)
-                  <li><img src="/images/{{$service['name']}}.svg" alt="">
-                @php
-                if (strpos($service -> name, '_')) {
-                      $service -> name = str_replace("_", " ", $service -> name);
-                    }
-                @endphp
-                  {{$service['name']}}</li>
-              @endforeach
-            </ul>
-          </div>
-      </div>
-      </div>
-    @endforeach
 
   </div>
 

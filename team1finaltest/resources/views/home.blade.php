@@ -9,7 +9,7 @@
         <h2>Appartamenti in evidenza</h2>
       </div>
       @foreach ($sponsored as $apartment)
-        <div class="cardRent"onclick="window.location='{{route('show', $apartment['id'])}}'">
+        <div class="cardRent" onclick="window.location='{{route('show', $apartment['id'])}}'">
           {{-- <span class="star"> <i class="fas fa-star"></i> </span> --}}
           {{-- <div class="cardAddress">
             {{$apartment['address']}}

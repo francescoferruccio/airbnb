@@ -2,6 +2,10 @@
 .search-content {
   margin-top: 55px;
 
+  a{
+    display: block;
+  }
+
   .sponsorApartments{
     padding: 30px 0;
     max-width: 80%;
@@ -11,7 +15,7 @@
     justify-content: space-around;
     align-items: center;
     margin: 80px auto 30px;
-    background-color: rgba(135, 215, 222, 0.66);
+
 
     .titleSponsored{
       margin-bottom: 20px;
@@ -38,8 +42,7 @@
         font-family: "Font Awesome 5 Free";
         content: "Sponsored \F005";
         font-weight: 900;
-        bottom: 25px;
-        font-size: 16px;
+
         color: #FF385C;
       }
     }
@@ -48,10 +51,9 @@
 
 
   .apartmentContainer{
-    min-height: 400px;
     margin-top: 55px;
     padding: 30px;
-    width: 60%;
+
     margin: 0 auto;
     display: flex;
     justify-content: space-between;
@@ -62,29 +64,25 @@
     border-radius: 10px;
 
     .imgApartment{
-      width: 30%;
-      max-height: 340px;
+
       img{
         border-radius: 10px;
         box-shadow: 0px 8px 20px 0px rgba(0, 0, 0, 0.15);
 
-        max-width: 100%;
-        height: 70%;
-        max-height: 340px;
       }
 
     }
     .textApartment{
-      width: 40%;
+
       .titleApartment{
         h2{
-          font-size: 32px;
+
           color: #FF385C;
           font-weight: bolder;
         }
         h4{
           font-style: italic;
-          font-size: 25px;
+
           font-weight: bolder;
         }
       }
@@ -108,12 +106,18 @@
     }
     .service{
       padding-top: 20px;
+      width: 100%;
       ul{
+        width: 80%;
+        margin: auto;
         list-style: none;
         line-height: 35px;
         text-transform: capitalize;
+        display: flex;
+        flex-wrap: wrap;
         li{
           font-size: 20px;
+          width: 50%;
         }
         img{
           width: 27.75px;
@@ -127,23 +131,96 @@
 
 
 // media query SEARCH ------------------------------------------------------------------------------------>
-@media screen and (max-width: 800px){
-  .appartamententiNormali{
-    min-height: 70vh;
-    margin-top: 55px;
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+@media screen  and (max-width: 900px){
 
-    img{
-      border-radius: 10px;
-      box-shadow: 0px 8px 20px 0px rgba(0, 0, 0, 0.15);
+  .sponsored:before{
+    bottom: 7px;
+    font-size: 12px;
+  }
+  .apartmentContainer{
+    max-width: 80%;
+    min-height: 430px;
+    max-height: 600px;
+    flex-direction: column;
+    min-width: 290px;
+    .imgApartment{
+      width: 100%;
+      min-height: 260px;
+      max-height: 300px;
+      display: flex;
+      justify-content: center;
+      img{
+        min-width: 200px;
+        max-height: 100%;
+        min-height: 80%;
+        max-width: 80%;
+      }
     }
 
-    h1{
-      color: green;
+      .textApartment{
+        width: 100%;
+        text-align: center;
+        height: 30%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        .titleApartment{
+          h2,h4{
+            font-size: 18px;
+          }
+        }
+        .descriptionApartment{
+          display: none;
+        }
+      }
+
+    .serviceApartment{
+      display: none;
+    }
+  }
+  .notSponsored{
+    padding: 0 20px;
+
+  }
+}
+
+@media screen and (min-width:901px){
+  .sponsored:before{
+    bottom: 25px;
+    font-size: 16px;
+  }
+  .apartmentContainer{
+    width: 60%;
+    min-height: 400px;
+    max-height: 400px;
+
+    .imgApartment{
+      width: 30%;
+     max-height: 340px;
+     img{
+       max-width: 100%;
+       height: 70%;
+       max-height: 340px;
+     }
+    }
+    .textApartment{
+      width: 40%;
+      .titleApartment{
+        h2{
+          font-size: 32px;
+        }
+        h4{
+          font-size: 25px;
+        }
+      }
+    }
+  }
+
+  .notContainer{
+    padding: 0 20px;
+    display: flex;
+    .notSponsored{
+      width: calc(50% - 80px);
     }
   }
 }
