@@ -1418,6 +1418,251 @@ table tr:nth-child(2n+1) {
   }
 }
 
+.loginHeader {
+  height: 40px;
+  background: white;
+  background: linear-gradient(135deg, white 20%, #ff385c 73%, #ff385c 100%);
+  display: flex;
+  align-items: center;
+}
+
+.loginHeader span {
+  margin-left: 15px;
+  font-weight: bold;
+  font-size: 18px;
+}
+
+.stileForm {
+  outline: 0;
+  border: 1px solid grey;
+  padding: 4px;
+}
+
+.stileForm:focus {
+  border: 0.1rem solid #ff385c;
+}
+
+.containerCheckbox {
+  position: relative;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.containerCheckbox input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.containerCheckbox .checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 16px;
+  width: 16px;
+  background-color: #F3DBDB;
+}
+
+.containerCheckbox input:checked ~ .checkmark {
+  background-color: #ff385c;
+}
+
+.containerCheckbox .checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+.containerCheckbox input:checked ~ .checkmark:after {
+  display: block;
+}
+
+.containerCheckbox .checkmark:after {
+  left: 6px;
+  top: 3px;
+  width: 5px;
+  height: 10px;
+  border: solid white;
+  border-width: 0 3px 3px 0;
+  transform: rotate(45deg);
+}
+
+.containerCheckbox .serviceText {
+  margin-left: 20px;
+}
+
+.bottoneSubmitLogin {
+  background-color: #ff385c;
+  color: white;
+  outline: 0;
+  padding: 10px 24px;
+  border: none;
+  border-radius: 4px;
+  box-shadow: rgba(0, 0, 0, 0.18) 0px 1px 2px;
+}
+
+.bottoneSubmitLogin:hover {
+  border: 1px solid #ff385c;
+  background-color: white;
+  color: #ff385c;
+}
+
+.passwordDimenticata {
+  color: #ff385c;
+}
+
+.passwordDimenticata:hover {
+  color: #C10303;
+}
+
+.apartmentHeader {
+  height: 40px;
+  background: white;
+  background: linear-gradient(135deg, white 20%, #ff385c 73%, #ff385c 100%);
+  display: flex;
+  align-items: center;
+}
+
+.apartmentHeader span {
+  margin-left: 15px;
+  font-weight: bold;
+  font-size: 18px;
+}
+
+.stileForm {
+  outline: 0;
+  border: 1px solid grey;
+  padding: 4px;
+}
+
+.stileForm:focus {
+  border: 0.1rem solid #ff385c;
+}
+
+.containerCheckbox {
+  position: relative;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.containerCheckbox input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.containerCheckbox .checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 16px;
+  width: 16px;
+  background-color: #F3DBDB;
+}
+
+.containerCheckbox input:checked ~ .checkmark {
+  background-color: #ff385c;
+}
+
+.containerCheckbox .checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+.containerCheckbox input:checked ~ .checkmark:after {
+  display: block;
+}
+
+.containerCheckbox .checkmark:after {
+  left: 6px;
+  top: 3px;
+  width: 5px;
+  height: 10px;
+  border: solid white;
+  border-width: 0 3px 3px 0;
+  transform: rotate(45deg);
+}
+
+.containerCheckbox .serviceText {
+  margin-left: 20px;
+}
+
+.bottoneSubmit {
+  background-color: #ff385c;
+  color: white;
+  outline: 0;
+  padding: 10px 24px;
+  border: none;
+  border-radius: 4px;
+  box-shadow: rgba(0, 0, 0, 0.18) 0px 1px 2px;
+}
+
+.bottoneSubmit:hover {
+  border: 1px solid #ff385c;
+  background-color: white;
+  color: #ff385c;
+}
+
+.containerRadio {
+  display: block;
+  position: relative;
+  padding-left: 35px;
+  margin-bottom: 12px;
+  cursor: pointer;
+  font-size: 22px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  /* Hide the browser's default radio button */
+  /* When the radio button is checked, add a blue background */
+  /* Show the indicator (dot/circle) when checked */
+}
+
+.containerRadio input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.containerRadio .checkmarkradio {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 25px;
+  width: 25px;
+  background-color: #F3DBDB;
+  border-radius: 50%;
+  /* Create the indicator (the dot/circle - hidden when not checked) */
+}
+
+.containerRadio .checkmarkradio:after {
+  content: "";
+  position: absolute;
+  display: none;
+  top: 9px;
+  left: 9px;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: white;
+}
+
+.containerRadio input:checked ~ .checkmarkradio {
+  background-color: #ff385c;
+}
+
+.containerRadio input:checked ~ .checkmarkradio:after {
+  display: block;
+}
+
 /*!
  * Bootstrap v4.5.0 (https://getbootstrap.com/)
  * Copyright 2011-2020 The Bootstrap Authors
