@@ -134,11 +134,12 @@ main{
 footer{
   min-height: 15vh;
   .footer{
+    color: #92174d;
     display: flex;
     justify-content: space-around;
     padding-top: 20px;
     border-bottom: 1px solid lightgrey;
-    background-color: rgba(135, 215, 222, 0.66);
+    background-color: #e1e6ea;
     max-height: 90%;
 
     ul{
@@ -147,7 +148,7 @@ footer{
         list-style-type: none;
         a {
           text-decoration: none;
-          color: grey;
+          color: black;
           font-size: 14px;
           line-height: 30px;
         }

@@ -478,7 +478,7 @@ table tr:nth-child(2n+1) {
 }
 
 .search-content {
-  margin-top: 55px;
+  margin: 55px 0;
 }
 
 .search-content a {
@@ -542,6 +542,8 @@ table tr:nth-child(2n+1) {
 }
 
 .search-content .apartmentContainer .imgApartment img {
+  -o-object-fit: cover;
+     object-fit: cover;
   border-radius: 10px;
   box-shadow: 0px 8px 20px 0px rgba(0, 0, 0, 0.15);
 }
@@ -641,7 +643,7 @@ table tr:nth-child(2n+1) {
 
   .apartmentContainer .textApartment .titleApartment h2,
   .apartmentContainer .textApartment .titleApartment h4 {
-    font-size: 18px;
+    font-size: 1.2rem;
   }
 
   .apartmentContainer .textApartment .descriptionApartment {
@@ -657,7 +659,50 @@ table tr:nth-child(2n+1) {
   }
 }
 
-@media screen and (min-width: 901px) {
+@media screen and (min-width: 901px) and (max-width: 1399px) {
+  .sponsored:before {
+    bottom: 8px;
+    font-size: 12px;
+  }
+
+  .apartmentContainer {
+    max-height: 350px;
+    min-width: 720px;
+    max-width: 1000px;
+  }
+
+  .apartmentContainer .imgApartment {
+    width: 50%;
+  }
+
+  .apartmentContainer .imgApartment img {
+    max-width: 100%;
+    min-width: 300px;
+  }
+
+  .apartmentContainer .textApartment {
+    width: 25%;
+  }
+
+  .apartmentContainer .textApartment .titleApartment h2,
+  .apartmentContainer .textApartment .titleApartment h4 {
+    font-size: 1.5rem;
+  }
+
+  .apartmentContainer .textApartment .descriptionApartment {
+    display: none;
+  }
+
+  .apartmentContainer .serviceApartment {
+    width: 25%;
+  }
+
+  .notContainer {
+    padding: 0 20px;
+  }
+}
+
+@media screen and (min-width: 1400px) {
   .sponsored:before {
     bottom: 25px;
     font-size: 16px;
@@ -685,20 +730,22 @@ table tr:nth-child(2n+1) {
   }
 
   .apartmentContainer .textApartment .titleApartment h2 {
-    font-size: 32px;
+    font-size: 2rem;
   }
 
   .apartmentContainer .textApartment .titleApartment h4 {
-    font-size: 25px;
+    font-size: 1.7rem;
   }
 
   .notContainer {
     padding: 0 20px;
     display: flex;
+    flex-wrap: wrap;
+    width: calc(100vw - 40px);
   }
 
   .notContainer .notSponsored {
-    width: calc(50% - 80px);
+    width: 45%;
   }
 }
 
@@ -870,7 +917,6 @@ table tr:nth-child(2n+1) {
 .header {
   height: 430px;
   padding-top: 55px;
-  background-color: rgba(135, 215, 222, 0.66);
 }
 
 /* header */
@@ -18845,11 +18891,12 @@ footer {
 }
 
 footer .footer {
+  color: #92174d;
   display: flex;
   justify-content: space-around;
   padding-top: 20px;
   border-bottom: 1px solid lightgrey;
-  background-color: rgba(135, 215, 222, 0.66);
+  background-color: #e1e6ea;
   max-height: 90%;
 }
 
@@ -18859,7 +18906,7 @@ footer .footer ul li {
 
 footer .footer ul li a {
   text-decoration: none;
-  color: grey;
+  color: black;
   font-size: 14px;
   line-height: 30px;
 }

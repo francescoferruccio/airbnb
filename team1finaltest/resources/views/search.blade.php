@@ -27,10 +27,10 @@
             <div class="serviceApartment">
               <div class="specifiche">
                 <ul class="iconList">
-                  <li><i class="fas fa-toilet"></i>  {{ $sponsored['rooms'] }}</li>
+                  <li><i class="fas fa-door-open"></i>  {{ $sponsored['rooms'] }}</li>
                   <li><i class="fas fa-bed"></i>  {{ $sponsored['beds'] }}</li>
                   <li><i class="fas fa-toilet"></i>  {{ $sponsored['bathrooms'] }}</li>
-                  <li><i class="fas fa-square"></i>  {{ $sponsored['size'] }}</li>
+                  <li><i class="fas fa-square"></i>  {{ $sponsored['size'] }} m<sup>2</sup></li>
                 </ul>
               </div>
               <div class="service">
@@ -75,10 +75,10 @@
             <div class="serviceApartment">
               <div class="specifiche">
                 <ul class="iconList">
-                  <li><i class="fas fa-toilet"></i>  {{ $notSponsored['rooms'] }}</li>
+                  <li><i class="fas fa-door-open"></i>  {{ $notSponsored['rooms'] }}</li>
                   <li><i class="fas fa-bed"></i>  {{ $notSponsored['beds'] }}</li>
                   <li><i class="fas fa-toilet"></i>  {{ $notSponsored['bathrooms'] }}</li>
-                  <li><i class="fas fa-square"></i>  {{ $notSponsored['size'] }}</li>
+                  <li><i class="fas fa-square"></i>  {{ $notSponsored['size'] }} m<sup>2</sup></li>
                 </ul>
               </div>
               <div class="service">
