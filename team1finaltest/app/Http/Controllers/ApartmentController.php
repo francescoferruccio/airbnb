@@ -271,11 +271,9 @@ class ApartmentController extends Controller
     $messages = Message::where('apartment_id', $id)->get();
 
     $response = [
-      'date' => $date
-    ];
-
-    $response = [
-      'date' => $date
+      'date' => $date,
+      'lastWeekViews' => $lastWeekViews,
+      'lastWeekMsgs' => $lastWeekMsgs
     ];
 
     return response()->json($response);

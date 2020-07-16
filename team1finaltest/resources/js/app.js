@@ -18,8 +18,10 @@ function start(){
     ricercaAvanzata();
 
     ricercaAvanzata2();
-
+    // const location = window.location.href;
+    if (window.location.href.includes('stats/')) {
     getStats();
+    }
 
     $('.mynav-menu').click(function () {
       $('.drop-menu').toggle();
@@ -212,10 +214,68 @@ function start(){
   function getStats() {
     var id = $('.statsContainer').data('id');
     $.ajax({
-      url: 'getStats/' + id,
+      url: '/getStats/' + id,
       method: "GET",
       success: function(data, stato) {
-        console.log(data);
+        // ChartJS
+        var ctx = document.getElementById('views').getContext('2d');
+        var chart = new Chart(ctx, {
+          // The type of chart we want to create
+          type: 'line',
+
+          // The data for our dataset
+          data: {
+            labels: data.date,
+            datasets: [{
+              label: 'Visualizzazioni settimana',
+              backgroundColor: '#FF385C',
+              borderColor: '#FF385C',
+              data: data.lastWeekViews
+            }]
+          },
+
+          // Configuration options go here
+          options: {
+              responsive: true,
+              scales: {
+                  yAxes: [{
+                      ticks: {
+                          beginAtZero: true,
+                          precision: 0
+                      }
+                  }]
+              }
+          }
+        });
+
+        var ctx = document.getElementById('msgs').getContext('2d');
+        var chart = new Chart(ctx, {
+          // The type of chart we want to create
+          type: 'line',
+
+          // The data for our dataset
+          data: {
+            labels: data.date,
+            datasets: [{
+              label: 'Messaggi settimana',
+              backgroundColor: '#FF385C',
+              borderColor: '#FF385C',
+              data: data.lastWeekMsgs
+            }]
+          },
+
+          // Configuration options go here
+          options: {
+              scales: {
+                  yAxes: [{
+                      ticks: {
+                          beginAtZero: true,
+                          precision: 0
+                      }
+                  }]
+              }
+          }
+        });
       },
       error: function(richiesta, stato, errore) {
         console.error("ERRORE!");
