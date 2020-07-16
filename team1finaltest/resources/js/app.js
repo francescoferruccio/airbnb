@@ -19,6 +19,8 @@ function start(){
 
     ricercaAvanzata2();
 
+    getStats();
+
     $('.mynav-menu').click(function () {
       $('.drop-menu').toggle();
     })
@@ -207,5 +209,18 @@ function start(){
     });
   }
 
+  function getStats() {
+    var id = $('.statsContainer').data('id');
+    $.ajax({
+      url: 'getStats/' + id,
+      method: "GET",
+      success: function(data, stato) {
+        console.log(data);
+      },
+      error: function(richiesta, stato, errore) {
+        console.error("ERRORE!");
+      }
+    });
+  }
 
 $( document ).ready(start);

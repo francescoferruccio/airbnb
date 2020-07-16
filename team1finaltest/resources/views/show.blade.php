@@ -7,7 +7,7 @@
   <div class="apartmentDetails" data-address="{{$apartment -> address}}">
     <div class="photoApartmentName">
       <div class="housename">
-        <h3>Nome: {{$apartment -> name}} </h3>
+        <h3>{{$apartment -> name}}</h3>
       </div>
       <div class="houseimg">
         <img src="{{ $apartment->picture }}" alt="">
@@ -24,14 +24,36 @@
 
     </div>
     <div class="provashow">
-      <p> <strong>Description:</strong> {{$apartment -> description}} </p>
-      <ul>
-        @foreach ($apartment -> services -> sortBy('id') as $service)
-          <li>
-            <img src="/images/{{$service['name']}}.svg" alt="{{$service['name']}}"> {{$service['name']}}
-          </li>
-        @endforeach
-      </ul>
+      <div class="apartmentDescription">
+        <p>{{$apartment -> description}} </p>
+        <p> <strong>Indirizzo: </strong>{{ $apartment -> address }}</p>
+        <p> <strong>Proprietario: </strong>{{ $apartment -> user -> firstname }} {{ $apartment -> user -> lastname }}</p>
+      </div>
+      <div class="apartmentInfo">
+        <ul>
+          <span>Info</span>
+            <li>
+              <img src="/images/rooms.svg" alt="rooms"> Stanze:  {{$apartment['rooms']}}
+            </li>
+            <li>
+              <img src="/images/beds.svg" alt="beds"> Letti:  {{$apartment['beds']}}
+            </li>
+            <li>
+              <img src="/images/bathrooms.svg" alt="bathrooms"> Bagni:  {{$apartment['bathrooms']}}
+            </li>
+            <li>
+              <img src="/images/size.svg" alt="size"> Dimensione:  {{$apartment['size']}} m<sup>2</sup>
+            </li>
+        </ul>
+        <ul>
+          <span>Servizi</span>
+          @foreach ($apartment -> services -> sortBy('id') as $service)
+            <li>
+              <img src="/images/{{$service['name']}}.svg" alt="{{$service['name']}}"> {{$service['name']}}
+            </li>
+          @endforeach
+        </ul>
+      </div>
     </div>
 
   <div class="containerTotPropr">
@@ -60,7 +82,7 @@
             <input class="email" type="email" name="email" placeholder="ex. mario@rossi@gmail.com" value=@auth
               "{{Auth::user() -> email}}" readonly
             @endauth >
-            <textarea name="message" rows="8" cols="60" placeholder="Inserisci la domanda per il proprietario dell'appartamento..."></textarea>
+            <textarea name="message" rows="8" placeholder="Inserisci la domanda per il proprietario dell'appartamento..."></textarea>
             <input type="submit" name="submit" value="Invia">
           </form>
         @endif

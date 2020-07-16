@@ -7,7 +7,7 @@
       <div class="col-md-12">
         <div class="card">
           <div class='userHeader'>
-            <span>{{ __('Messaggi Ricevuti') }}</span>
+            <span>Messaggi Ricevuti</span>
           </div>
 
           <div class="table-users">
@@ -15,10 +15,10 @@
 
             <table cellspacing="0">
                <tr>
-                  <th>Email</th>
-                  <th>Message</th>
-                  <th>Name</th>
-                  <th>Picture</th>
+                  <th>Mittente</th>
+                  <th>Messaggio</th>
+                  <th>Appartamento</th>
+                  <th></th>
 
                </tr>
                @foreach ($allMessages as $message)

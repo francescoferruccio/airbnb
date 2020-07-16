@@ -248,7 +248,7 @@ class ApartmentController extends Controller
 
   }
 
-  public function stats($id) {
+  public function getStats($id) {
     $apartment = Apartment::findOrFail($id);
 
     $days = 7;
@@ -270,7 +270,20 @@ class ApartmentController extends Controller
 
     $messages = Message::where('apartment_id', $id)->get();
 
-    return view('stats', compact('lastWeekViews', 'lastWeekMsgs', 'date'));
+    $response = [
+      'date' => $date
+    ];
+
+    $response = [
+      'date' => $date
+    ];
+
+    return response()->json($response);
+  }
+
+  public function stats($id) {
+
+    return view('stats', compact('id'));
   }
 
   // FUNZIONE FILTRO PARAMETRI RICERCA

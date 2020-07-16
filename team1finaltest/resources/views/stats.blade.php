@@ -2,13 +2,13 @@
 
 @section('content')
   <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
-  <div class="statsContainer">
+  <div class="statsContainer" data-id="{{ $id }}">
     <canvas id="views"></canvas>
     <canvas id="msgs"></canvas>
   </div>
 
 
-  <script type="text/javascript">
+  {{-- <script type="text/javascript">
   // ChartJS
   var ctx = document.getElementById('views').getContext('2d');
   var chart = new Chart(ctx, {
@@ -68,5 +68,5 @@
         }
     }
   });
-</script>
+</script> --}}
 @endsection

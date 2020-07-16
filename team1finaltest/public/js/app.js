@@ -47700,6 +47700,7 @@ function start() {
   chiudiNav();
   ricercaAvanzata();
   ricercaAvanzata2();
+  getStats();
   $('.mynav-menu').click(function () {
     $('.drop-menu').toggle();
   });
@@ -47880,6 +47881,20 @@ function initMap(lat, lon) {
   });
 }
 
+function getStats() {
+  var id = $('.statsContainer').data('id');
+  $.ajax({
+    url: 'getStats/' + id,
+    method: "GET",
+    success: function success(data, stato) {
+      console.log(data);
+    },
+    error: function error(richiesta, stato, errore) {
+      console.error("ERRORE!");
+    }
+  });
+}
+
 $(document).ready(start);
 
 /***/ }),
@@ -47947,8 +47962,8 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\Users\Dani\Desktop\Boolean Career\boolbnb2\airbnb\team1finaltest\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\Users\Dani\Desktop\Boolean Career\boolbnb2\airbnb\team1finaltest\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! E:\Boolean\esercizi\repo-github\airbnb\team1finaltest\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! E:\Boolean\esercizi\repo-github\airbnb\team1finaltest\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ }),

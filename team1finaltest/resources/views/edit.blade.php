@@ -32,7 +32,7 @@
                   <label for="description" class="col-md-4 col-form-label text-md-right">{{ __('Descrizione') }}</label>
 
                   <div class="col-md-6">
-                    <textarea id="description" rows="4" cols="50" class="stileForm @error('description') is-invalid @enderror" name="description" autocomplete="description" autofocus>{{ $apartment['description'] }}</textarea>
+                    <textarea id="description" rows="4" cols="40" class="stileForm @error('description') is-invalid @enderror" name="description" autocomplete="description" autofocus>{{ $apartment['description'] }}</textarea>
 
                       @error('description')
                         <span class="invalid-feedback" role="alert">

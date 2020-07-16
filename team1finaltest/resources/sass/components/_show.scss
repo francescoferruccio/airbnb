@@ -25,14 +25,16 @@
       height: 100%;
       .housename{
         height: 10%;
+        text-align: center;
+
           h3{
             font-weight: bolder;
-            border: 1px solid #FF385C;
             padding: 3px;
-            box-shadow: 5px 10px rgba(136, 136, 136, 0.31);
+            box-shadow: 4px 4px rgba(136, 136, 136, 0.31);
             border-radius: 10px;
-            width: 60%;
             min-width: 200px;
+            color: #FF385C;
+            text-transform: capitalize;
           }
         }
         .houseimg{
@@ -44,6 +46,7 @@
             height: 300px;
             border-radius: 20px;
             box-shadow: 5px 10px rgba(136, 136, 136, 0.31);
+            object-fit: cover;
           }
         }
     }
@@ -56,6 +59,13 @@
       justify-content: space-around;
       .maptitle{
         height: 10%;
+        text-align: center;
+
+        h3{
+          box-shadow: 4px 4px rgba(136, 136, 136, 0.31);
+          border-radius: 10px;
+          color: #FF385C;
+        }
       }
       #map{
         height: 300px;
@@ -75,18 +85,82 @@
       padding:20px 0;
       border-bottom: 2px solid #FF385C;
       border-top: 2px solid #FF385C;
-      p{
+
+      .apartmentDescription {
         width: 60%;
-        margin-right: 5%;
-        font-size: 20px;
-      }
-      ul{
-        li{
-          line-height: 40px;
+
+        p{
+          // width: 60%;
+          margin-right: 5%;
+          font-size: 20px;
         }
-        img{
-          width: 25px;
-          height: auto;
+      }
+
+      .apartmentInfo {
+        width: 40%;
+        display: flex;
+
+        ul{
+          width: 50%;
+          li{
+            line-height: 40px;
+            list-style-type: none;
+          }
+          img{
+            width: 25px;
+            height: auto;
+            margin-right: 10px;
+          }
+
+          .fas,
+          .far {
+            width: 25px;
+          }
+        }
+      }
+
+    }
+
+    .containerTotPropr {
+      width: 100%;
+
+      .messageContainer{
+        margin-top: 100px;
+        width: 100%;
+        margin: 0 auto;
+        padding-top: 50px;
+
+        .formContainer{
+          width: 100%;
+          margin: auto;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+
+
+          form{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            max-width: 440px;
+            width: 100%;
+
+            input[type="email"]{
+              width: 50%;
+              border-radius: 10px;
+              text-align: center;
+            }
+            textarea{
+              width: 100%;
+              border-radius: 10px;
+              margin: 20px 0;
+            }
+              input[type="submit"]{
+              width: 50%;
+              border-radius: 10px;
+
+            }
+          }
         }
       }
     }
@@ -120,26 +194,17 @@
           align-items: center;
           position: relative;
           width: 100%;
-          .housename{
-            height: 10%;
-              h3{
-                font-weight: bolder;
-                border: 1px solid #FF385C;
-                padding: 3px;
-                box-shadow: 5px 10px rgba(136, 136, 136, 0.31);
-                border-radius: 10px;
-                width: 60%;
-                min-width: 200px;
-                margin-bottom: 20px;
-              }
+          margin-bottom: 20px;
+            .housename {
+              margin-bottom: 10px;
             }
+
             .houseimg{
-              height: 250px;
+
               img{
                 width: 100%;
                 min-width: 220px;
-                max-width: 300px;
-                height: 220px;
+                max-width: 440px;
                 border-radius: 20px;
                 box-shadow: 5px 10px rgba(136, 136, 136, 0.31);
               }
@@ -153,14 +218,11 @@
           flex-direction: column;
           justify-content: space-around;
           align-items: center;
-          .maptitle{
-            height: 10%;
-            border: 2px solid #FF385C;
-            border-radius: 10px;
-            margin-bottom: 20px;
-            box-shadow: 5px 10px rgba(136, 136, 136, 0.31);
-            padding: 5px;
+
+          .maptitle {
+            margin-bottom: 10px;
           }
+
           #map{
             height: 300px;
             width: 100%;
@@ -177,9 +239,18 @@
           width: 100%;
           margin: 0 auto;
           display: flex;
+          flex-direction: column;
           padding:20px 0;
+
+          .apartmentDescription {
+            width: 100%;
+          }
+
+          .apartmentInfo{
+            width: 100%;
+          }
+
           p{
-            width: 60%;
             margin-right: 5%;
             font-size: 20px;
           }
@@ -191,25 +262,25 @@
           }
         }
       }
-      .footer{
-        min-height: 15vh;
-        display: flex;
-        padding:50px;
-        border-bottom: 1px solid lightgrey;
-        background-color: #FF385C;
-        width: 100%;
-
-        ul{
-          width: 100%;
-          li{
-            list-style-type: none;
-            a {
-              text-decoration: none;
-              color: grey;
-              font-size: 14px;
-              line-height: 30px;
-            }
-          }
-        }
-      }
+      // .footer{
+      //   min-height: 15vh;
+      //   display: flex;
+      //   padding:50px;
+      //   border-bottom: 1px solid lightgrey;
+      //   background-color: #FF385C;
+      //   width: 100%;
+      //
+      //   ul{
+      //     width: 100%;
+      //     li{
+      //       list-style-type: none;
+      //       a {
+      //         text-decoration: none;
+      //         color: grey;
+      //         font-size: 14px;
+      //         line-height: 30px;
+      //       }
+      //     }
+      //   }
+      // }
     }

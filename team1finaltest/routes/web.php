@@ -25,6 +25,8 @@ Route::any('/sent/{id}', 'MessageController@sent')->name('sent');
 Route::get('/inbox', 'MessageController@inbox')->name('inbox')->middleware('auth');
 //Pagina statistiche appartamento
 Route::get('/stats/{id}', 'ApartmentController@stats')->name('stats')->middleware('auth');
+//Pagina API statistiche
+Route::get('/getStats/{id}', 'ApartmentController@getStats')->name('getStats')->middleware('auth');
 //Pagina pagamenti
 Route::get('/pay/{id}', 'PaymentController@pay')->name('pay')->middleware('auth');
 //Pagina pagamenti

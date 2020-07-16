@@ -35,16 +35,17 @@
 
 .showContainer .apartmentDetails .photoApartmentName .housename {
   height: 10%;
+  text-align: center;
 }
 
 .showContainer .apartmentDetails .photoApartmentName .housename h3 {
   font-weight: bolder;
-  border: 1px solid #FF385C;
   padding: 3px;
-  box-shadow: 5px 10px rgba(136, 136, 136, 0.31);
+  box-shadow: 4px 4px rgba(136, 136, 136, 0.31);
   border-radius: 10px;
-  width: 60%;
   min-width: 200px;
+  color: #FF385C;
+  text-transform: capitalize;
 }
 
 .showContainer .apartmentDetails .photoApartmentName .houseimg {
@@ -58,6 +59,8 @@
   height: 300px;
   border-radius: 20px;
   box-shadow: 5px 10px rgba(136, 136, 136, 0.31);
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 
 .showContainer .apartmentDetails .contaninerMap {
@@ -70,6 +73,13 @@
 
 .showContainer .apartmentDetails .contaninerMap .maptitle {
   height: 10%;
+  text-align: center;
+}
+
+.showContainer .apartmentDetails .contaninerMap .maptitle h3 {
+  box-shadow: 4px 4px rgba(136, 136, 136, 0.31);
+  border-radius: 10px;
+  color: #FF385C;
 }
 
 .showContainer .apartmentDetails .contaninerMap #map {
@@ -90,19 +100,82 @@
   border-top: 2px solid #FF385C;
 }
 
-.showContainer .provashow p {
+.showContainer .provashow .apartmentDescription {
   width: 60%;
+}
+
+.showContainer .provashow .apartmentDescription p {
   margin-right: 5%;
   font-size: 20px;
 }
 
-.showContainer .provashow ul li {
-  line-height: 40px;
+.showContainer .provashow .apartmentInfo {
+  width: 40%;
+  display: flex;
 }
 
-.showContainer .provashow ul img {
+.showContainer .provashow .apartmentInfo ul {
+  width: 50%;
+}
+
+.showContainer .provashow .apartmentInfo ul li {
+  line-height: 40px;
+  list-style-type: none;
+}
+
+.showContainer .provashow .apartmentInfo ul img {
   width: 25px;
   height: auto;
+  margin-right: 10px;
+}
+
+.showContainer .provashow .apartmentInfo ul .fas,
+.showContainer .provashow .apartmentInfo ul .far {
+  width: 25px;
+}
+
+.showContainer .containerTotPropr {
+  width: 100%;
+}
+
+.showContainer .containerTotPropr .messageContainer {
+  margin-top: 100px;
+  width: 100%;
+  margin: 0 auto;
+  padding-top: 50px;
+}
+
+.showContainer .containerTotPropr .messageContainer .formContainer {
+  width: 100%;
+  margin: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.showContainer .containerTotPropr .messageContainer .formContainer form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 440px;
+  width: 100%;
+}
+
+.showContainer .containerTotPropr .messageContainer .formContainer form input[type=email] {
+  width: 50%;
+  border-radius: 10px;
+  text-align: center;
+}
+
+.showContainer .containerTotPropr .messageContainer .formContainer form textarea {
+  width: 100%;
+  border-radius: 10px;
+  margin: 20px 0;
+}
+
+.showContainer .containerTotPropr .messageContainer .formContainer form input[type=submit] {
+  width: 50%;
+  border-radius: 10px;
 }
 
 @media screen and (max-width: 800px) {
@@ -134,32 +207,17 @@
     align-items: center;
     position: relative;
     width: 100%;
-  }
-
-  .showContainer .apartmentDetails .photoApartmentName .housename {
-    height: 10%;
-  }
-
-  .showContainer .apartmentDetails .photoApartmentName .housename h3 {
-    font-weight: bolder;
-    border: 1px solid #FF385C;
-    padding: 3px;
-    box-shadow: 5px 10px rgba(136, 136, 136, 0.31);
-    border-radius: 10px;
-    width: 60%;
-    min-width: 200px;
     margin-bottom: 20px;
   }
 
-  .showContainer .apartmentDetails .photoApartmentName .houseimg {
-    height: 250px;
+  .showContainer .apartmentDetails .photoApartmentName .housename {
+    margin-bottom: 10px;
   }
 
   .showContainer .apartmentDetails .photoApartmentName .houseimg img {
     width: 100%;
     min-width: 220px;
-    max-width: 300px;
-    height: 220px;
+    max-width: 440px;
     border-radius: 20px;
     box-shadow: 5px 10px rgba(136, 136, 136, 0.31);
   }
@@ -174,12 +232,7 @@
   }
 
   .showContainer .apartmentDetails .contaninerMap .maptitle {
-    height: 10%;
-    border: 2px solid #FF385C;
-    border-radius: 10px;
-    margin-bottom: 20px;
-    box-shadow: 5px 10px rgba(136, 136, 136, 0.31);
-    padding: 5px;
+    margin-bottom: 10px;
   }
 
   .showContainer .apartmentDetails .contaninerMap #map {
@@ -195,11 +248,19 @@
     width: 100%;
     margin: 0 auto;
     display: flex;
+    flex-direction: column;
     padding: 20px 0;
   }
 
+  .showContainer .provashow .apartmentDescription {
+    width: 100%;
+  }
+
+  .showContainer .provashow .apartmentInfo {
+    width: 100%;
+  }
+
   .showContainer .provashow p {
-    width: 60%;
     margin-right: 5%;
     font-size: 20px;
   }
@@ -211,30 +272,6 @@
   .showContainer .provashow ul li {
     font-size: 20px;
   }
-
-  .footer {
-    min-height: 15vh;
-    display: flex;
-    padding: 50px;
-    border-bottom: 1px solid lightgrey;
-    background-color: #FF385C;
-    width: 100%;
-  }
-
-  .footer ul {
-    width: 100%;
-  }
-
-  .footer ul li {
-    list-style-type: none;
-  }
-
-  .footer ul li a {
-    text-decoration: none;
-    color: grey;
-    font-size: 14px;
-    line-height: 30px;
-  }
 }
 
 .crud-container {
@@ -242,45 +279,6 @@
   padding-top: 55px;
   min-height: 70vh;
   max-width: 1280px;
-}
-
-.messageContainer {
-  min-height: 50vh;
-  margin-top: 100px;
-  width: 100%;
-  margin: 0 auto;
-  height: 300px;
-  padding-top: 50px;
-}
-
-.messageContainer .formContainer {
-  width: 50%;
-  margin: auto;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.messageContainer .formContainer form {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.messageContainer .formContainer form input[type=email] {
-  width: 50%;
-  border-radius: 10px;
-  text-align: center;
-}
-
-.messageContainer .formContainer form textarea {
-  border-radius: 10px;
-  margin: 20px 0;
-}
-
-.messageContainer .formContainer form input[type=submit] {
-  width: 50%;
-  border-radius: 10px;
 }
 
 body {
@@ -549,6 +547,7 @@ table tr:nth-child(2n+1) {
 }
 
 .search-content .apartmentContainer .textApartment .titleApartment h2 {
+  text-transform: capitalize;
   color: #FF385C;
   font-weight: bolder;
 }
@@ -1733,7 +1732,7 @@ table tr:nth-child(2n+1) {
   padding-left: 35px;
   margin-bottom: 12px;
   cursor: pointer;
-  font-size: 22px;
+  font-size: 16px;
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
@@ -1753,8 +1752,8 @@ table tr:nth-child(2n+1) {
   position: absolute;
   top: 0;
   left: 0;
-  height: 25px;
-  width: 25px;
+  height: 20px;
+  width: 20px;
   background-color: #F3DBDB;
   border-radius: 50%;
   /* Create the indicator (the dot/circle - hidden when not checked) */
@@ -1764,8 +1763,8 @@ table tr:nth-child(2n+1) {
   content: "";
   position: absolute;
   display: none;
-  top: 9px;
-  left: 9px;
+  top: 6px;
+  left: 6px;
   width: 8px;
   height: 8px;
   border-radius: 50%;
@@ -18842,6 +18841,8 @@ main {
   height: 100%;
   width: 100%;
   border-radius: 30px 30px 0 0;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 
 .content .cardRent .cardtext {
