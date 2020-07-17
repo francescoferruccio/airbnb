@@ -916,6 +916,10 @@ table tr:nth-child(2n+1) {
 .header {
   height: 430px;
   padding-top: 55px;
+  background-image: url("/images/jumbo.jpg");
+  background-size: cover;
+  background-position-y: center;
+  background-repeat: no-repeat;
 }
 
 /* header */
@@ -1521,9 +1525,15 @@ table tr:nth-child(2n+1) {
 }
 
 .appartamenti .cardProfile .services .star {
+  position: absolute;
+  transform: rotate(-45deg);
+  background-color: #FF385C;
+  top: 33px;
+  left: -42px;
   font-size: 18px;
-  color: #FF385C;
+  color: gold;
   font-weight: bold;
+  padding: 0 30px;
 }
 
 .appartamenti .cardProfile .services .sponsorizza {
@@ -18908,8 +18918,9 @@ footer .footer {
   justify-content: space-around;
   padding-top: 20px;
   border-bottom: 1px solid lightgrey;
-  background-color: #e1e6ea;
   max-height: 90%;
+  background: #d0dee9;
+  background: linear-gradient(90deg, #d0dee9 43%, #cddbe6 100%);
 }
 
 footer .footer ul li {

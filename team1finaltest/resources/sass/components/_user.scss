@@ -114,12 +114,15 @@
       text-align: center;
 
       .star {
-        // position: absolute;
-        // top: 10px;
-        // left: 10px;
+        position: absolute;
+        transform: rotate(-45deg);
+        background-color: #FF385C;
+        top: 33px;
+        left: -42px;
         font-size: 18px;
-        color: #FF385C;
+        color: gold;
         font-weight: bold;
+        padding: 0 30px;
       }
 
       .sponsorizza {
