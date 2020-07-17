@@ -279,11 +279,21 @@ class ApartmentController extends Controller
     return response()->json($response);
   }
 
+
+
   public function stats($id) {
 
     return view('stats', compact('id'));
   }
 
+
+  //Delete
+  public function delete($id){
+    $apartment = Apartment::findOrFail($id);
+    $apartment -> delete();
+    return back()->with('success',"L'appartamento " .$apartment['name'] ." è stato cancellato con successo!");
+
+  }
   // FUNZIONE FILTRO PARAMETRI RICERCA
   public function filter($ids, $validatedData) {
     $apartments = [];

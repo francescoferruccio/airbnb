@@ -2,10 +2,6 @@
 
 @section('content')
 <div class="container">
-    {{-- MESSAGGI ESITO TRANSAZIONE --}}
-    @if (session('success'))
-      {{ session('success')}}
-    @endif
     @if (count($errors) > 0)
       <ul>
         @foreach ($errors->all() as $error)
@@ -45,6 +41,12 @@
                   <div class="titleAppartamenti">
                     <h2>I tuoi appartamenti</h2>
                   </div>
+                  {{-- MESSAGGI ESITO TRANSAZIONE --}}
+                  @if (session('success'))
+                    <div class="alert alert-success" role="alert">
+                      {{ session('success')}}
+                    </div>
+                  @endif
                   <div class="appartamenti">
                     @if ($userApartments->count() == 0)
                       <p>Non hai nessun appartamento</p>
@@ -64,6 +66,7 @@
                             <span>Modifica: </span>  <a href="{{ route('edit', $apartment['id']) }}"><i class="fas fa-edit"></i></a>
                             <span>Grafico: </span>  <a href="{{ route('stats', $apartment['id']) }}"><i class="fas fa-chart-bar"></i></i></a>
                             <span>Sponsorizza: </span>  <a href="{{ route('pay', $apartment['id']) }}"><i class="fas fa-euro-sign"></i></a>
+                            <span>Rimuovi: </span><a href="{{ route('delete', $apartment['id']) }}"><i class="fas fa-trash-alt"></i></a>
                           </div>
                         </div>
 
