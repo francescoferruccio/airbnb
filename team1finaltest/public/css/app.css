@@ -1473,6 +1473,7 @@ table tr:nth-child(2n+1) {
   width: calc((100% / 4) - 10px);
   flex-basis: 257px;
   height: 320px;
+  position: relative;
 }
 
 .appartamenti .cardProfile a {
@@ -1515,8 +1516,18 @@ table tr:nth-child(2n+1) {
 
 .appartamenti .cardProfile .services {
   width: 100%;
-  margin: 12px auto 0;
+  margin: 5px auto 0;
   text-align: center;
+}
+
+.appartamenti .cardProfile .services .star {
+  font-size: 18px;
+  color: #FF385C;
+  font-weight: bold;
+}
+
+.appartamenti .cardProfile .services .sponsorizza {
+  margin-top: 3px;
 }
 
 .appartamenti .cardProfile .services a {

@@ -68,6 +68,7 @@
     width: calc((100% / 4) - 10px);
     flex-basis: 257px;
     height: 320px;
+    position: relative;
 
     a {
       text-decoration: none;
@@ -109,8 +110,21 @@
 
     .services{
       width: 100%;
-      margin: 12px auto 0;
+      margin: 5px auto 0;
       text-align: center;
+
+      .star {
+        // position: absolute;
+        // top: 10px;
+        // left: 10px;
+        font-size: 18px;
+        color: #FF385C;
+        font-weight: bold;
+      }
+
+      .sponsorizza {
+        margin-top: 3px;
+      }
 
       a{
         color: #FF385C;

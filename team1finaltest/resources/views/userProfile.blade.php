@@ -2,13 +2,6 @@
 
 @section('content')
 <div class="container">
-    @if (count($errors) > 0)
-      <ul>
-        @foreach ($errors->all() as $error)
-          <li>{{ $error }}</li>
-        @endforeach
-      </ul>
-    @endif
     <div class="row justify-content-center">
         <div class="col-md-12">
             <div class="card">
@@ -47,6 +40,15 @@
                       {{ session('success')}}
                     </div>
                   @endif
+                  @if (count($errors) > 0)
+                    <ul>
+                      @foreach ($errors->all() as $error)
+                        <div class="alert alert-danger" role="alert">
+                          <li>{{ $error }}</li>
+                        </div>
+                      @endforeach
+                    </ul>
+                  @endif
                   <div class="appartamenti">
                     @if ($userApartments->count() == 0)
                       <p>Non hai nessun appartamento</p>
@@ -65,8 +67,18 @@
                           <div class="services">
                             <span>Modifica: </span>  <a href="{{ route('edit', $apartment['id']) }}"><i class="fas fa-edit"></i></a>
                             <span>Grafico: </span>  <a href="{{ route('stats', $apartment['id']) }}"><i class="fas fa-chart-bar"></i></i></a>
-                            <span>Sponsorizza: </span>  <a href="{{ route('pay', $apartment['id']) }}"><i class="fas fa-euro-sign"></i></a>
                             <span>Rimuovi: </span><a href="{{ route('delete', $apartment['id']) }}"><i class="fas fa-trash-alt"></i></a>
+                            {{-- Controlliamo se l'appartamento è già sponsorizzato e stampiamo un'icona che ce lo indica --}}
+                            @if (count($apartment->sponsorships) && $apartment->sponsorships()->orderBy('end_sponsorship', 'desc')->first()->pivot->end_sponsorship > now())
+                              <div class="star">
+                                <i class="fas fa-star"></i> <span>Sponsored</span>
+                              </div>
+                            @else
+                              {{-- se non è sponsorizzato stampiamo il link alla pagina di sponsorizzazione --}}
+                              <div class="sponsorizza">
+                                <span>Sponsorizza: </span>  <a href="{{ route('pay', $apartment['id']) }}"><i class="fas fa-euro-sign"></i></a>
+                              </div>
+                            @endif
                           </div>
                         </div>
 

@@ -12,7 +12,11 @@
           Quale sarà la tua prossima meta?
         @endif
       </h2>
-
+      @if($errors->any())
+        <div class="alert alert-info" role="alert">
+          {{$errors->first()}}
+        </div>
+      @endif
         @csrf
         @method('POST')
         <div class="inputField">
@@ -79,9 +83,6 @@
         </div>
       </div>
     </div>
-      @if($errors->any())
-        <p>{{$errors->first()}}</p>
-      @endif
     </form>
   </div>
 </div>

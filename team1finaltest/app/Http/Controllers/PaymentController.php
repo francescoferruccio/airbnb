@@ -14,20 +14,33 @@ class PaymentController extends Controller
   public function pay($id) {
     $apartment = Apartment::findOrFail($id);
 
-    if(Auth::user()->id == $apartment['user_id']) {
+    foreach ($apartment->sponsorships as $sponsorship) {
+      $end_sponsorship = $sponsorship->pivot->end_sponsorship;
+    }
 
-      $gateway = new Braintree\Gateway([
-        'environment' => 'sandbox',
-        'merchantId' => 'rv7zxkpc3tn2p49c',
-        'publicKey' => 'nqndd73tpz5wbjvf',
-        'privateKey' => 'e55934ed19ac8014a361c6b56b3a3fe4'
-      ]);
+    $active = true;
+    if(count($apartment->sponsorships) == 0 || $end_sponsorship < now()) {
+      $active = false;
+    }
 
-      $clientToken = $gateway->clientToken()->generate();
+    if(!$active) {
+      if(Auth::user()->id == $apartment['user_id']) {
 
-      return view('pay', compact('clientToken', 'id'));
+        $gateway = new Braintree\Gateway([
+          'environment' => 'sandbox',
+          'merchantId' => 'rv7zxkpc3tn2p49c',
+          'publicKey' => 'nqndd73tpz5wbjvf',
+          'privateKey' => 'e55934ed19ac8014a361c6b56b3a3fe4'
+        ]);
+
+        $clientToken = $gateway->clientToken()->generate();
+
+        return view('pay', compact('clientToken', 'id'));
+      } else {
+        return redirect() -> route('home');
+      }
     } else {
-      return redirect() -> route('home');
+      return redirect() -> route('user')->with('success', 'Non fare il furbetto!');
     }
   }
 
@@ -77,7 +90,7 @@ class PaymentController extends Controller
           $errorString .= 'Error: ' . $error->code . ": " . $error->message . "\n";
         }
 
-        return back() -> withErrors('Qualcosa è andato storto. ERRORE: ' . $result->message);
+        return redirect() -> route('user') -> withErrors('Qualcosa è andato storto. ERRORE: ' . $result->message);
       }
     }else {
       return redirect() -> route('home');
