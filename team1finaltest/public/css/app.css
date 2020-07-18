@@ -44,12 +44,14 @@
   box-shadow: 4px 4px rgba(136, 136, 136, 0.31);
   border-radius: 10px;
   min-width: 200px;
-  color: #FF385C;
+  color: #92174d;
   text-transform: capitalize;
 }
 
 .showContainer .apartmentDetails .photoApartmentName .houseimg {
   height: 300px;
+  border-radius: 20px;
+  border: 1px inset #FF385C;
 }
 
 .showContainer .apartmentDetails .photoApartmentName .houseimg img {
@@ -79,7 +81,8 @@
 .showContainer .apartmentDetails .contaninerMap .maptitle h3 {
   box-shadow: 4px 4px rgba(136, 136, 136, 0.31);
   border-radius: 10px;
-  color: #FF385C;
+  color: #92174d;
+  font-weight: bolder;
 }
 
 .showContainer .apartmentDetails .contaninerMap #map {
@@ -89,6 +92,7 @@
   border-radius: 20px;
   min-width: 300px;
   box-shadow: 5px 10px rgba(136, 136, 136, 0.31);
+  border-radius: 1px inset #FF385C;
 }
 
 .showContainer .provashow {
@@ -116,6 +120,12 @@
 
 .showContainer .provashow .apartmentInfo ul {
   width: 50%;
+}
+
+.showContainer .provashow .apartmentInfo ul .infotitle {
+  font-size: 1.3rem;
+  color: #FF385C;
+  font-weight: bold;
 }
 
 .showContainer .provashow .apartmentInfo ul li {
@@ -167,15 +177,29 @@
   text-align: center;
 }
 
+.showContainer .containerTotPropr .messageContainer .formContainer form input[type=email]:focus {
+  outline: 0;
+}
+
 .showContainer .containerTotPropr .messageContainer .formContainer form textarea {
   width: 100%;
   border-radius: 10px;
   margin: 20px 0;
+  padding: 5px 12px;
+  border: 1px outset #FF385C;
+}
+
+.showContainer .containerTotPropr .messageContainer .formContainer form textarea:focus {
+  outline: 0;
 }
 
 .showContainer .containerTotPropr .messageContainer .formContainer form input[type=submit] {
   width: 50%;
   border-radius: 10px;
+}
+
+.showContainer .containerTotPropr .messageContainer .formContainer form input[type=email] {
+  background-color: #f8fafc;
 }
 
 @media screen and (max-width: 800px) {
@@ -242,6 +266,7 @@
     border-radius: 20px;
     min-width: 300px;
     box-shadow: 5px 10px rgba(136, 136, 136, 0.31);
+    border: 1px inset #FF385C;
   }
 
   .showContainer .provashow {
@@ -272,13 +297,6 @@
   .showContainer .provashow ul li {
     font-size: 20px;
   }
-}
-
-.crud-container {
-  margin: 55px auto;
-  padding-top: 55px;
-  min-height: 70vh;
-  max-width: 1280px;
 }
 
 body {
@@ -1062,7 +1080,7 @@ table tr:nth-child(2n+1) {
 
 #containerRicercaAvanzata,
 #containerRicercaAvanzata2 {
-  padding: 10px 0;
+  padding: 10px 0 0;
   display: none;
 }
 
@@ -1255,6 +1273,7 @@ table tr:nth-child(2n+1) {
 .mynav .burger {
   cursor: pointer;
   position: relative;
+  padding-top: 7.5px;
 }
 
 .mynav .burger:before {
@@ -1262,6 +1281,7 @@ table tr:nth-child(2n+1) {
   content: "  \F0C9";
   font-weight: 900;
   font-size: 25px;
+  color: #FF385C;
 }
 
 .mynav .burger .burger-box {
@@ -1293,8 +1313,13 @@ table tr:nth-child(2n+1) {
   list-style-position: inside;
 }
 
-.mynav .burger .burger-box .burger-list li .burger-link {
+.mynav .burger .burger-box .burger-list li a.burger-link {
   display: block;
+  color: #92174d;
+}
+
+.mynav .burger .burger-box .burger-list li a.burger-link:hover {
+  color: #212529;
 }
 
 .mynav .mynav-menu {
@@ -1311,6 +1336,12 @@ table tr:nth-child(2n+1) {
 
 .mynav .mynav-menu ul .cmd {
   display: inline-block;
+  color: #f7575c;
+}
+
+.mynav .mynav-menu ul .cmd a:hover {
+  color: #212529;
+  opacity: 0.7;
 }
 
 .mynav .mynav-menu ul li.nav-drop {
@@ -1319,6 +1350,7 @@ table tr:nth-child(2n+1) {
 
 .mynav .mynav-menu ul li.nav-drop .caret {
   opacity: 0.7;
+  color: #f7575c;
 }
 
 .mynav .mynav-menu ul li.nav-drop .caret:after {
@@ -1361,6 +1393,14 @@ table tr:nth-child(2n+1) {
   text-align: left;
 }
 
+.mynav .mynav-menu ul li.nav-drop .drop-menu .drop-sub-menu a {
+  color: #92174d;
+}
+
+.mynav .mynav-menu ul li.nav-drop .drop-menu .drop-sub-menu a:hover {
+  color: #212529;
+}
+
 @media screen and (max-width: 850px) {
   .burger {
     display: block;
@@ -1400,6 +1440,7 @@ table tr:nth-child(2n+1) {
 
 .container {
   margin-top: 55px;
+  padding-top: 30px;
 }
 
 .userHeader {
@@ -1439,6 +1480,11 @@ table tr:nth-child(2n+1) {
   justify-content: center;
 }
 
+.topProfile .profile .welcomep,
+.topProfile .profileInfo .welcomep {
+  font-size: 20px;
+}
+
 .topProfile .profile .profilePic,
 .topProfile .profileInfo .profilePic {
   border-radius: 100%;
@@ -1454,6 +1500,11 @@ table tr:nth-child(2n+1) {
   font-weight: bold;
   padding: 8px;
   outline: 0;
+}
+
+.topProfile .profile button:hover,
+.topProfile .profileInfo button:hover {
+  opacity: 0.7;
 }
 
 .topProfile .profile button a,

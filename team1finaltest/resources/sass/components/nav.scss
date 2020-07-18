@@ -47,11 +47,13 @@
   .burger{
     cursor: pointer;
     position: relative;
+    padding-top: 7.5px;
     &:before{
       font-family: "Font Awesome 5 Free";
       content: "  \f0c9";
       font-weight: 900;
       font-size: 25px;
+      color: #FF385C;
     }
     .burger-box{
       display: none;
@@ -80,8 +82,12 @@
         list-style-position: inside;
 
         li{
-          .burger-link{
+          a.burger-link{
             display: block;
+            color: #92174d;
+            &:hover{
+              color: #212529;
+            }
           }
         }
       }
@@ -99,13 +105,18 @@
       list-style-type: none;
       .cmd{
         display: inline-block;
-
+        color: #f7575c;
+        a:hover{
+          color: #212529;
+          opacity: 0.7;
+        }
 
       }
       li.nav-drop{
         position: relative;
         .caret{
             opacity: 0.7;
+            color: #f7575c;
           &:after{
             font-family: "Font Awesome 5 Free";
             content: "  \f0d7";
@@ -142,6 +153,12 @@
             font-size: 0.9rem;
             color: #212529;
             text-align: left;
+            a{
+              color: #92174d;
+              &:hover{
+                color: #212529;
+              }
+            }
           }
         }
       }

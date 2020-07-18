@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('mainLayout')
 
 @section('content')
 <div class="container">
@@ -20,7 +20,7 @@
                   <div class="topProfile">
                     <div class="profile">
                       <img class="profilePic" src="/images/placeholder.jpg" alt="profilepic">
-                      <p>Benvenuto {{ Auth::user()->firstname }}</p>
+                      <p class="welcomep">Benvenuto {{ Auth::user()->firstname }}</p>
                       <button type="button" name="button"><a href="{{ route('create') }}">Inserisci un appartamento</a></button>
                     </div>
                     <div class="profileInfo">

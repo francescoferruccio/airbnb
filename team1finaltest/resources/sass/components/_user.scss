@@ -1,5 +1,6 @@
 .container {
   margin-top: 55px;
+  padding-top: 30px;
 }
 
 .userHeader {
@@ -34,6 +35,9 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    .welcomep{
+      font-size: 20px;
+    }
     .profilePic{
       border-radius: 100%;
     }
@@ -46,6 +50,9 @@
       font-weight: bold;
       padding: 8px;
       outline: 0;
+      &:hover{
+        opacity: 0.7;
+      }
       a{
         color: white;
         text-decoration: none;

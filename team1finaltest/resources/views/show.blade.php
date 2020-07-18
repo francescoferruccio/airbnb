@@ -31,7 +31,7 @@
       </div>
       <div class="apartmentInfo">
         <ul>
-          <span>Info</span>
+          <span class="infotitle">Info</span>
             <li>
               <img src="/images/rooms.svg" alt="rooms"> Stanze:  {{$apartment['rooms']}}
             </li>
@@ -46,7 +46,7 @@
             </li>
         </ul>
         <ul>
-          <span>Servizi</span>
+          <span class="infotitle">Servizi</span>
           @foreach ($apartment -> services -> sortBy('id') as $service)
             <li>
               <img src="/images/{{$service['name']}}.svg" alt="{{$service['name']}}"> {{$service['name']}}
