@@ -155,6 +155,7 @@ function rangeSlider(idRange, idSpan){
 
 }
 
+
 function initMap(lat,lon) {
   // map options
   var options = {

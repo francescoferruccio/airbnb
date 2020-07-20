@@ -20,7 +20,7 @@
                 <h4>{{ $sponsored['address'] }}</h4>
               </div>
               <div class="descriptionApartment">
-                <p>{{ $sponsored['description'] }}</p>
+                <p>{{Str::limit($sponsored['description'], 100)}}</p>
               </div>
 
             </div>
@@ -79,7 +79,7 @@
                 <h4>{{ $notSponsored['address'] }}</h4>
               </div>
               <div class="descriptionApartment">
-                <p>{{ $notSponsored['description'] }}</p>
+                <p>{{Str::limit($notSponsored['description'], 100)}}</p>
               </div>
 
             </div>
