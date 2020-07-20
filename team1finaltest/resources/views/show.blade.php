@@ -65,7 +65,7 @@
           <div>
             <a href="{{ route('stats', $apartment->id) }}">STATISTICHE <i class="fas fa-chart-bar"></i></a>
             @if (!$active)
-              <a href="{{ route('pay', $apartment->id) }}">SPONSORIZZA</a>
+              <a href="{{ route('pay', $apartment->id) }}">SPONSORIZZA <i class="fas fa-euro-sign"></a>
             @else
               {{-- <span>Il tuo appartamento è già sponsorizzato</span> --}}
             @endif
