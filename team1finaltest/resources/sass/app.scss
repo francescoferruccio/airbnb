@@ -146,15 +146,30 @@ footer{
 
     ul{
 
+      .li-icon{
+        list-style-type: none;
+        width: 180px;
+        display: flex;
+        justify-content: space-between;
+        color: black;
+        align-items: center;
+      }
       li{
         list-style-type: none;
+
         a {
           text-decoration: none;
           color: black;
           font-size: 14px;
           line-height: 30px;
+          .footer-icon{
+            width: 18px;
+            height: auto;
+
+          }
         }
       }
+
     }
   }
 
@@ -219,7 +234,19 @@ footer{
 }
 
 footer{
-  max-width: 100vw;
-}
+width: 100vw;
 
+ }
+
+}
+@media screen and (max-width: 600px){
+
+  .footer{
+    display: flex;
+    flex-direction: column;
+    padding: 20px 50px 20px 50px;
+    ul:nth-child(2){
+      align-self: flex-end;
+    }
+  }
 }
