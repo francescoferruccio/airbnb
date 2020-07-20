@@ -37,14 +37,103 @@
         transform: scale(1.04);
       }
 
-      &:before{
-        position: absolute;
-        font-family: "Font Awesome 5 Free";
-        content: "Sponsored \F005";
-        font-weight: 900;
+      /* ribbon style */
 
-        color: #FF385C;
+       .ribbon-wrapper {
+      	position: absolute;
+        bottom: 20px;
+        left: -2px;
       }
+        .ribbon-front {
+      	background-color: #FF385C;	height: 40px;
+      	width: 160px;
+      	position: relative;
+      	left:-10px;
+      	z-index: 2;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: gold;
+        font-size: 1.1rem;
+      }
+
+        .ribbon-front,
+        .ribbon-back-left,
+        .ribbon-back-right
+      {
+      	-moz-box-shadow: 0px 0px 4px rgba(0,0,0,0.55);
+      	-khtml-box-shadow: 0px 0px 4px rgba(0,0,0,0.55);
+      	-webkit-box-shadow: 0px 0px 4px rgba(0,0,0,0.55);
+      	-o-box-shadow: 0px 0px 4px rgba(0,0,0,0.55);
+      }
+
+        .ribbon-edge-topleft,
+        .ribbon-edge-topright,
+        .ribbon-edge-bottomleft,
+        .ribbon-edge-bottomright {
+      	position: absolute;
+      	z-index: 1;
+      	border-style:solid;
+      	height:0px;
+      	width:0px;
+      }
+
+        .ribbon-edge-topleft,
+        .ribbon-edge-topright {
+      }
+
+        .ribbon-edge-bottomleft,
+        .ribbon-edge-bottomright {
+      	top: 40px;
+      }
+
+        .ribbon-edge-topleft,
+        .ribbon-edge-bottomleft {
+      	left: -10px;
+      	border-color: transparent #AE293F transparent transparent;
+      }
+
+        .ribbon-edge-topleft {
+      	top: -10px;
+      	border-width: 10px 10px 0 0;
+      }
+        .ribbon-edge-bottomleft {
+      	border-width: 0 10px 0px 0;
+      }
+
+        .ribbon-edge-topright,
+        .ribbon-edge-bottomright {
+      	left: 150px;
+      	border-color: transparent transparent transparent #AE293F;
+      }
+
+        .ribbon-edge-topright {
+      	top: 0px;
+      	border-width: 0px 0 0 0px;
+      }
+        .ribbon-edge-bottomright {
+      	border-width: 0 0 0px 0px;
+      }
+
+        .ribbon-back-left {
+      	position: absolute;
+      	top: -10px;
+      	left: -30px;
+      	width: 30px;
+      	height: 40px;
+      	background-color: #FF385C;	z-index: 0;
+      }
+
+        .ribbon-back-right {
+      	position: absolute;
+      	top: 0px;
+      	right: 0px;
+      	width: 0px;
+      	height: 40px;
+      		z-index: 0;
+      }
+
+
     }
   }
 
@@ -56,7 +145,6 @@
 
     margin: 0 auto;
     display: flex;
-    justify-content: space-between;
     margin-bottom: 30px;
     background-color: rgba(116, 140, 156, 0.06);
     cursor: pointer;
@@ -96,7 +184,7 @@
       }
     }
     .serviceApartment{
-      width: 20%;
+      width: 15%;
       .specifiche{
         border-bottom: 2px solid #FF385C;
         .iconList{
@@ -143,13 +231,17 @@
     min-height: 430px;
     max-height: 600px;
     flex-direction: column;
+    justify-content: flex-start;
     min-width: 290px;
+
     .imgApartment{
       width: 100%;
       min-height: 260px;
       max-height: 300px;
       display: flex;
       justify-content: center;
+      margin-bottom: 10px;
+
       img{
         min-width: 200px;
         max-height: 100%;
@@ -194,8 +286,10 @@
     max-height: 350px;
     min-width: 720px;
     max-width: 1000px;
+    justify-content: space-between;
+
     .imgApartment{
-      width: 50%;
+      width: 40%;
       img{
         max-width: 100%;
         min-width: 300px;
@@ -231,14 +325,14 @@
     width: 60%;
     min-height: 400px;
     max-height: 400px;
+    justify-content: space-between;
 
     .imgApartment{
-      width: 30%;
+      width: 40%;
      max-height: 340px;
      img{
-       max-width: 100%;
-       height: 70%;
-       max-height: 340px;
+       max-width: 95%;
+       height: 80%;
      }
     }
     .textApartment{

@@ -10,12 +10,11 @@
       </div>
       @foreach ($sponsored as $apartment)
         <div class="cardRent" onclick="window.location='{{route('show', $apartment['id'])}}'">
-          {{-- <span class="star"> <i class="fas fa-star"></i> </span> --}}
-          {{-- <div class="cardAddress">
-            {{$apartment['address']}}
-          </div> --}}
           <div class="cardimg">
             <img src="{{ $apartment['picture'] }}" alt="fdkcrw">
+            <div class="star">
+              <i class="fas fa-star"></i> <span>Sponsored</span>
+            </div>
           </div>
           <div class="cardtext">
             <h2>{{ $apartment['name'] }}</h2>

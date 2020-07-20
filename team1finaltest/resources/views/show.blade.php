@@ -63,11 +63,11 @@
     <div class="formContainer">
         @if ($user_id && $apartment -> user_id == $user_id)
           <div>
-            <a href="{{ route('stats', $apartment->id) }}">STATISTICHE</a>
+            <a href="{{ route('stats', $apartment->id) }}">STATISTICHE <i class="fas fa-chart-bar"></i></a>
             @if (!$active)
               <a href="{{ route('pay', $apartment->id) }}">SPONSORIZZA</a>
             @else
-              <span>Il tuo appartamento è già sponsorizzato</span>
+              {{-- <span>Il tuo appartamento è già sponsorizzato</span> --}}
             @endif
           </div>
         @elseif($user_id == null || $apartment -> user_id != $user_id)

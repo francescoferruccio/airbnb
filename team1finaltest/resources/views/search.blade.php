@@ -42,6 +42,17 @@
                 </ul>
               </div>
           </div>
+          <div class="ribbon-wrapper">
+        		<div class="ribbon-front">
+        			<i class="fas fa-star"></i> <span>Sponsored</span>
+        		</div>
+        		<div class="ribbon-edge-topleft"></div>
+        		<div class="ribbon-edge-topright"></div>
+        		<div class="ribbon-edge-bottomleft"></div>
+        		<div class="ribbon-edge-bottomright"></div>
+        		<div class="ribbon-back-left"></div>
+        		<div class="ribbon-back-right"></div>
+        	</div>
           </div>
         @endforeach
       @endif
