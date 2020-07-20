@@ -32,4 +32,4 @@ Route::get('/pay/{id}', 'PaymentController@pay')->name('pay')->middleware('auth'
 //Pagina pagamenti
 Route::any('/checkout/{id}', 'PaymentController@checkout')->name('checkout')->middleware('auth');
 //Delete appartamenti
-Route::get('/delete/{id}', 'ApartmentController@delete')->name('delete')->middleware('auth');
+Route::match(['get', 'delete'], '/delete/{id}', 'ApartmentController@delete')->name('delete')->middleware('auth');

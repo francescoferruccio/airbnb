@@ -67,7 +67,13 @@
                           <div class="services">
                             <span>Modifica: </span>  <a href="{{ route('edit', $apartment['id']) }}"><i class="fas fa-edit"></i></a>
                             <span>Grafico: </span>  <a href="{{ route('stats', $apartment['id']) }}"><i class="fas fa-chart-bar"></i></i></a>
-                            <span>Rimuovi: </span><a href="{{ route('delete', $apartment['id']) }}" onclick="return confirm('Vuoi veramente eliminare questo appartamento?');"><i class="fas fa-trash-alt"></i></a>
+                            <span>Rimuovi: </span>
+                            <form class="deleteform" action="{{route('delete', $apartment['id'])}}" method="POST">
+                               @method('DELETE')
+                               @csrf
+                               <button type="submit" onclick="return confirm('Vuoi veramente eliminare questo appartamento?');"><i class="fas fa-trash-alt"></i></button>
+                              </form>
+                            {{-- <a href="{{ route('delete', $apartment['id']) }}" ></a> --}}
                             {{-- Controlliamo se l'appartamento è già sponsorizzato e stampiamo un'icona che ce lo indica --}}
                             @if (count($apartment->sponsorships) && $apartment->sponsorships()->orderBy('end_sponsorship', 'desc')->first()->pivot->end_sponsorship > now())
                               <div class="star">

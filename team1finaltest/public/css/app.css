@@ -1677,6 +1677,20 @@ table tr:nth-child(2n+1) {
   text-align: center;
 }
 
+.appartamenti .cardProfile .services .deleteform {
+  display: inline-block;
+}
+
+.appartamenti .cardProfile .services .deleteform button[type=submit] {
+  background: none;
+  color: #FF385C;
+  border: none;
+  padding: 0;
+  font: inherit;
+  cursor: pointer;
+  outline: inherit;
+}
+
 .appartamenti .cardProfile .services .star {
   position: absolute;
   transform: rotate(-45deg);

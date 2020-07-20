@@ -17,11 +17,11 @@
 </ul>
 <ul>
   <li> <h5>Realizzato da</h5> </li>
-  <li class="li-icon"><div>Cristiano Valenti</div> <div><a href="https://www.linkedin.com/in/cristiano-valenti-a66571140/"><img class="footer-icon" src="/images/linkedin.svg" alt="icon"></a> <a href="https://github.com/CristianoSenior"><img class="footer-icon" src="/images/github.svg" alt="icon"></a></div></li>
-  <li class="li-icon"><div>Danilo Maida</div> <div><a href="https://www.linkedin.com/in/danilo-maida"><img class="footer-icon" src="/images/linkedin.svg" alt="icon"></a> <a href="https://github.com/DannyM-web"><img class="footer-icon" src="/images/github.svg" alt="icon"></a></div></li>
-  <li class="li-icon"><div>Fabio Di Gennaro</div> <div><a href="https://www.linkedin.com/in/fabiodigennaro"><img class="footer-icon" src="/images/linkedin.svg" alt="icon"></a> <a href="https://github.com/Alumina14"><img class="footer-icon" src="/images/github.svg" alt="icon"></a></div></li>
-  <li class="li-icon"><div>Francesco Ferruccio</div> <div><a href="https://www.linkedin.com/in/francesco-ferruccio/"><img class="footer-icon" src="/images/linkedin.svg" alt="icon"></a> <a href="https://github.com/francescoferruccio"><img class="footer-icon" src="/images/github.svg" alt="icon"></a></div></li>
-  <li class="li-icon"><div>Simone Sasso</div> <div><a href="https://www.linkedin.com/in/simone-sasso/"><img class="footer-icon" src="/images/linkedin.svg" alt="icon"></a> <a href="https://github.com/simonesasso"><img class="footer-icon" src="/images/github.svg" alt="icon"></a></div></li>
+  <li class="li-icon"><div>Cristiano Valenti</div> <div><a href="https://www.linkedin.com/in/cristiano-valenti-a66571140/" target="_blank"><img class="footer-icon" src="/images/linkedin.svg" alt="icon"></a> <a href="https://github.com/CristianoSenior" target="_blank"><img class="footer-icon" src="/images/github.svg" alt="icon"></a></div></li>
+  <li class="li-icon"><div>Danilo Maida</div> <div><a href="https://www.linkedin.com/in/danilo-maida" target="_blank"><img class="footer-icon" src="/images/linkedin.svg" alt="icon"></a> <a href="https://github.com/DannyM-web" target="_blank"><img class="footer-icon" src="/images/github.svg" alt="icon"></a></div></li>
+  <li class="li-icon"><div>Fabio Di Gennaro</div> <div><a href="https://www.linkedin.com/in/fabiodigennaro" target="_blank"><img class="footer-icon" src="/images/linkedin.svg" alt="icon"></a> <a href="https://github.com/Alumina14" target="_blank"><img class="footer-icon" src="/images/github.svg" alt="icon"></a></div></li>
+  <li class="li-icon"><div>Francesco Ferruccio</div> <div><a href="https://www.linkedin.com/in/francesco-ferruccio/" target="_blank"><img class="footer-icon" src="/images/linkedin.svg" alt="icon"></a> <a href="https://github.com/francescoferruccio" target="_blank"><img class="footer-icon" src="/images/github.svg" alt="icon"></a></div></li>
+  <li class="li-icon"><div>Simone Sasso</div> <div><a href="https://www.linkedin.com/in/simone-sasso/" target="_blank"><img class="footer-icon" src="/images/linkedin.svg" alt="icon"></a> <a href="https://github.com/simonesasso" target="_blank"><img class="footer-icon" src="/images/github.svg" alt="icon"></a></div></li>
 </ul>
 </div>
 <div class="sottoFooter">

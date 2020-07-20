@@ -289,9 +289,14 @@ class ApartmentController extends Controller
 
   //Delete
   public function delete($id){
-    $apartment = Apartment::findOrFail($id);
-    $apartment -> delete();
-    return back()->with('success',"L'appartamento " .$apartment['name'] ." è stato cancellato con successo!");
+
+    if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+      $apartment = Apartment::findOrFail($id);
+      $apartment -> delete();
+      return back()->with('success',"L'appartamento " .$apartment['name'] ." è stato cancellato con successo!");
+    }else{
+      return redirect() -> route('home');
+    }
 
   }
   // FUNZIONE FILTRO PARAMETRI RICERCA
