@@ -41,11 +41,11 @@
         <div class="numbersService">
           <div class="rooms">
             <p>Stanze:</p>
-            <input type="number" name="rooms" min="1" max="5" value="1" required>
+            <input type="number" name="rooms" min="1" max="50" value="1" required>
           </div>
           <div class="beds">
             <p>Letti:</p>
-            <input type="number" name="beds" min="1" max="5" value="1" required>
+            <input type="number" name="beds" min="1" max="50" value="1" required>
           </div>
           <div class="service">
             <p>Servizi:</p>
