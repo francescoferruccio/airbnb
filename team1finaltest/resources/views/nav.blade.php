@@ -21,7 +21,7 @@
             <div class="navSearch">
               <div class="apriSearch">
                 @include('searchNav')
-                
+
               </div>
               <button id="stileNavSearch" type="button" name="button">Scegli dove andare</button>
             </div>

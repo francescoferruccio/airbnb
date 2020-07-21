@@ -1646,6 +1646,7 @@ table tr:nth-child(2n+1) {
 }
 
 .appartamenti .cardProfile a .cardimg img {
+  height: 100%;
   max-height: 100%;
   width: 100%;
   -o-object-fit: cover;

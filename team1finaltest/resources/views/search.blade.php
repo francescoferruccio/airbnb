@@ -60,19 +60,12 @@
 
     {{-- stampiamo il resto degli appartamenti --}}
 
-    {{-- <div class="titoloappartamententiNormali"> --}}
-    {{-- <h1>Appartamenti per i poveri</h1> --}}
-    {{-- </div> --}}
-
-
-
     <div class="notContainer">
       @foreach ($notSponsored_apts as $notSponsored)
           <div class="apartmentContainer notSponsored" onclick="window.location='{{route('show', $notSponsored['id'])}}'">
             <div class="imgApartment">
               <img src="{{$notSponsored['picture']}}" alt="">
             </div>
-            {{-- <h2>ID: {{ $notSponsored['id'] }}</h2> --}}
             <div class="textApartment">
               <div class="titleApartment">
                 <h2>{{ $notSponsored['name'] }}</h2>
@@ -105,8 +98,6 @@
 
         @endforeach
     </div>
-
-
   </div>
 
 @endsection
