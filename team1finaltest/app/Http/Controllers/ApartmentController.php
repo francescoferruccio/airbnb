@@ -223,25 +223,24 @@ class ApartmentController extends Controller
           if(count($sponsorship)) {
             $apt_id = $sponsorship[0]->pivot->apartment_id;
             $sponsored_id[] = $apt_id;
-          }
-          if(!count($sponsorship)) {
+          } else {
             $apt_id = $apartment["id"];
             $notsponsored_id[] = $apt_id;
           }
         }
 
-        // ci ricaviamo gli appartamenti corrispondenti agli id sponsorizzati
+        // ci ricaviamo gli appartamenti sponsorizzati
         $sponsored_apts = [];
         foreach ($sponsored_id as $id) {
           $sponsored_apts[] = Apartment::findOrFail($id);
         }
 
-        // eliminiamo i duplicati dagli appartamenti filtrati inizialmente
+        // ci ricaviamo gli appartamenti non sponsorizzati
         $notSponsored_apts = [];
         foreach ($notsponsored_id as $id) {
           $notSponsored_apts[] = Apartment::findOrFail($id);
         }
-// dd($sponsored_apts);
+
         if(!count($apartments)) {
           return redirect()->route('home')->withErrors(['Nessun appartamento soddisfa le tue richieste.']);
         } else {
