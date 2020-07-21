@@ -52,6 +52,7 @@
   height: 300px;
   border-radius: 20px;
   border: 1px inset #FF385C;
+  max-width: 440px;
 }
 
 .showContainer .apartmentDetails .photoApartmentName .houseimg img {
@@ -817,7 +818,7 @@ table tr:nth-child(2n+1) {
   }
 
   .notContainer {
-    padding: 0 20px;
+    padding: 40px 20px;
   }
 }
 

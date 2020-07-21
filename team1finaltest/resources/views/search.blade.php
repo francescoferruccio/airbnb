@@ -55,8 +55,8 @@
         	</div>
           </div>
         @endforeach
-      @endif
       </div>
+      @endif
 
     {{-- stampiamo il resto degli appartamenti --}}
 
