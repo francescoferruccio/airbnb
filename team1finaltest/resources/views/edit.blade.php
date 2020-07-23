@@ -46,7 +46,7 @@
                     <label for="rooms" class="col-md-4 col-form-label text-md-right">{{ __('Stanze') }}</label>
 
                     <div class="col-md-6">
-                      <input id="rooms" min="1" type="number" class="stileForm @error('rooms') is-invalid @enderror" name="rooms" value="{{ $apartment['rooms'] }}" autocomplete="rooms" autofocus>
+                      <input id="rooms" min="1" max="50" type="number" class="stileForm @error('rooms') is-invalid @enderror" name="rooms" value="{{ $apartment['rooms'] }}" autocomplete="rooms" autofocus>
 
                         @error('rooms')
                           <span class="invalid-feedback" role="alert">
@@ -60,7 +60,7 @@
                       <label for="beds" class="col-md-4 col-form-label text-md-right">{{ __('Letti') }}</label>
 
                       <div class="col-md-6">
-                        <input id="beds" min="1" type="number" class="stileForm @error('beds') is-invalid @enderror" name="beds" value="{{ $apartment['beds'] }}" autocomplete="beds" autofocus>
+                        <input id="beds" min="1" max="50" type="number" class="stileForm @error('beds') is-invalid @enderror" name="beds" value="{{ $apartment['beds'] }}" autocomplete="beds" autofocus>
 
                           @error('beds')
                             <span class="invalid-feedback" role="alert">
@@ -74,7 +74,7 @@
                         <label for="bathrooms" class="col-md-4 col-form-label text-md-right">{{ __('Bagni') }}</label>
 
                         <div class="col-md-6">
-                          <input id="bathrooms" min="1" type="number" class="stileForm @error('bathrooms') is-invalid @enderror" name="bathrooms" value="{{ $apartment['bathrooms'] }}" autocomplete="bathrooms" autofocus>
+                          <input id="bathrooms" min="1" max="50" type="number" class="stileForm @error('bathrooms') is-invalid @enderror" name="bathrooms" value="{{ $apartment['bathrooms'] }}" autocomplete="bathrooms" autofocus>
 
                             @error('bathrooms')
                               <span class="invalid-feedback" role="alert">
@@ -88,7 +88,7 @@
                           <label for="size" class="col-md-4 col-form-label text-md-right">{{ __('Superficie(mq)') }}</label>
 
                           <div class="col-md-6">
-                            <input id="size" min="1" type="number" class="stileForm @error('size') is-invalid @enderror" name="size" value="{{ $apartment['size'] }}" autocomplete="size" autofocus>
+                            <input id="size" min="1" max="2000" type="number" class="stileForm @error('size') is-invalid @enderror" name="size" value="{{ $apartment['size'] }}" autocomplete="size" autofocus>
 
                               @error('size')
                                 <span class="invalid-feedback" role="alert">

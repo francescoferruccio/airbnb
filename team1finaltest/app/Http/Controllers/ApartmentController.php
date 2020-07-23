@@ -76,7 +76,7 @@ class ApartmentController extends Controller
         "rooms" => "required|integer|min:1|max:50",
         "beds" => "required|integer|min:1|max:50",
         "bathrooms" => "required|integer|min:1|max:50",
-        "size" => "required|numeric",
+        "size" => "required|numeric|min:25|max:2000",
         "address" => "required|string",
         "picture" => "required|image|max:5000",
         "services" => "nullable|array"
@@ -137,7 +137,7 @@ class ApartmentController extends Controller
         "rooms" => "required|integer|min:1|max:50",
         "beds" => "required|integer|min:1|max:50",
         "bathrooms" => "required|integer|min:1|max:50",
-        "size" => "required|numeric",
+        "size" => "required|numeric|min:25|max:2000",
         "address" => "required|string",
         "picture" => "image|max:5000",
         "services" => "nullable|array",
