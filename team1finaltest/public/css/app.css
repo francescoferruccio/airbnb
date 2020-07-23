@@ -186,6 +186,11 @@
   width: 100%;
 }
 
+.showContainer .containerTotPropr .messageContainer .formContainer form h3 {
+  margin-bottom: 20px;
+  color: #92174d;
+}
+
 .showContainer .containerTotPropr .messageContainer .formContainer form input[type=email] {
   width: 50%;
   border-radius: 10px;
@@ -1837,6 +1842,10 @@ table tr:nth-child(2n+1) {
 
 .passwordDimenticata:hover {
   color: #C10303;
+}
+
+.createCard {
+  margin-top: 80px;
 }
 
 .apartmentHeader {
@@ -19031,6 +19040,7 @@ main {
   position: relative;
   height: 400px;
   max-width: 420px;
+  min-width: 400px;
 }
 
 .content .cardRent:hover {

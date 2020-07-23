@@ -4,8 +4,8 @@
 @section('content')
   <div class="crud-container">
     <div class="row justify-content-center">
-      <div class="col-md-8">
-        <div class="card">
+      <div class="col-md-6">
+        <div class="card createCard">
           <div class="apartmentHeader"><span>{{ __('Modifica il tuo appartamento') }}</span></div>
 
           {{-- FORM PER MODIFICA APPARTAMENTO --}}

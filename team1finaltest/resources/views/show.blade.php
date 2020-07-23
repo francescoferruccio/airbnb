@@ -78,7 +78,7 @@
             @if($errors->any())
               <h2>{{$errors->first()}}</h2>
             @endif
-
+            <h3>Fai la tua domanda al proprietario</h3>
             <input class="email" type="email" name="email" placeholder="ex. mario@rossi@gmail.com" value=@auth
               "{{Auth::user() -> email}}" readonly
             @endauth >
